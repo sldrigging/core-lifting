@@ -22,13 +22,13 @@ const ProductSection = forwardRef(function ProductSection(
         {items.map((item) => (
           <a
             key={item.code}
-            href={`/Core PDFs/${item.pdf}`}
+            href={`/core-pdfs/${item.pdf}`}
             target="_blank"
             rel="noopener noreferrer"
             className="product-grid-item"
           >
             <img
-              src={`/Core PDF PNGs/${item.image}`}
+              src={`/core-pdf-pngs/${item.image}`}
               alt={item.label}
               className="product-grid-img"
             />
