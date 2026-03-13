@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import LocationMap from "../components/LocationMap";
 import LocationCarousel from "../components/LocationCarousel";
 
@@ -9,12 +10,21 @@ import banner1 from "../assets/homepage-banner-1.png";
 import banner2 from "../assets/homepage-banner-2.png";
 import logo from "../assets/Core-Lifting-Products-Logo.png";
 
-import mapImage from "../assets/locations/map.png";
+import mapImage from "../assets/locations/core-map.png";
 import odessaImg from "../assets/locations/odessa-location.png";
 import houstonImg from "../assets/locations/houston-location.png";
 import lafayetteImg from "../assets/locations/lafayette.png";
 import houmaImg from "../assets/locations/houma.png";
 import newOrleansImg from "../assets/locations/new-orleans.png";
+
+// Sample carousel placeholder images
+import sample1 from "../assets/locations/sample-carousel-images/DSC04131.JPG";
+import sample2 from "../assets/locations/sample-carousel-images/DSC_0154.JPG";
+import sample3 from "../assets/locations/sample-carousel-images/IMG_1078.JPG";
+import sample4 from "../assets/locations/sample-carousel-images/LARGEREWIND.JPG";
+import sample5 from "../assets/locations/sample-carousel-images/P8184142.JPG";
+import sample6 from "../assets/locations/sample-carousel-images/WIROP600-C.JPG";
+import sample7 from "../assets/locations/sample-carousel-images/chris-057.jpg";
 
 const locations = [
   {
@@ -22,7 +32,7 @@ const locations = [
     name: "Odessa, Texas",
     address: "2301 Martin Luther King, Jr. Street, Odessa, TX 79761",
     phone: "(432) 332-0006",
-    images: [odessaImg],
+    images: [odessaImg, sample1, sample5],
     services: [
       'Wire Rope Slings to 1-3/4"',
       "Horizontal Testing to 300t",
@@ -37,7 +47,7 @@ const locations = [
     name: "Houston, Texas",
     address: "11550 Brittmore Park Drive, Houston, TX 77041",
     phone: "(281) 671-7740",
-    images: [houstonImg],
+    images: [houstonImg, sample2, sample6],
     services: [
       'Wire Rope Slings to 3-1/2"',
       "Horizontal Testing to 300t",
@@ -52,7 +62,7 @@ const locations = [
     name: "Lafayette, Louisiana",
     address: "1250 Wall Road, Broussard, LA 70518",
     phone: "(337) 451-2929",
-    images: [lafayetteImg],
+    images: [lafayetteImg, sample3, sample7],
     services: [
       'Wire Rope Slings to 3-1/2"',
       "Horizontal Testing to 300t",
@@ -67,7 +77,7 @@ const locations = [
     name: "Houma, Louisiana",
     address: "189 Thompson Road, Houma, LA 70363",
     phone: "(985) 346-8270",
-    images: [houmaImg],
+    images: [houmaImg, sample4, sample1],
     services: [
       'Wire Rope Slings to 3-1/2"',
       "Horizontal Testing to 300t",
@@ -82,7 +92,7 @@ const locations = [
     name: "New Orleans, Louisiana",
     address: "222 Gunther Lane, Belle Chasse, LA 70037",
     phone: "(504) 833-6666",
-    images: [newOrleansImg],
+    images: [newOrleansImg, sample5, sample2],
     services: [
       'Wire Rope Slings to 1-3/4"',
       "Horizontal Testing to 300t",
@@ -95,6 +105,17 @@ const locations = [
 ];
 
 export default function HomePage() {
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    if (hash) {
+      const el = document.querySelector(hash);
+      if (el) {
+        setTimeout(() => el.scrollIntoView({ behavior: "smooth" }), 100);
+      }
+    }
+  }, [hash]);
+
   return (
     <>
       {/* Hero / Cover */}
@@ -208,7 +229,7 @@ export default function HomePage() {
       </section>
 
       {/* About Us */}
-      <section>
+      <section id="about-us">
         <h2>About Us</h2>
         <p>
           Placeholder about us content. Core Rigging is a leading provider of
@@ -217,8 +238,11 @@ export default function HomePage() {
         </p>
       </section>
 
-      {/* Locations Map */}
-      <LocationMap locations={locations} mapImage={mapImage} />
+      {/* Locations */}
+      <section id="locations" className="locations-section">
+        <h2 className="locations-heading">Our Locations</h2>
+        <LocationMap locations={locations} mapImage={mapImage} />
+      </section>
 
       {/* Location Carousels */}
       {locations.map((loc) => (

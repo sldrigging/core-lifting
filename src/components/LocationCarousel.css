@@ -2,6 +2,7 @@
   position: relative;
   width: 100%;
   overflow: hidden;
+  margin-bottom: 2rem;
 }
 
 .loc-carousel-track {
@@ -45,7 +46,7 @@
 }
 
 .loc-slide-content {
-  padding: 3rem 4rem;
+  padding: 3rem 4rem 3rem 5.5rem;
   max-width: 600px;
   color: #fff;
   pointer-events: auto;

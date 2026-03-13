@@ -1,5 +1,5 @@
-import { useRef, useState, useEffect, useCallback } from "react";
-import ProductSection from "../components/ProductSection";
+import { useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import "./RiggingPage.css";
 
 import riggingBanner1 from "../assets/riggingpage-banner-1.png";
@@ -7,111 +7,199 @@ import riggingBanner2 from "../assets/riggingpage-banner-2.png";
 import riggingBanner3 from "../assets/riggingpage-banner-3.png";
 import riggingBanner4 from "../assets/riggingpage-banner-4.png";
 
-const productSections = [
+// Wire Rope & Cable images
+import wireRopeCable1 from "../assets/rigging-products/wire-rope-and-cable-1.jpg";
+import wireRopeCable2 from "../assets/rigging-products/wire-rope-and-cable-2.jpg";
+
+// Wire Rope Assemblies images
+import wireRopeAssembly1 from "../assets/rigging-products/wire-rope-assemblies-1.jpg";
+import wireRopeAssembly2 from "../assets/rigging-products/wire-rope-assemblies-2.png";
+import wireRopeAssembly3 from "../assets/rigging-products/wire-rope-assemblies-3.jpg";
+
+// Chain & Fittings images
+import chainFittings1 from "../assets/rigging-products/chain-and-fittings-2.jpg";
+import chainFittings2 from "../assets/rigging-products/chain-and-fittings-3.jpg";
+import chainFittings3 from "../assets/rigging-products/chain-and-fittings-4.jpg";
+
+// Synthetics images
+import synthetics1 from "../assets/rigging-products/synthetics-1.jpg";
+import synthetics2 from "../assets/rigging-products/synthetics-2.jpg";
+import synthetics3 from "../assets/rigging-products/synthetics-4.jpg";
+
+// Rigging Hardware images
+import riggingHardware1 from "../assets/rigging-products/rigging-hardware-3.jpg";
+
+// Lubricators/Lubricants images
+import lubricators1 from "../assets/rigging-products/lubricators-lubricants-1.jpg";
+import lubricators2 from "../assets/rigging-products/lubricators-lubricants-2.png";
+import lubricators3 from "../assets/rigging-products/lubricators-lubricants-6.jpg";
+
+// Load Securement images
+import loadSecurement1 from "../assets/rigging-products/load-securement-1.jpg";
+import loadSecurement2 from "../assets/rigging-products/load-securement-4.jpg";
+import loadSecurement3 from "../assets/rigging-products/load-securement-5.jpg";
+
+// Cordage images
+import cordage1 from "../assets/rigging-products/cordage-1.jpg";
+import cordage2 from "../assets/rigging-products/cordage-2.jpg";
+import cordage3 from "../assets/rigging-products/cordage-6.jpg";
+
+// Hoists images
+import hoists1 from "../assets/rigging-products/hoists-service-repairs-3.png";
+import hoists2 from "../assets/rigging-products/hoists-service-repairs-4.png";
+import hoists3 from "../assets/rigging-products/hoists-service-repairs-6.png";
+
+// Winches & Accessories images
+import winches1 from "../assets/rigging-products/odessa-branch-17.png";
+import winches2 from "../assets/rigging-products/odessa-branch-18.jpg";
+import winches3 from "../assets/rigging-products/odessa-branch-19.png";
+
+// Service images
+import svcLoadTesting1 from "../assets/rigging-products/svc-load-testing-1.jpg";
+import svcLoadTesting2 from "../assets/rigging-products/svc-load-testing-2.jpg";
+import svcCraneBlock1 from "../assets/rigging-products/svc-crane-block-rebuilds-1.jpg";
+import svcCraneBlock2 from "../assets/rigging-products/svc-crane-block-rebuilds-2.jpg";
+
+// Rental images
+import rentalLiftGear1 from "../assets/rigging-products/svc-lift-gear-engineering-2.png";
+import rentalLiftGear2 from "../assets/rigging-products/svc-lift-gear-engineering-3.jpg";
+import rentalLiftGear3 from "../assets/rigging-products/svc-lift-gear-engineering-4.png";
+import rentalLiftGear4 from "../assets/rigging-products/svc-lift-gear-engineering-5.png";
+import rentalLofts1 from "../assets/rigging-products/svc-product-specifications-1.jpg";
+
+const products = [
   {
-    id: "A",
+    id: "wire-rope-cable",
     title: "Wire Rope & Cable",
+    link: "/product-info#section-A",
     items: [
-      { code: "A1", label: "Bridon Ropes", image: "A1 Core Bridon PNG.png", pdf: "A1 Core Bridon Ropes.pdf" },
-      { code: "A2", label: "Teufelberger Ropes", image: "A2 Core Teufelberger PNG.png", pdf: "A2 Core Teufelberger Ropes.pdf" },
-      { code: "A3", label: "Redaelli", image: "A3 Core Redaelli PNG.png", pdf: "A3 Core Redaelli.pdf" },
-      { code: "A4", label: "American Wire Rope", image: "A4 Core Wire Rope PNG.png", pdf: "A4 Core American Wire Rope.pdf" },
-      { code: "A5", label: "Imported Rope & Cable", image: "A5 Core Import WR & Cable PNG.png", pdf: "A5 Core Imported Rope & Cable.pdf" },
+      "Bridon & Teufelberger High Performance Ropes",
+      "Non-Rotational Ropes",
+      "General Purpose Wire Ropes",
+      "Galvanized Cable",
+      "Stainless Steel Cable",
     ],
+    images: [wireRopeCable1, wireRopeCable2],
   },
   {
-    id: "B",
-    title: "Lifting Slings",
+    id: "wire-rope-assemblies",
+    title: "Wire Rope Assemblies",
+    link: "/product-info#section-B",
     items: [
-      { code: "B1", label: "Wire Rope Slings", image: "B1 Core Wire Rope Slings PNG.png", pdf: "B1 Core Wire Rope Slings Catalog.pdf" },
-      { code: "B2", label: "Chain Slings", image: "B2 Core Chain Slings PNG.png", pdf: "B2 Core Alloy Chain Slings & Fittings.pdf" },
-      { code: "B3", label: "Web Slings", image: "B3 Core Web Slings PNG.png", pdf: "B3 Core Web Sling Catalog.pdf" },
-      { code: "B4", label: "Roundslings", image: "B4 Core Roundslings PNG.png", pdf: "B4 Core Poly Roundsling Catalog.pdf" },
-      { code: "B5", label: "HP Roundslings", image: "B5 Core HP Roundsling PNG.png", pdf: "B5 Core High Performance Roundslings.pdf" },
+      'Lifting sling assemblies to 3.5"',
+      "DNV 2.7-1 sling assemblies",
+      "Boom pendant lines",
+      "Raising lines",
+      "Mooring lines",
+      "Winch lines",
+      "Pipe slings",
+      "Braided slings",
+      "Spelter socket assemblies",
     ],
+    images: [wireRopeAssembly1, wireRopeAssembly2, wireRopeAssembly3],
   },
   {
-    id: "C",
+    id: "chain-fittings",
+    title: "Chain & Fittings",
+    link: "/product-info#section-F",
+    items: [
+      "Alloy chain slings",
+      "Grade 80 & 100 alloy chain",
+      "Alloy chain fittings",
+      "Grade 70, 43, 30 chain",
+      "Grade 70, 43, 30 chain fittings",
+      "Winch tail chains",
+    ],
+    images: [chainFittings1, chainFittings2, chainFittings3],
+  },
+  {
+    id: "synthetics",
+    title: "Synthetics",
+    link: "/product-info#section-B",
+    items: [
+      'Nylon & Polyester Web Slings 1" to 12"',
+      "Polyester Roundslings",
+      "HMPE High Performance Rope Lifting Slings",
+    ],
+    images: [synthetics1, synthetics2, synthetics3],
+  },
+  {
+    id: "rigging-hardware",
     title: "Rigging Hardware",
+    link: "/product-info#section-C",
     items: [
-      { code: "C1", label: "Shackles", image: "C1 Core Shackles PNG.png", pdf: "C1 Core Shackles.pdf" },
-      { code: "C2", label: "Master Links", image: "C2 Core Master Links PNG.png", pdf: "C2 Core Master Links.pdf" },
-      { code: "C3", label: "Hooks", image: "C3 Core Hooks PNG.png", pdf: "C3 Core Hooks.pdf" },
-      { code: "C4", label: "Turnbuckles", image: "C4 Core Turnbuckles PNG.png", pdf: "C4 Core Turnbuckles.pdf" },
-      { code: "C5", label: "Thimbles", image: "C5 Core Thimbles PNG.png", pdf: "C5 Core Thimblies.pdf" },
-      { code: "C6", label: "Wire Rope Clips", image: "C6 Core Wire Rope Clips PNG.png", pdf: "C6 Core Wire Rope Clips.pdf" },
-      { code: "C7", label: "Swivels", image: "C7 Core Swivels PNG.png", pdf: "C7 Core Swivels.pdf" },
-      { code: "C8", label: "Synthetic Fittings", image: "C8 Core Synthetic Fittings PNG.png", pdf: "C8 Core Synthetic Sling Fittings.pdf" },
-      { code: "C9", label: "Swage Sockets", image: "C9 Core Swage Socket PNG.png", pdf: "C9 Core Swage Sockets & Buttons.pdf" },
-      { code: "C10", label: "Spelter Sockets", image: "C10 Core Spelter Socket PNG.png", pdf: "C10 Core Spelter Sockets.pdf" },
-      { code: "C11", label: "Wedge Sockets", image: "C11 Core Wedge Sockets PNG.png", pdf: "C11 Core Wedge Sockets.pdf" },
-      { code: "C12", label: "Hoist Rings", image: "C12 Core Hoist Rings PNG.png", pdf: "C12 Core Hoist Rings & Lifting Points.pdf" },
-      { code: "C13", label: "ROV Fittings", image: "C13 Core ROV Fittings PNG.png", pdf: "C13 Core ROV Fittings.pdf" },
-      { code: "C14", label: "Plate Clamps", image: "C14 Core Plate Clamps PNG.png", pdf: "C14 Core Plate Clamps.pdf" },
+      "Shackles, Clips, Thimbles, Turnbuckles, Hooks, Eye Bolts, Links, Swivels, Sockets, Hoist Rings",
+      "ROV Fittings",
+      "Blocks",
+      "Plate Clamps",
+      "Chain & Lever Hoists",
+      "Rigging Tools",
+      "Steamboat Ratchets",
     ],
+    images: [riggingHardware1],
   },
   {
-    id: "D",
-    title: "Blocks",
-    items: [
-      { code: "D1", label: "Crane Blocks", image: "D1 Core Crane Blocks PNG.png", pdf: "D1 Core Crane Blocks.pdf" },
-      { code: "D2", label: "Overhaul Balls", image: "D2 Core Overhaul Balls PNG.png", pdf: "D2 Core Overhaul Balls.pdf" },
-      { code: "D3", label: "Snatch Blocks", image: "D3 Core Snatch Blocks PNG.png", pdf: "D3 Core Snatch Blocks.pdf" },
-      { code: "D4", label: "Tilt Up Blocks", image: "D4 Core Tilt Up Blocks PNG.png", pdf: "D4 Core Tilt-Up Wall Blocks.pdf" },
-      { code: "D5", label: "Fairleads", image: "D5 Core Fairleads PNG.png", pdf: "D5 Core Fairleads.pdf" },
-      { code: "D6", label: "Sheaves", image: "D6 Core Sheaves PNG.png", pdf: "D6 Core Sheaves.pdf" },
-    ],
+    id: "lubricators",
+    title: "Lubricators / Lubricants",
+    link: "/product-info#section-J",
+    items: ["Lubricator", "Lubricator parts", "Lubricants"],
+    images: [lubricators1, lubricators2, lubricators3],
   },
   {
-    id: "E",
-    title: "Hoists",
+    id: "load-securement",
+    title: "Load Securement",
+    link: "/product-info#section-G",
     items: [
-      { code: "E1", label: "Air Hoists", image: "E1 Core Air Hoists PNG.png", pdf: "E1 Core Air Hoists.pdf" },
-      { code: "E2", label: "BOP Hoists", image: "E2 Core BOP Hoists PNG.png", pdf: "E2 Core BOP Hoists.pdf" },
-      { code: "E3", label: "Electric Hoists", image: "E3 Core Electric Hoists PNG.png", pdf: "E3 Core Electric Hoists.pdf" },
-      { code: "E4", label: "Hydraulic Hoists", image: "E4 Core Hydraulic Hoist PNG.png", pdf: "E4 Core Hydraulic Hoists.pdf" },
-      { code: "E5", label: "Lever Hoists", image: "E5 Core Lever Hoist PNG.png", pdf: "E5 Core Lever Hoists.pdf" },
-      { code: "E6", label: "Chain Hoists", image: "E6 Core Chain Hoists PNG.png", pdf: "E6 Core Chain Hoists.pdf" },
-      { code: "E7", label: "Beam Clamps", image: "E7 Core Beam Clamps PNG.png", pdf: "E7 Core Beam Clamps & Trolleys.pdf" },
-      { code: "E8", label: "Pulling Hoists", image: "E8 Core Pulling Hoist PNG.png", pdf: "E8 Core Wire Rope Pulling Hoists.pdf" },
+      "Ratchet binders",
+      "Binder chains",
+      "Winch straps",
+      "Ratchet straps",
     ],
+    images: [loadSecurement1, loadSecurement2, loadSecurement3],
   },
   {
-    id: "F",
-    title: "Chain Products",
-    items: [
-      { code: "F1", label: "Industrial Chain & Fittings", image: "F1 Core Industrial Chain PNG.png", pdf: "F1 Core Industrial Chain & Fittings.pdf" },
-    ],
-  },
-  {
-    id: "G",
-    title: "Cargo Control",
-    items: [
-      { code: "G1", label: "Cargo Control", image: "G1 Core Cargo Control PNG.png", pdf: "G1 Core Cargo Control.pdf" },
-    ],
-  },
-  {
-    id: "H",
+    id: "cordage",
     title: "Cordage",
+    link: "/product-info#section-H",
     items: [
-      { code: "H1", label: "Cordage", image: "H1 Core Cordage PNG.png", pdf: "H1 Core Cordage.pdf" },
-      { code: "H2", label: "HMPE Rope", image: "H2 Core HMPE Rope PNG.png", pdf: "H2 Core HMPE Rope.pdf" },
+      "HMPE Ropes",
+      "Nylon 3-Strand",
+      "Polypropylene 3-Strand",
+      "Polydac 3-Strand",
+      "Manila 3-Strand",
+      "Double braid ropes",
+      "Manila",
+      "Towing Shock Lines",
+      "8-Strand Mooring Ropes",
     ],
+    images: [cordage1, cordage2, cordage3],
   },
   {
-    id: "J",
-    title: "Wire Rope Lubrication",
+    id: "hoists",
+    title: "Hoists, Service & Repairs",
+    link: "/product-info#section-E",
     items: [
-      { code: "J1", label: "Lubricant Products", image: "J1 Core Lubricants PNG.png", pdf: "J1 Core Lubricant Products.pdf" },
-      { code: "J2", label: "Viper Lubricator Manuals", image: "J2 Core Lubricator Manuals PNG.png", pdf: "J2 Core Viper Lubricator Manuals.pdf" },
+      "Pneumatic & hydraulic hoists",
+      "Trolleys",
+      "Parts",
+      "Service",
+      "Repairs",
     ],
+    images: [hoists1, hoists2, hoists3],
   },
   {
-    id: "K",
-    title: "Load Monitoring",
+    id: "winches",
+    title: "Winches & Accessories",
+    link: "/product-info#section-E",
     items: [
-      { code: "K1", label: "Load Monitoring", image: "K1 Core Load Monitoring PNG.png", pdf: "K1 Core Load Monitoring.pdf" },
+      "Winches, PTOs & Drives",
+      "Pneumatic & hydraulic hoists",
+      "Trolleys",
+      "Parts",
+      "Service",
+      "Repairs",
     ],
+    images: [winches1, winches2, winches3],
   },
 ];
 
@@ -128,6 +216,7 @@ const services = [
       "Horizontal capacity to 800 tons",
       "Vertical capacity to 250 tons",
     ],
+    images: [svcLoadTesting1, svcLoadTesting2],
   },
   {
     title: "Inspections",
@@ -140,6 +229,7 @@ const services = [
       "Wire rope",
       "Crane blocks",
     ],
+    images: [],
   },
   {
     title: "Non-Destructive Testing",
@@ -148,14 +238,17 @@ const services = [
       "Ultrasonic testing by 3rd party upon request",
       "X-ray testing by 3rd party upon request",
     ],
+    images: [],
   },
   {
     title: "Repairs",
     items: ["Hoists", "Winches", "PTOs", "Crane blocks", "Synthetic slings"],
+    images: [],
   },
   {
     title: "On-Site Socketing",
     items: ["Spelter socketing", "High performance crane rope buttons"],
+    images: [],
   },
   {
     title: "Truck Winch Line Servicing",
@@ -164,6 +257,7 @@ const services = [
       "End button replacement",
       "Thimble and hook replacement",
     ],
+    images: [],
   },
   {
     title: "Crane Block Rebuilds",
@@ -175,64 +269,52 @@ const services = [
       "Replace or repair pins as necessary",
       "Paint & load test",
     ],
+    images: [svcCraneBlock1, svcCraneBlock2],
   },
 ];
 
-const rentalItems = [
-  "Spooling units",
-  "Rigging lofts",
-  "Blocks",
-  "Shackles",
-  "Beam clamps",
-  "Air hoists & tuggers",
-  "Spreader bars, beams & frames",
+const rentals = [
+  {
+    title: "Rental Equipment",
+    items: [
+      "Spooling units",
+      "Rigging lofts",
+      "Blocks",
+      "Shackles",
+      "Beam clamps",
+      "Air hoists & tuggers",
+      "Spreader bars, beams & frames",
+    ],
+    images: [rentalLiftGear1, rentalLiftGear2, rentalLiftGear3, rentalLiftGear4],
+  },
+  {
+    title: "Rigging Lofts",
+    items: [
+      'Lifting sling assemblies to 3.5"',
+      "DNV 2.7-1 sling assemblies",
+      "Boom pendant lines",
+      "Raising lines",
+      "Mooring lines",
+      "Winch lines",
+      "Pipe slings",
+      "Braided slings",
+      "Spelter socket assemblies",
+    ],
+    images: [rentalLofts1],
+  },
 ];
 
 export default function RiggingPage() {
-  const [activeId, setActiveId] = useState(productSections[0].id);
-  const sectionRefs = useRef({});
-  const scrollRef = useRef(null);
-
-  const setSectionRef = useCallback(
-    (id) => (el) => {
-      sectionRefs.current[id] = el;
-    },
-    []
-  );
+  const { hash } = useLocation();
 
   useEffect(() => {
-    const container = scrollRef.current;
-    if (!container) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            const id = entry.target.id.replace("section-", "");
-            setActiveId(id);
-          }
-        }
-      },
-      {
-        root: container,
-        threshold: 0.4,
+    if (hash) {
+      const el = document.querySelector(hash);
+      if (el) {
+        setTimeout(() => el.scrollIntoView({ behavior: "smooth" }), 100);
       }
-    );
-
-    for (const sec of productSections) {
-      const el = sectionRefs.current[sec.id];
-      if (el) observer.observe(el);
     }
-
-    return () => observer.disconnect();
-  }, []);
-
-  function scrollToSection(id) {
-    const el = sectionRefs.current[id];
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  }
+  }, [hash]);
 
   return (
     <>
@@ -273,9 +355,9 @@ export default function RiggingPage() {
       {/* Navigation Links */}
       <section>
         <nav className="rigging-nav-bar">
-          <a href="#products" className="rigging-nav-link">
-            Product Information
-          </a>
+          <Link to="/product-info" className="rigging-nav-link">
+            Technical Documents
+          </Link>
           <a href="#services" className="rigging-nav-link">
             Services
           </a>
@@ -285,80 +367,103 @@ export default function RiggingPage() {
         </nav>
       </section>
 
-      {/* 2. Product Information - Two Panel Layout */}
-      <section id="products" className="products-layout">
-        <nav className="products-nav">
-          <h2 className="products-nav-heading">Product Information</h2>
-          <p className="products-nav-desc">
-            Click any product image to download the specification PDF.
-          </p>
-          <ul className="products-nav-list">
-            {productSections.map((sec) => (
-              <li key={sec.id}>
-                <button
-                  className={`products-nav-item${activeId === sec.id ? " active" : ""}`}
-                  onClick={() => scrollToSection(sec.id)}
-                >
-                  {sec.id}: {sec.title}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
-        <div className="products-scroll" ref={scrollRef}>
-          {productSections.map((sec) => (
-            <ProductSection
-              key={sec.id}
-              ref={setSectionRef(sec.id)}
-              {...sec}
-            />
-          ))}
-        </div>
-      </section>
-
-      {/* 3. Services */}
-      <section id="services" className="services-section">
-        <h2>Services</h2>
-        <div className="services-grid">
-          {services.map((svc) => (
-            <div key={svc.title} className="service-card">
-              <h3>{svc.title}</h3>
-              <ul className="service-list">
-                {svc.items.map((item, i) => (
-                  <li key={i}>{item}</li>
+      {/* Wire Rope & Rigging Products */}
+      <section id="products" className="products-section">
+        <h2>Wire Rope & Rigging Products</h2>
+        <div className="products-list">
+          {products.map((product) => (
+            <div key={product.title} id={product.id} className="product-card">
+              <div className="product-card-content">
+                <h3>{product.title}</h3>
+                <ul className="product-list">
+                  {product.items.map((item, i) => (
+                    <li key={i}>{item}</li>
+                  ))}
+                </ul>
+                <a href={product.link} className="product-learn-more">
+                  Learn More
+                </a>
+              </div>
+              <div className="product-card-images">
+                {product.images.map((img, i) => (
+                  <img
+                    key={i}
+                    src={img}
+                    alt={`${product.title} ${i + 1}`}
+                    className="product-img"
+                  />
                 ))}
-              </ul>
+              </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* 4. Rentals */}
-      <section id="rentals">
+      {/* 2. Services */}
+      <section id="services" className="products-section">
+        <h2>Services</h2>
+        <div className="products-list">
+          {services.map((svc) => (
+            <div
+              key={svc.title}
+              className={`product-card${svc.images.length === 0 ? " product-card--no-images" : ""}`}
+            >
+              <div className="product-card-content">
+                <h3>{svc.title}</h3>
+                <ul className="product-list">
+                  {svc.items.map((item, i) => (
+                    <li key={i}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+              {svc.images.length > 0 && (
+                <div className="product-card-images">
+                  {svc.images.map((img, i) => (
+                    <img
+                      key={i}
+                      src={img}
+                      alt={`${svc.title} ${i + 1}`}
+                      className="product-img"
+                    />
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 3. Rentals */}
+      <section id="rentals" className="products-section">
         <h2>Rentals</h2>
         <p className="rentals-subtitle">
           Lift Gear Engineering - Rentals - Sales
         </p>
-        <h3>Rental Equipment</h3>
-        <ul className="rentals-list">
-          {rentalItems.map((item, i) => (
-            <li key={i}>{item}</li>
+        <div className="products-list">
+          {rentals.map((rental) => (
+            <div key={rental.title} className="product-card">
+              <div className="product-card-content">
+                <h3>{rental.title}</h3>
+                <ul className="product-list">
+                  {rental.items.map((item, i) => (
+                    <li key={i}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+              {rental.images.length > 0 && (
+                <div className="product-card-images">
+                  {rental.images.map((img, i) => (
+                    <img
+                      key={i}
+                      src={img}
+                      alt={`${rental.title} ${i + 1}`}
+                      className="product-img"
+                    />
+                  ))}
+                </div>
+              )}
+            </div>
           ))}
-        </ul>
-        <div className="lofts-container">
-          <h3>Rigging Lofts</h3>
-          <ul className="lofts-list">
-            <li>Lifting sling assemblies to 3.5&quot;</li>
-            <li>DNV 2.7-1 sling assemblies</li>
-            <li>Boom pendant lines</li>
-            <li>Raising lines</li>
-            <li>Mooring lines</li>
-            <li>Winch lines</li>
-            <li>Pipe slings</li>
-            <li>Braided slings</li>
-            <li>Spelter socket assemblies</li>
-          </ul>
         </div>
       </section>
     </>

@@ -53,238 +53,138 @@
 }
 
 .rigging-nav-link {
-  padding: 0.5rem 1rem;
-  background: #eee;
+  padding: 0.5rem 1.25rem;
+  background: transparent;
+  border: 1px solid #9c4c2a;
+  color: #9c4c2a;
   text-decoration: none;
-  color: inherit;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .rigging-nav-link:hover {
-  background: #ddd;
-}
-
-/* ── Product Information: Two-Panel Layout ── */
-
-.products-layout {
-  display: flex;
-  height: 100vh;
-  overflow: hidden;
-}
-
-.products-nav {
-  width: 30%;
-  min-width: 240px;
-  max-width: 360px;
-  border-right: 2px solid #ccc;
-  padding: 2rem 1.5rem;
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  overflow-y: auto;
-  box-sizing: border-box;
-  flex-shrink: 0;
-}
-
-.products-nav-heading {
-  margin-top: 0;
-  margin-bottom: 0.25rem;
-}
-
-.products-nav-desc {
-  margin-bottom: 1.25rem;
-  color: #666;
-  font-size: 0.85rem;
-}
-
-.products-nav-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.products-nav-item {
-  display: block;
-  width: 100%;
-  text-align: left;
-  background: none;
-  border: none;
-  padding: 0.5rem 0.75rem;
-  margin-bottom: 0.15rem;
-  font-size: 0.95rem;
-  cursor: pointer;
-  border-radius: 4px;
-  color: #333;
-  transition: background 0.15s, color 0.15s;
-}
-
-.products-nav-item:hover {
-  background: #eee;
-}
-
-.products-nav-item.active {
   background: #9c4c2a;
   color: #fff;
-  font-weight: 600;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(156, 76, 42, 0.15);
 }
 
-.products-scroll {
-  flex: 1;
-  overflow-y: auto;
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
-  scrollbar-width: thin;
-  scrollbar-color: #9c4c2a #e0e0e0;
+/* ── Wire Rope & Rigging Products Section ── */
+
+.products-section {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.products-scroll::-webkit-scrollbar {
-  width: 6px;
-}
-
-.products-scroll::-webkit-scrollbar-track {
-  background: #e0e0e0;
-}
-
-.products-scroll::-webkit-scrollbar-thumb {
-  background: #9c4c2a;
-  border-radius: 3px;
-}
-
-.products-scroll::-webkit-scrollbar-thumb:hover {
-  background: #7a3a1f;
-}
-
-.product-snap-section {
-  min-height: 100vh;
-  scroll-snap-align: start;
-  padding: 2.5rem 2rem;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-}
-
-.product-snap-section--compact {
-  justify-content: center;
-}
-
-.product-snap-section:last-child {
-  min-height: auto;
-}
-
-.product-snap-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.products-section h2 {
+  font-size: 1.5rem;
   margin-bottom: 1.5rem;
+  color: #111;
 }
 
-.product-snap-title {
-  margin: 0;
-  font-size: 2rem;
-}
-
-.product-snap-header-img {
-  max-height: 80px;
-  width: auto;
-  object-fit: contain;
-}
-
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 1.25rem;
-  flex: 1;
-  align-content: start;
-}
-
-.product-grid-item {
+.products-list {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-decoration: none;
-  color: inherit;
-  transition: transform 0.15s;
+  gap: 2rem;
 }
 
-.product-grid-item:hover {
-  transform: scale(1.03);
-}
-
-.product-grid-img {
-  width: 100%;
-  max-width: 220px;
-  height: auto;
+.product-card {
+  display: flex;
+  gap: 2rem;
   border: 1px solid #ddd;
-  border-radius: 4px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-.product-grid-label {
-  margin-top: 0.4rem;
-  font-size: 0.8rem;
-  text-align: center;
-  color: #444;
-}
-
-/* Responsive: stack on narrow screens */
-@media (max-width: 768px) {
-  .products-layout {
-    flex-direction: column;
-    height: auto;
-    overflow: visible;
-  }
-
-  .products-nav {
-    width: 100%;
-    max-width: none;
-    height: auto;
-    position: relative;
-    border-right: none;
-    border-bottom: 2px solid #ccc;
-    padding: 1.5rem 1rem;
-  }
-
-  .products-scroll {
-    scroll-snap-type: none;
-    overflow-y: visible;
-  }
-
-  .product-snap-section {
-    min-height: auto;
-    scroll-snap-align: none;
-  }
-}
-
-.services-section {
-  background: #f9f9f9;
-}
-
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
-}
-
-.service-card {
-  border: 1px solid #ddd;
-  padding: 1rem;
-  border-radius: 4px;
+  border-radius: 8px;
   background: #fff;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
-.service-list {
+.product-card-content {
+  flex: 1;
+  padding: 1.5rem 1.5rem 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card-content h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: #111;
+}
+
+.product-list {
   padding-left: 1.25rem;
   font-size: 0.875rem;
+  color: #333;
+  margin-bottom: 1.25rem;
+  flex: 1;
+}
+
+.product-list li {
+  margin-bottom: 0.3rem;
+}
+
+.product-learn-more {
+  display: inline-block;
+  background: #ffe600;
+  color: #000;
+  border: 1px solid #000;
+  padding: 0.4rem 1.5rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.15s, box-shadow 0.15s;
+  align-self: flex-start;
+}
+
+.product-learn-more:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.product-card-images {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.5rem;
+  padding: 1rem;
+  align-content: center;
+}
+
+.product-img {
+  width: 100%;
+  height: 140px;
+  object-fit: contain;
+  border-radius: 4px;
+  background: transparent;
+}
+
+@media (max-width: 768px) {
+  .product-card {
+    flex-direction: column;
+  }
+
+  .product-card-images {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+
+  .product-img {
+    height: 120px;
+  }
+}
+
+.product-card--no-images .product-card-content {
+  flex: 1;
 }
 
 .rentals-subtitle {
   margin-bottom: 0.75rem;
-}
-
-.rentals-list,
-.lofts-list {
-  padding-left: 1.25rem;
-}
-
-.lofts-container {
-  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: #666;
 }
