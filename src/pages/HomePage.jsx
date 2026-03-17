@@ -145,9 +145,10 @@ export default function HomePage() {
             <div
               style={{
                 width: "15px",
-                background: "#9c4c2a",
+                background: "linear-gradient(180deg, #b35a32 0%, #9c4c2a 40%, #7a3b21 100%)",
                 height: "100%",
                 zIndex: 1,
+                boxShadow: "inset 1px 0 3px rgba(255,255,255,0.1), inset -1px 0 3px rgba(0,0,0,0.15)",
               }}
             ></div>
 
@@ -185,6 +186,14 @@ export default function HomePage() {
                 </Link>
               </div>
             </div>
+          </div>
+
+          {/* Scroll Indicator */}
+          <div className="scroll-indicator" aria-hidden="true">
+            <div className="scroll-mouse">
+              <div className="scroll-wheel" />
+            </div>
+            <span className="scroll-label">SCROLL</span>
           </div>
 
           {/* Center Logo Circle */}
@@ -229,25 +238,35 @@ export default function HomePage() {
       </section>
 
       {/* About Us */}
-      <section id="about-us">
-        <h2>About Us</h2>
-        <p>
-          Placeholder about us content. Core Rigging is a leading provider of
-          wire rope, rigging products, and crane services across the Gulf Coast
-          region.
-        </p>
+      <section id="about-us" className="home-section">
+        <h2 className="home-section-heading">About Us</h2>
+        <div className="home-card">
+          <p className="home-card-text">
+            Placeholder about us content. Core Rigging is a leading provider of
+            wire rope, rigging products, and crane services across the Gulf Coast
+            region.
+          </p>
+        </div>
       </section>
 
       {/* Locations */}
-      <section id="locations" className="locations-section">
-        <h2 className="locations-heading">Our Locations</h2>
-        <LocationMap locations={locations} mapImage={mapImage} />
+      <section id="locations" className="home-section home-section--wide">
+        <h2 className="home-section-heading">Our Locations</h2>
+        <div className="home-card home-card--map">
+          <LocationMap locations={locations} mapImage={mapImage} />
+        </div>
       </section>
 
       {/* Location Carousels */}
-      {locations.map((loc) => (
-        <LocationCarousel key={loc.id} location={loc} />
-      ))}
+      <section className="home-section home-section--wide">
+        <div className="home-carousel-grid">
+          {locations.map((loc) => (
+            <div key={loc.id} className="home-card home-card--carousel">
+              <LocationCarousel location={loc} />
+            </div>
+          ))}
+        </div>
+      </section>
     </>
   );
 }

@@ -3,11 +3,11 @@ import "./LocationMap.css";
 
 // Pin positions as percentages of the map image
 const pinPositions = {
-  odessa: { top: "28%", left: "13%" },
+  odessa: { top: "31%", left: "13.5%" },
   houston: { top: "63%", left: "54%" },
-  lafayette: { top: "55%", left: "73%" },
-  houma: { top: "62%", left: "82%" },
-  "new-orleans": { top: "58%", left: "88%" },
+  lafayette: { top: "54%", left: "77%" },
+  houma: { top: "66%", left: "85%" },
+  "new-orleans": { top: "59%", left: "88.8%" },
 };
 
 export default function LocationMap({ locations, mapImage }) {
