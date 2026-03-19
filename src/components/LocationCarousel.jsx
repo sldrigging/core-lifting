@@ -20,7 +20,7 @@ export default function LocationCarousel({ location }) {
 
   useEffect(() => {
     if (paused || !hasMultiple) return;
-    const timer = setInterval(next, 6000);
+    const timer = setInterval(next, 3000);
     return () => clearInterval(timer);
   }, [paused, next, hasMultiple]);
 

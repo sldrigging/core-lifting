@@ -231,6 +231,9 @@ export default function HomePage() {
                 objectFit: "contain",
                 position: "relative",
                 zIndex: 3,
+                imageRendering: "auto",
+                willChange: "transform",
+                backfaceVisibility: "hidden",
               }}
             />
           </div>

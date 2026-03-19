@@ -197,6 +197,20 @@
   .loc-slide-name {
     font-size: 1.6rem;
   }
+
+  .loc-arrow {
+    top: auto;
+    bottom: 1rem;
+    transform: none;
+  }
+
+  .loc-arrow-left {
+    left: 1rem;
+  }
+
+  .loc-arrow-right {
+    right: 1rem;
+  }
 }
 
 @media (max-width: 600px) {
@@ -215,6 +229,7 @@
 
   .loc-slide-content {
     padding: 1.5rem;
+    padding-bottom: 3.5rem;
   }
 
   .loc-slide-name {
@@ -226,17 +241,40 @@
     font-size: 0.9rem;
   }
 
+  .loc-slide-hours {
+    font-size: 0.8rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .loc-slide-services li {
+    font-size: 0.8rem;
+  }
+
   .loc-arrow {
-    width: 34px;
-    height: 34px;
-    font-size: 1.2rem;
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+    top: auto;
+    bottom: 0.75rem;
+    transform: none;
   }
 
   .loc-arrow-left {
     left: 0.75rem;
+    right: auto;
   }
 
   .loc-arrow-right {
     right: 0.75rem;
+    left: auto;
+  }
+
+  .loc-dots {
+    bottom: 0.75rem;
+  }
+
+  .loc-dot {
+    width: 8px;
+    height: 8px;
   }
 }

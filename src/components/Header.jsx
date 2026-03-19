@@ -22,8 +22,9 @@ export default function Header() {
 
   const isRiggingPage = location.pathname === "/rigging";
   const isHomePage = location.pathname === "/";
-  const isSticky = isRiggingPage && isScrolled;
-  const isCompact = isSticky || isHomePage;
+  const isProductInfoPage = location.pathname === "/product-info";
+  const isSticky = (isRiggingPage || isProductInfoPage) && isScrolled;
+  const isCompact = isSticky || isHomePage || isProductInfoPage;
   const isHeaderVisible = !isHomePage || isScrolled;
 
   // Prevent scrolling when mobile menu is open
@@ -69,7 +70,7 @@ export default function Header() {
       <header
         className={`header-container${isHomePage ? " header-home" : ""}${isHeaderVisible ? " header-visible" : " header-hidden"}`}
         style={{
-          position: isRiggingPage ? "sticky" : isHomePage ? "fixed" : "static",
+          position: (isRiggingPage || isProductInfoPage) ? "sticky" : isHomePage ? "fixed" : "static",
           top: 0,
           left: 0,
           right: 0,
@@ -85,6 +86,7 @@ export default function Header() {
         <div style={{ display: "flex", alignItems: "center", gap: "2rem" }}>
           <Link
             to="/"
+            onClick={() => window.scrollTo(0, 0)}
             style={{ display: "flex", alignItems: "center", zIndex: 1003 }}
           >
             <img

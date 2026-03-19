@@ -168,6 +168,14 @@ export default function ProductInfoPage() {
     }
   }
 
+  function scrollToTop() {
+    const container = scrollRef.current;
+    if (container) {
+      container.scrollTo({ top: 0, behavior: "smooth" });
+    }
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
   return (
     <div className="product-info-page">
       <section id="products" className="products-layout">
@@ -199,6 +207,16 @@ export default function ProductInfoPage() {
             />
           ))}
         </div>
+
+        <button
+          className="products-back-to-top"
+          onClick={scrollToTop}
+          aria-label="Back to top"
+        >
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="15,13 10,6 5,13" />
+          </svg>
+        </button>
       </section>
     </div>
   );

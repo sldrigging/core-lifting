@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import "./RiggingPage.css";
 
 import riggingBanner1 from "../assets/riggingpage-banner-1.png";
@@ -350,21 +350,6 @@ export default function RiggingPage() {
             </div>
           </div>
         </div>
-      </section>
-
-      {/* Navigation Links */}
-      <section>
-        <nav className="rigging-nav-bar">
-          <Link to="/product-info" className="rigging-nav-link">
-            Technical Documents
-          </Link>
-          <a href="#services" className="rigging-nav-link">
-            Services
-          </a>
-          <a href="#rentals" className="rigging-nav-link">
-            Rentals
-          </a>
-        </nav>
       </section>
 
       {/* Wire Rope & Rigging Products */}
