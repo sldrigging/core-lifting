@@ -36,15 +36,26 @@
   border: 1px solid rgba(255, 255, 255, 0.9);
 }
 
-.hero-link-section-left {
+.hero-link-section-left,
+.hero-link-section-right {
   flex: 1;
   text-align: center;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.hero-link-section-left:hover,
+.hero-link-section-right:hover {
+  background: rgba(156, 76, 42, 0.04);
+}
+
+.hero-link-section-left {
   padding-right: 225px;
 }
 
 .hero-link-section-right {
-  flex: 1;
-  text-align: center;
   padding-left: 225px;
 }
 

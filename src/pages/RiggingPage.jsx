@@ -1,5 +1,6 @@
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
 import "./RiggingPage.css";
 
 import riggingBanner1 from "../assets/riggingpage-banner-1.png";
@@ -206,6 +207,8 @@ const products = [
 const services = [
   {
     title: "Load Testing",
+    link: "/product-info#section-S1",
+    linkLabel: "Service Information",
     items: [
       "Hoist load testing",
       "Sling load testing",
@@ -220,6 +223,8 @@ const services = [
   },
   {
     title: "Inspections",
+    link: "/product-info#section-S1",
+    linkLabel: "Service Information",
     items: [
       "Wire rope slings",
       "Chain slings",
@@ -233,6 +238,8 @@ const services = [
   },
   {
     title: "Non-Destructive Testing",
+    link: "/product-info#section-S2",
+    linkLabel: "Service Information",
     items: [
       "Magnetic particle inspection to level 3",
       "Ultrasonic testing by 3rd party upon request",
@@ -242,11 +249,15 @@ const services = [
   },
   {
     title: "Repairs",
+    link: "/product-info#section-S3",
+    linkLabel: "Service Information",
     items: ["Hoists", "Winches", "PTOs", "Crane blocks", "Synthetic slings"],
     images: [],
   },
   {
     title: "On-Site Socketing",
+    link: "/product-info#section-S4",
+    linkLabel: "Service Information",
     items: ["Spelter socketing", "High performance crane rope buttons"],
     images: [],
   },
@@ -261,6 +272,8 @@ const services = [
   },
   {
     title: "Crane Block Rebuilds",
+    link: "/product-info#section-S5",
+    linkLabel: "Service Information",
     items: [
       "Tear down & blast clean",
       "Magnetic particle inspect hook and perform dimensional checks",
@@ -276,6 +289,8 @@ const services = [
 const rentals = [
   {
     title: "Rental Equipment",
+    link: "/product-info#section-R1",
+    linkLabel: "Rental Information",
     items: [
       "Spooling units",
       "Rigging lofts",
@@ -289,6 +304,8 @@ const rentals = [
   },
   {
     title: "Rigging Lofts",
+    link: "/product-info#section-R2",
+    linkLabel: "Rental Information",
     items: [
       'Lifting sling assemblies to 3.5"',
       "DNV 2.7-1 sling assemblies",
@@ -304,6 +321,155 @@ const rentals = [
   },
 ];
 
+/* ── Animation variants ── */
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] },
+  },
+};
+
+const imageReveal = {
+  hidden: {
+    opacity: 0,
+    scale: 0.95,
+    clipPath: "inset(10% 0 10% 0)",
+  },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    clipPath: "inset(0% 0 0% 0)",
+    transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] },
+  },
+};
+
+/* ── Reusable Panel Component ── */
+
+function RiggingPanel({ title, items, images, link, linkLabel, index, id }) {
+  const isEven = index % 2 === 0;
+  const hasImages = images && images.length > 0;
+
+  const textContent = (
+    <div className={`rp-panel-text ${isEven ? "" : "rp-panel-text--alt"}`}>
+      <div className="rp-panel-text-inner">
+        <motion.h3 className="rp-panel-title" variants={itemVariants}>
+          {title}
+        </motion.h3>
+
+        <ul className="rp-panel-list">
+          {items.map((item, i) => (
+            <motion.li
+              key={i}
+              className="rp-panel-list-item"
+              variants={itemVariants}
+            >
+              <span className="rp-dash">&#x2501;</span>
+              <span className="rp-item-text">{item}</span>
+            </motion.li>
+          ))}
+        </ul>
+
+        {link && (
+          <motion.div variants={itemVariants}>
+            <Link
+              to={link}
+              className="rp-learn-more"
+            >
+              {linkLabel || "Product Information"}
+            </Link>
+          </motion.div>
+        )}
+      </div>
+    </div>
+  );
+
+  const renderImage = (img, alt, delay = 0, className = "") => (
+    <motion.div
+      className={`rp-image-container ${className}`}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.8, delay }}
+    >
+      <motion.div
+        className="rp-image-inner"
+        variants={imageReveal}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+      >
+        <img src={img} alt={alt} className="rp-image" />
+      </motion.div>
+    </motion.div>
+  );
+
+  const imageContent = hasImages ? (
+    <div className={`rp-panel-visual ${isEven ? "" : "rp-panel-visual--alt"}`}>
+      {images.length === 1 && renderImage(images[0], title, 0, "rp-image-container--single")}
+
+      {images.length === 2 && (
+        <div className="rp-image-grid rp-image-grid--2">
+          {images.map((img, i) => renderImage(img, `${title} ${i + 1}`, i * 0.1))}
+        </div>
+      )}
+
+      {images.length === 3 && (
+        <div className="rp-image-grid rp-image-grid--3">
+          <div className="rp-image-grid--3-featured">
+            {renderImage(images[0], `${title} 1`, 0, "rp-image-container--featured")}
+          </div>
+          <div className="rp-image-grid--3-pair">
+            {renderImage(images[1], `${title} 2`, 0.1)}
+            {renderImage(images[2], `${title} 3`, 0.2)}
+          </div>
+        </div>
+      )}
+
+      {images.length >= 4 && (
+        <div className="rp-image-grid rp-image-grid--4plus">
+          {images.map((img, i) => renderImage(img, `${title} ${i + 1}`, i * 0.08))}
+        </div>
+      )}
+    </div>
+  ) : null;
+
+  return (
+    <motion.div
+      id={id}
+      className={`rp-panel ${isEven ? "rp-panel--even" : ""} ${!hasImages ? "rp-panel--text-only" : ""}`}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.1, margin: "0px 0px -100px 0px" }}
+      transition={{ staggerChildren: 0.15 }}
+    >
+      {hasImages ? (
+        <div className={`rp-panel-grid${isEven ? "" : " rp-panel-grid--images-left"}`}>
+          {isEven ? (
+            <>
+              {textContent}
+              {imageContent}
+            </>
+          ) : (
+            <>
+              {imageContent}
+              {textContent}
+            </>
+          )}
+        </div>
+      ) : (
+        <div className="rp-panel-grid rp-panel-grid--single">
+          {textContent}
+        </div>
+      )}
+    </motion.div>
+  );
+}
+
+/* ── Main Page ── */
+
 export default function RiggingPage() {
   const { hash } = useLocation();
 
@@ -318,7 +484,7 @@ export default function RiggingPage() {
 
   return (
     <>
-      {/* 1. Hero */}
+      {/* Hero */}
       <section className="rigging-hero-section">
         <div className="rigging-hero-container">
           <img
@@ -353,102 +519,134 @@ export default function RiggingPage() {
       </section>
 
       {/* Wire Rope & Rigging Products */}
-      <section id="products" className="products-section">
-        <h2>Wire Rope & Rigging Products</h2>
-        <div className="products-list">
-          {products.map((product) => (
-            <div key={product.title} id={product.id} className="product-card">
-              <div className="product-card-content">
-                <h3>{product.title}</h3>
-                <ul className="product-list">
-                  {product.items.map((item, i) => (
-                    <li key={i}>{item}</li>
-                  ))}
-                </ul>
-                <a href={product.link} className="product-learn-more">
-                  Learn More
-                </a>
-              </div>
-              <div className="product-card-images">
-                {product.images.map((img, i) => (
-                  <img
-                    key={i}
-                    src={img}
-                    alt={`${product.title} ${i + 1}`}
-                    className="product-img"
-                  />
-                ))}
-              </div>
+      <section id="products" className="rp-section">
+        <div className="rp-section-inner">
+          <div className="rp-sidebar">
+            <div className="rp-sidebar-sticky">
+              <motion.div
+                className="rp-sidebar-accent"
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+              />
+              <motion.h2
+                className="rp-sidebar-title"
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.15, ease: [0.33, 1, 0.68, 1] }}
+              >
+                Wire Rope &amp; Rigging Products
+              </motion.h2>
+              <div className="rp-sidebar-line" />
             </div>
-          ))}
+          </div>
+
+          <div className="rp-content">
+            {products.map((product, index) => (
+              <RiggingPanel
+                key={product.id}
+                id={product.id}
+                title={product.title}
+                items={product.items}
+                images={product.images}
+                link={product.link}
+                index={index}
+              />
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* 2. Services */}
-      <section id="services" className="products-section">
-        <h2>Services</h2>
-        <div className="products-list">
-          {services.map((svc) => (
-            <div
-              key={svc.title}
-              className={`product-card${svc.images.length === 0 ? " product-card--no-images" : ""}`}
-            >
-              <div className="product-card-content">
-                <h3>{svc.title}</h3>
-                <ul className="product-list">
-                  {svc.items.map((item, i) => (
-                    <li key={i}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-              {svc.images.length > 0 && (
-                <div className="product-card-images">
-                  {svc.images.map((img, i) => (
-                    <img
-                      key={i}
-                      src={img}
-                      alt={`${svc.title} ${i + 1}`}
-                      className="product-img"
-                    />
-                  ))}
-                </div>
-              )}
+      {/* Services */}
+      <section id="services" className="rp-section">
+        <div className="rp-section-inner">
+          <div className="rp-sidebar">
+            <div className="rp-sidebar-sticky">
+              <motion.div
+                className="rp-sidebar-accent"
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+              />
+              <motion.h2
+                className="rp-sidebar-title"
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.15, ease: [0.33, 1, 0.68, 1] }}
+              >
+                Services
+              </motion.h2>
+              <div className="rp-sidebar-line" />
             </div>
-          ))}
+          </div>
+
+          <div className="rp-content">
+            {services.map((svc, index) => (
+              <RiggingPanel
+                key={svc.title}
+                title={svc.title}
+                items={svc.items}
+                images={svc.images}
+                link={svc.link}
+                linkLabel={svc.linkLabel}
+                index={index}
+              />
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* 3. Rentals */}
-      <section id="rentals" className="products-section">
-        <h2>Rentals</h2>
-        <p className="rentals-subtitle">
-          Lift Gear Engineering - Rentals - Sales
-        </p>
-        <div className="products-list">
-          {rentals.map((rental) => (
-            <div key={rental.title} className="product-card">
-              <div className="product-card-content">
-                <h3>{rental.title}</h3>
-                <ul className="product-list">
-                  {rental.items.map((item, i) => (
-                    <li key={i}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-              {rental.images.length > 0 && (
-                <div className="product-card-images">
-                  {rental.images.map((img, i) => (
-                    <img
-                      key={i}
-                      src={img}
-                      alt={`${rental.title} ${i + 1}`}
-                      className="product-img"
-                    />
-                  ))}
-                </div>
-              )}
+      {/* Rentals */}
+      <section id="rentals" className="rp-section">
+        <div className="rp-section-inner">
+          <div className="rp-sidebar">
+            <div className="rp-sidebar-sticky">
+              <motion.div
+                className="rp-sidebar-accent"
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+              />
+              <motion.h2
+                className="rp-sidebar-title"
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.15, ease: [0.33, 1, 0.68, 1] }}
+              >
+                Rentals
+              </motion.h2>
+              <motion.p
+                className="rp-sidebar-subtitle"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.3, ease: [0.33, 1, 0.68, 1] }}
+              >
+                Lift Gear Engineering - Rentals - Sales
+              </motion.p>
+              <div className="rp-sidebar-line" />
             </div>
-          ))}
+          </div>
+
+          <div className="rp-content">
+            {rentals.map((rental, index) => (
+              <RiggingPanel
+                key={rental.title}
+                title={rental.title}
+                items={rental.items}
+                images={rental.images}
+                link={rental.link}
+                linkLabel={rental.linkLabel}
+                index={index}
+              />
+            ))}
+          </div>
         </div>
       </section>
     </>

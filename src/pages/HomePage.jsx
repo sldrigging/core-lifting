@@ -145,10 +145,12 @@ export default function HomePage() {
             <div
               style={{
                 width: "15px",
-                background: "linear-gradient(180deg, #b35a32 0%, #9c4c2a 40%, #7a3b21 100%)",
+                background:
+                  "linear-gradient(180deg, #b35a32 0%, #9c4c2a 40%, #7a3b21 100%)",
                 height: "100%",
                 zIndex: 1,
-                boxShadow: "inset 1px 0 3px rgba(255,255,255,0.1), inset -1px 0 3px rgba(0,0,0,0.15)",
+                boxShadow:
+                  "inset 1px 0 3px rgba(255,255,255,0.1), inset -1px 0 3px rgba(0,0,0,0.15)",
               }}
             ></div>
 
@@ -168,23 +170,19 @@ export default function HomePage() {
             {/* White Center Band */}
             <div className="white-center-band">
               {/* Left Linking Section */}
-              <div className="hero-link-section-left">
+              <Link to="/cranes" className="hero-link-section-left">
                 <h2 className="hero-band-title">CRANES & SERVICES</h2>
-                <Link to="/cranes" className="hero-btn">
-                  LEARN MORE
-                </Link>
-              </div>
+                <span className="hero-btn">EXPLORE CRANES</span>
+              </Link>
 
               {/* Right Linking Section */}
-              <div className="hero-link-section-right">
+              <Link to="/rigging" className="hero-link-section-right">
                 <h2 className="hero-band-title hero-band-title-right">
                   RIGGING PRODUCTS &<br />
                   SERVICES
                 </h2>
-                <Link to="/rigging" className="hero-btn">
-                  LEARN MORE
-                </Link>
-              </div>
+                <span className="hero-btn">EXPLORE RIGGING</span>
+              </Link>
             </div>
           </div>
 
@@ -246,15 +244,15 @@ export default function HomePage() {
         <div className="home-card">
           <p className="home-card-text">
             Placeholder about us content. Core Rigging is a leading provider of
-            wire rope, rigging products, and crane services across the Gulf Coast
-            region.
+            wire rope, rigging products, and crane services across the Gulf
+            Coast region.
           </p>
         </div>
       </section>
 
       {/* Locations */}
       <section id="locations" className="home-section home-section--wide">
-        <h2 className="home-section-heading">Our Locations</h2>
+        <h2 className="home-section-heading">Locations</h2>
         <div className="home-card home-card--map">
           <LocationMap locations={locations} mapImage={mapImage} />
         </div>

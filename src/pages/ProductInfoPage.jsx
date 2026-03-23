@@ -111,10 +111,87 @@ const productSections = [
   },
 ];
 
+const serviceSections = [
+  {
+    id: "S1",
+    title: "Load Testing & Inspections",
+    items: [
+      { code: "S1", label: "Load Testing & Inspections", image: null, pdf: null },
+    ],
+  },
+  {
+    id: "S2",
+    title: "Non-Destructive Testing",
+    items: [
+      { code: "S2", label: "Non-Destructive Testing", image: null, pdf: null },
+    ],
+  },
+  {
+    id: "S3",
+    title: "Repairs",
+    items: [
+      { code: "S3", label: "Repairs", image: null, pdf: null },
+    ],
+  },
+  {
+    id: "S4",
+    title: "On-Site Socketing",
+    items: [
+      { code: "S4", label: "On-Site Socketing", image: null, pdf: null },
+    ],
+  },
+  {
+    id: "S5",
+    title: "Crane Block Rebuilds",
+    items: [
+      { code: "S5", label: "Crane Block Rebuilds", image: null, pdf: null },
+    ],
+  },
+];
+
+const rentalSections = [
+  {
+    id: "R1",
+    title: "Spooling Units",
+    items: [
+      { code: "R1", label: "Spooling Units", image: null, pdf: null },
+    ],
+  },
+  {
+    id: "R2",
+    title: "Rigging Lofts",
+    items: [
+      { code: "R2", label: "Rigging Lofts", image: null, pdf: null },
+    ],
+  },
+  {
+    id: "R3",
+    title: "Blocks & Shackles",
+    items: [
+      { code: "R3", label: "Blocks & Shackles", image: null, pdf: null },
+    ],
+  },
+  {
+    id: "R4",
+    title: "Air Hoists & Tuggers",
+    items: [
+      { code: "R4", label: "Air Hoists & Tuggers", image: null, pdf: null },
+    ],
+  },
+  {
+    id: "R5",
+    title: "Spreader Bars, Beams & Frames",
+    items: [
+      { code: "R5", label: "Spreader Bars, Beams & Frames", image: null, pdf: null },
+    ],
+  },
+];
+
+const allSections = [...productSections, ...serviceSections, ...rentalSections];
+
 export default function ProductInfoPage() {
   const [activeId, setActiveId] = useState(productSections[0].id);
   const sectionRefs = useRef({});
-  const scrollRef = useRef(null);
   const { hash } = useLocation();
 
   const setSectionRef = useCallback(
@@ -125,9 +202,6 @@ export default function ProductInfoPage() {
   );
 
   useEffect(() => {
-    const container = scrollRef.current;
-    if (!container) return;
-
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
@@ -138,12 +212,12 @@ export default function ProductInfoPage() {
         }
       },
       {
-        root: container,
-        threshold: 0.4,
+        rootMargin: "-20% 0px -60% 0px",
+        threshold: 0,
       }
     );
 
-    for (const sec of productSections) {
+    for (const sec of allSections) {
       const el = sectionRefs.current[sec.id];
       if (el) observer.observe(el);
     }
@@ -151,7 +225,6 @@ export default function ProductInfoPage() {
     return () => observer.disconnect();
   }, []);
 
-  // Scroll to hash section on navigation (e.g. /product-info#section-A)
   useEffect(() => {
     if (!hash) return;
     const id = hash.replace("#section-", "");
@@ -169,36 +242,64 @@ export default function ProductInfoPage() {
   }
 
   function scrollToTop() {
-    const container = scrollRef.current;
-    if (container) {
-      container.scrollTo({ top: 0, behavior: "smooth" });
-    }
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
   return (
     <div className="product-info-page">
-      <section id="products" className="products-layout">
+      <div className="products-layout">
         <nav className="products-nav">
-          <h2 className="products-nav-heading">Product Information</h2>
-          <p className="products-nav-desc">
-            Click any product image to download the specification PDF.
-          </p>
-          <ul className="products-nav-list">
-            {productSections.map((sec) => (
-              <li key={sec.id}>
-                <button
-                  className={`products-nav-item${activeId === sec.id ? " active" : ""}`}
-                  onClick={() => scrollToSection(sec.id)}
-                >
-                  {sec.id}: {sec.title}
-                </button>
-              </li>
-            ))}
-          </ul>
+          <div className="products-nav-sticky">
+            <h2 className="products-nav-heading">Technical Documents</h2>
+            <p className="products-nav-desc">
+              Click any product image to download the specification PDF.
+            </p>
+
+            <h3 className="products-nav-group-heading">Products</h3>
+            <ul className="products-nav-list">
+              {productSections.map((sec) => (
+                <li key={sec.id}>
+                  <button
+                    className={`products-nav-item${activeId === sec.id ? " active" : ""}`}
+                    onClick={() => scrollToSection(sec.id)}
+                  >
+                    {sec.id}: {sec.title}
+                  </button>
+                </li>
+              ))}
+            </ul>
+
+            <h3 className="products-nav-group-heading">Services</h3>
+            <ul className="products-nav-list">
+              {serviceSections.map((sec) => (
+                <li key={sec.id}>
+                  <button
+                    className={`products-nav-item${activeId === sec.id ? " active" : ""}`}
+                    onClick={() => scrollToSection(sec.id)}
+                  >
+                    {sec.id}: {sec.title}
+                  </button>
+                </li>
+              ))}
+            </ul>
+
+            <h3 className="products-nav-group-heading">Rentals</h3>
+            <ul className="products-nav-list">
+              {rentalSections.map((sec) => (
+                <li key={sec.id}>
+                  <button
+                    className={`products-nav-item${activeId === sec.id ? " active" : ""}`}
+                    onClick={() => scrollToSection(sec.id)}
+                  >
+                    {sec.id}: {sec.title}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
         </nav>
 
-        <div className="products-scroll" ref={scrollRef}>
+        <div className="products-content">
           {productSections.map((sec) => (
             <ProductSection
               key={sec.id}
@@ -206,18 +307,42 @@ export default function ProductInfoPage() {
               {...sec}
             />
           ))}
-        </div>
 
-        <button
-          className="products-back-to-top"
-          onClick={scrollToTop}
-          aria-label="Back to top"
-        >
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <polyline points="15,13 10,6 5,13" />
-          </svg>
-        </button>
-      </section>
+          <div className="products-divider">
+            <h2 className="products-divider-title">Service Information</h2>
+          </div>
+
+          {serviceSections.map((sec) => (
+            <ProductSection
+              key={sec.id}
+              ref={setSectionRef(sec.id)}
+              {...sec}
+            />
+          ))}
+
+          <div className="products-divider">
+            <h2 className="products-divider-title">Rental Information</h2>
+          </div>
+
+          {rentalSections.map((sec) => (
+            <ProductSection
+              key={sec.id}
+              ref={setSectionRef(sec.id)}
+              {...sec}
+            />
+          ))}
+        </div>
+      </div>
+
+      <button
+        className="products-back-to-top"
+        onClick={scrollToTop}
+        aria-label="Back to top"
+      >
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <polyline points="15,13 10,6 5,13" />
+        </svg>
+      </button>
     </div>
   );
 }

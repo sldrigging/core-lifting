@@ -21,9 +21,10 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const isRiggingPage = location.pathname === "/rigging";
+  const isCranesPage = location.pathname === "/cranes";
   const isHomePage = location.pathname === "/";
   const isProductInfoPage = location.pathname === "/product-info";
-  const isSticky = (isRiggingPage || isProductInfoPage) && isScrolled;
+  const isSticky = (isRiggingPage || isCranesPage || isProductInfoPage) && isScrolled;
   const isCompact = isSticky || isHomePage || isProductInfoPage;
   const isHeaderVisible = !isHomePage || isScrolled;
 
@@ -70,7 +71,7 @@ export default function Header() {
       <header
         className={`header-container${isHomePage ? " header-home" : ""}${isHeaderVisible ? " header-visible" : " header-hidden"}`}
         style={{
-          position: (isRiggingPage || isProductInfoPage) ? "sticky" : isHomePage ? "fixed" : "static",
+          position: (isRiggingPage || isCranesPage || isProductInfoPage) ? "sticky" : isHomePage ? "fixed" : "static",
           top: 0,
           left: 0,
           right: 0,
@@ -93,23 +94,46 @@ export default function Header() {
               src={currentLogo}
               alt="CORE Lifting Products"
               style={{
-                height: isCompact ? "45px" : "70px",
-                width: "auto",
-                transition: "height 0.3s ease",
+                height: isCompact ? "45px" : "auto",
+                width: isCompact ? "auto" : "200px",
+                maxHeight: isCompact ? "45px" : "70px",
+                transition: "all 0.3s ease",
                 position: "relative",
               }}
             />
           </Link>
           <div
             className="header-actions"
-            style={{ display: "flex", flexDirection: "row", gap: "1rem" }}
+            style={{ display: "flex", flexDirection: "row", gap: "1.5rem", alignItems: "center" }}
           >
-            <Link to="/rigging" className={getButtonClass("/rigging")}>
-              RIGGING
-            </Link>
-            <Link to="/cranes" className={getButtonClass("/cranes")}>
-              CRANES
-            </Link>
+            {isRiggingPage ? (
+              <>
+                <Link to="/rigging" className={getButtonClass("/rigging")}>
+                  RIGGING
+                </Link>
+                <Link to="/cranes" className={`header-action-btn header-action-btn--secondary${isCompact ? " sticky" : ""}`}>
+                  Go to Cranes
+                </Link>
+              </>
+            ) : isCranesPage ? (
+              <>
+                <Link to="/cranes" className={getButtonClass("/cranes")}>
+                  CRANES
+                </Link>
+                <Link to="/rigging" className={`header-action-btn header-action-btn--secondary${isCompact ? " sticky" : ""}`}>
+                  Go to Rigging
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link to="/rigging" className={getButtonClass("/rigging")}>
+                  RIGGING
+                </Link>
+                <Link to="/cranes" className={getButtonClass("/cranes")}>
+                  CRANES
+                </Link>
+              </>
+            )}
           </div>
         </div>
 
@@ -145,8 +169,9 @@ export default function Header() {
               className="nav-dropdown-trigger nav-link"
               onClick={scrollToHash("/rigging", "#products")}
             >
-              Wire Rope &<br />
-              Rigging Products
+              Product
+              <br />
+              Information
             </a>
             <div className="nav-dropdown-content">
               <a
@@ -227,19 +252,14 @@ export default function Header() {
             Rentals
           </a>
 
-          {/* Knowledge Base Dropdown */}
-          <div className="nav-dropdown">
-            <div className="nav-dropdown-trigger" style={{ cursor: "default" }}>
-              Knowledge
-              <br />
-              Base
-            </div>
-            <div className="nav-dropdown-content">
-              <Link to="/product-info">Technical Documents</Link>
-              <Link to="/videos">Videos</Link>
-              <Link to="/blogs">Blogs</Link>
-            </div>
-          </div>
+          <Link
+            to="/product-info"
+            className="nav-link"
+          >
+            Technical
+            <br />
+            Documents
+          </Link>
 
           <a
             href="/#locations"
@@ -304,20 +324,58 @@ export default function Header() {
         </button>
 
         <div className="mobile-nav-primary">
-          <Link
-            to="/rigging"
-            className="mobile-nav-link mobile-nav-link--primary"
-            onClick={toggleMobileMenu}
-          >
-            RIGGING
-          </Link>
-          <Link
-            to="/cranes"
-            className="mobile-nav-link mobile-nav-link--primary"
-            onClick={toggleMobileMenu}
-          >
-            CRANES
-          </Link>
+          {isRiggingPage ? (
+            <>
+              <Link
+                to="/rigging"
+                className="mobile-nav-link mobile-nav-link--primary"
+                onClick={toggleMobileMenu}
+              >
+                RIGGING
+              </Link>
+              <Link
+                to="/cranes"
+                className="mobile-nav-link mobile-nav-link--secondary"
+                onClick={toggleMobileMenu}
+              >
+                Go to Cranes
+              </Link>
+            </>
+          ) : isCranesPage ? (
+            <>
+              <Link
+                to="/cranes"
+                className="mobile-nav-link mobile-nav-link--primary"
+                onClick={toggleMobileMenu}
+              >
+                CRANES
+              </Link>
+              <Link
+                to="/rigging"
+                className="mobile-nav-link mobile-nav-link--secondary"
+                onClick={toggleMobileMenu}
+              >
+                Go to Rigging
+              </Link>
+            </>
+          ) : (
+            <>
+              <Link
+                to="/rigging"
+                className="mobile-nav-link mobile-nav-link--primary"
+                onClick={toggleMobileMenu}
+              >
+                RIGGING
+              </Link>
+              <Link
+                to="/cranes"
+                className="mobile-nav-link mobile-nav-link--primary"
+                onClick={toggleMobileMenu}
+              >
+                CRANES
+              </Link>
+            </>
+          )}
         </div>
 
         <div className="mobile-nav-sections">
@@ -330,7 +388,7 @@ export default function Header() {
                 toggleMobileMenu();
               }}
             >
-              Wire Rope & Rigging Products
+              Product Information
             </a>
             <div className="mobile-dropdown-items">
               <a
@@ -453,20 +511,13 @@ export default function Header() {
           </div>
 
           <div className="mobile-nav-group">
-            <div className="mobile-dropdown-header mobile-dropdown-header--static">
-              Knowledge Base
-            </div>
-            <div className="mobile-dropdown-items">
-              <Link to="/product-info" onClick={toggleMobileMenu}>
-                Technical Documents
-              </Link>
-              <Link to="/videos" onClick={toggleMobileMenu}>
-                Videos
-              </Link>
-              <Link to="/blogs" onClick={toggleMobileMenu}>
-                Blogs
-              </Link>
-            </div>
+            <Link
+              to="/product-info"
+              className="mobile-dropdown-header"
+              onClick={toggleMobileMenu}
+            >
+              Technical Documents
+            </Link>
           </div>
 
           <div className="mobile-nav-group">

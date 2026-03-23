@@ -19,24 +19,39 @@ const ProductSection = forwardRef(function ProductSection(
         )}
       </div>
       <div className="product-grid">
-        {items.map((item) => (
-          <a
-            key={item.code}
-            href={`/core-pdfs/${item.pdf}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="product-grid-item"
-          >
-            <img
-              src={`/core-pdf-pngs/${item.image}`}
-              alt={item.label}
-              className="product-grid-img"
-            />
-            <p className="product-grid-label">
-              {item.code} – {item.label}
-            </p>
-          </a>
-        ))}
+        {items.map((item) => {
+          const hasContent = item.image && item.pdf;
+
+          if (hasContent) {
+            return (
+              <a
+                key={item.code}
+                href={`/core-pdfs/${item.pdf}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="product-grid-item"
+              >
+                <img
+                  src={`/core-pdf-pngs/${item.image}`}
+                  alt={item.label}
+                  className="product-grid-img"
+                />
+                <p className="product-grid-label">
+                  {item.code} – {item.label}
+                </p>
+              </a>
+            );
+          }
+
+          return (
+            <div key={item.code} className="product-grid-item">
+              <div className="product-grid-placeholder">Coming Soon</div>
+              <p className="product-grid-label">
+                {item.code} – {item.label}
+              </p>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
