@@ -190,7 +190,7 @@ const rentalSections = [
 const allSections = [...productSections, ...serviceSections, ...rentalSections];
 
 export default function ProductInfoPage() {
-  const [activeId, setActiveId] = useState(productSections[0].id);
+  const [activeIds, setActiveIds] = useState(new Set([productSections[0].id]));
   const sectionRefs = useRef({});
   const { hash } = useLocation();
 
@@ -202,42 +202,94 @@ export default function ProductInfoPage() {
   );
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            const id = entry.target.id.replace("section-", "");
-            setActiveId(id);
-          }
-        }
-      },
-      {
-        rootMargin: "-20% 0px -60% 0px",
-        threshold: 0,
-      }
-    );
+    function handleScroll() {
+      const target = window.innerHeight * 0.3;
+      const atBottom = (window.innerHeight + window.scrollY) >= document.body.scrollHeight - 50;
 
-    for (const sec of allSections) {
-      const el = sectionRefs.current[sec.id];
-      if (el) observer.observe(el);
+      const rentalsCard = document.getElementById("section-rentals-combined");
+      const servicesCard = document.getElementById("section-services-combined");
+
+      // If scrolled to the bottom, activate rentals if it's visible at all
+      if (atBottom && rentalsCard) {
+        const rect = rentalsCard.getBoundingClientRect();
+        if (rect.top < window.innerHeight) {
+          setActiveIds(new Set(rentalSections.map((r) => r.id)));
+          return;
+        }
+      }
+
+      // Build a list of all trackable sections with their positions
+      const candidates = [];
+
+      for (const sec of productSections) {
+        const el = sectionRefs.current[sec.id];
+        if (!el) continue;
+        candidates.push({ type: "product", id: sec.id, top: el.getBoundingClientRect().top });
+      }
+
+      if (servicesCard) {
+        candidates.push({ type: "services", top: servicesCard.getBoundingClientRect().top });
+      }
+
+      if (rentalsCard) {
+        candidates.push({ type: "rentals", top: rentalsCard.getBoundingClientRect().top });
+      }
+
+      // Find the last section whose top has scrolled past the target point
+      let best = null;
+      for (const c of candidates) {
+        if (c.top <= target) {
+          if (!best || c.top > best.top) best = c;
+        }
+      }
+
+      if (!best) return;
+
+      if (best.type === "services") {
+        setActiveIds(new Set(serviceSections.map((s) => s.id)));
+      } else if (best.type === "rentals") {
+        setActiveIds(new Set(rentalSections.map((r) => r.id)));
+      } else {
+        setActiveIds(new Set([best.id]));
+      }
     }
 
-    return () => observer.disconnect();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
     if (!hash) return;
     const id = hash.replace("#section-", "");
-    const el = sectionRefs.current[id];
-    if (el) {
-      setTimeout(() => el.scrollIntoView({ behavior: "smooth", block: "start" }), 150);
+    let el = sectionRefs.current[id];
+    if (!el) return;
+    if (id.startsWith("S") || id.startsWith("R")) {
+      const card = el.closest(".product-snap-section--combined");
+      if (card) el = card;
     }
+    setTimeout(() => {
+      const top = el.getBoundingClientRect().top + window.scrollY - 96;
+      window.scrollTo({ top, behavior: "smooth" });
+    }, 150);
   }, [hash]);
 
   function scrollToSection(id) {
-    const el = sectionRefs.current[id];
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    let el = sectionRefs.current[id];
+    if (!el) return;
+    // For service/rental items, scroll to the parent combined card so the heading is visible
+    const isServiceOrRental = id.startsWith("S") || id.startsWith("R");
+    if (isServiceOrRental) {
+      const card = el.closest(".product-snap-section--combined");
+      if (card) el = card;
+    }
+    const top = el.getBoundingClientRect().top + window.scrollY - 96;
+    window.scrollTo({ top, behavior: "smooth" });
+    if (id.startsWith("S")) {
+      setActiveIds(new Set(serviceSections.map((s) => s.id)));
+    } else if (id.startsWith("R")) {
+      setActiveIds(new Set(rentalSections.map((r) => r.id)));
+    } else {
+      setActiveIds(new Set([id]));
     }
   }
 
@@ -250,7 +302,7 @@ export default function ProductInfoPage() {
       <div className="products-layout">
         <nav className="products-nav">
           <div className="products-nav-sticky">
-            <h2 className="products-nav-heading">Technical Documents</h2>
+            <h2 className="products-nav-heading">Product Info PDFs</h2>
             <p className="products-nav-desc">
               Click any product image to download the specification PDF.
             </p>
@@ -260,7 +312,7 @@ export default function ProductInfoPage() {
               {productSections.map((sec) => (
                 <li key={sec.id}>
                   <button
-                    className={`products-nav-item${activeId === sec.id ? " active" : ""}`}
+                    className={`products-nav-item${activeIds.has(sec.id) ? " active" : ""}`}
                     onClick={() => scrollToSection(sec.id)}
                   >
                     {sec.id}: {sec.title}
@@ -274,7 +326,7 @@ export default function ProductInfoPage() {
               {serviceSections.map((sec) => (
                 <li key={sec.id}>
                   <button
-                    className={`products-nav-item${activeId === sec.id ? " active" : ""}`}
+                    className={`products-nav-item${activeIds.has(sec.id) ? " active" : ""}`}
                     onClick={() => scrollToSection(sec.id)}
                   >
                     {sec.id}: {sec.title}
@@ -288,7 +340,7 @@ export default function ProductInfoPage() {
               {rentalSections.map((sec) => (
                 <li key={sec.id}>
                   <button
-                    className={`products-nav-item${activeId === sec.id ? " active" : ""}`}
+                    className={`products-nav-item${activeIds.has(sec.id) ? " active" : ""}`}
                     onClick={() => scrollToSection(sec.id)}
                   >
                     {sec.id}: {sec.title}
@@ -308,29 +360,55 @@ export default function ProductInfoPage() {
             />
           ))}
 
-          <div className="products-divider">
-            <h2 className="products-divider-title">Service Information</h2>
+          <div
+            className="product-snap-section product-snap-section--combined"
+            id="section-services-combined"
+            data-nav-group="services"
+          >
+            <div className="product-snap-header">
+              <h3 className="product-snap-title">Services</h3>
+            </div>
+            <div className="product-grid">
+              {serviceSections.map((sec) => (
+                <div
+                  key={sec.id}
+                  ref={setSectionRef(sec.id)}
+                  id={`section-${sec.id}`}
+                  className="product-grid-item product-grid-item--scrolltarget"
+                >
+                  <div className="product-grid-placeholder">Coming Soon</div>
+                  <p className="product-grid-label">
+                    {sec.id} – {sec.title}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
 
-          {serviceSections.map((sec) => (
-            <ProductSection
-              key={sec.id}
-              ref={setSectionRef(sec.id)}
-              {...sec}
-            />
-          ))}
-
-          <div className="products-divider">
-            <h2 className="products-divider-title">Rental Information</h2>
+          <div
+            className="product-snap-section product-snap-section--combined"
+            id="section-rentals-combined"
+            data-nav-group="rentals"
+          >
+            <div className="product-snap-header">
+              <h3 className="product-snap-title">Rentals</h3>
+            </div>
+            <div className="product-grid">
+              {rentalSections.map((sec) => (
+                <div
+                  key={sec.id}
+                  ref={setSectionRef(sec.id)}
+                  id={`section-${sec.id}`}
+                  className="product-grid-item product-grid-item--scrolltarget"
+                >
+                  <div className="product-grid-placeholder">Coming Soon</div>
+                  <p className="product-grid-label">
+                    {sec.id} – {sec.title}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
-
-          {rentalSections.map((sec) => (
-            <ProductSection
-              key={sec.id}
-              ref={setSectionRef(sec.id)}
-              {...sec}
-            />
-          ))}
         </div>
       </div>
 

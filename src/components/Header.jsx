@@ -255,10 +255,11 @@ export default function Header() {
           <Link
             to="/product-info"
             className="nav-link"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
-            Technical
+            Product
             <br />
-            Documents
+            Info PDFs
           </Link>
 
           <a
@@ -514,9 +515,9 @@ export default function Header() {
             <Link
               to="/product-info"
               className="mobile-dropdown-header"
-              onClick={toggleMobileMenu}
+              onClick={() => { window.scrollTo({ top: 0, behavior: "smooth" }); toggleMobileMenu(); }}
             >
-              Technical Documents
+              Product Info PDFs
             </Link>
           </div>
 
