@@ -147,6 +147,13 @@ const serviceSections = [
       { code: "S5", label: "Crane Block Rebuilds", image: null, pdf: null },
     ],
   },
+  {
+    id: "S6",
+    title: "Truck Winch Line Servicing",
+    items: [
+      { code: "S6", label: "Truck Winch Line Servicing", image: null, pdf: null },
+    ],
+  },
 ];
 
 const rentalSections = [
@@ -192,6 +199,7 @@ const allSections = [...productSections, ...serviceSections, ...rentalSections];
 export default function ProductInfoPage() {
   const [activeIds, setActiveIds] = useState(new Set([productSections[0].id]));
   const sectionRefs = useRef({});
+  const scrollLock = useRef(false);
   const { hash } = useLocation();
 
   const setSectionRef = useCallback(
@@ -203,13 +211,14 @@ export default function ProductInfoPage() {
 
   useEffect(() => {
     function handleScroll() {
+      if (scrollLock.current) return;
       const target = window.innerHeight * 0.3;
       const atBottom = (window.innerHeight + window.scrollY) >= document.body.scrollHeight - 50;
 
       const rentalsCard = document.getElementById("section-rentals-combined");
       const servicesCard = document.getElementById("section-services-combined");
 
-      // If scrolled to the bottom, activate rentals if it's visible at all
+      // If scrolled to the bottom, activate rentals if it's visible
       if (atBottom && rentalsCard) {
         const rect = rentalsCard.getBoundingClientRect();
         if (rect.top < window.innerHeight) {
@@ -283,7 +292,10 @@ export default function ProductInfoPage() {
       if (card) el = card;
     }
     const top = el.getBoundingClientRect().top + window.scrollY - 96;
+    scrollLock.current = true;
     window.scrollTo({ top, behavior: "smooth" });
+    // Keep the lock active long enough for the smooth scroll to finish
+    setTimeout(() => { scrollLock.current = false; }, 800);
     if (id.startsWith("S")) {
       setActiveIds(new Set(serviceSections.map((s) => s.id)));
     } else if (id.startsWith("R")) {
@@ -302,7 +314,7 @@ export default function ProductInfoPage() {
       <div className="products-layout">
         <nav className="products-nav">
           <div className="products-nav-sticky">
-            <h2 className="products-nav-heading">Product Info PDFs</h2>
+            <h2 className="products-nav-heading">Product Specifications</h2>
             <p className="products-nav-desc">
               Click any product image to download the specification PDF.
             </p>

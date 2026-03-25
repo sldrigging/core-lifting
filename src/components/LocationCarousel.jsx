@@ -1,10 +1,9 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useCallback } from "react";
 import "./LocationCarousel.css";
 
 export default function LocationCarousel({ location }) {
   const { id, name, address, phone, services, images } = location;
   const [current, setCurrent] = useState(0);
-  const [paused, setPaused] = useState(false);
   const totalSlides = images.length;
   const hasMultiple = totalSlides > 1;
 
@@ -18,18 +17,10 @@ export default function LocationCarousel({ location }) {
   const next = useCallback(() => goTo(current + 1), [current, goTo]);
   const prev = useCallback(() => goTo(current - 1), [current, goTo]);
 
-  useEffect(() => {
-    if (paused || !hasMultiple) return;
-    const timer = setInterval(next, 3000);
-    return () => clearInterval(timer);
-  }, [paused, next, hasMultiple]);
-
   return (
     <div
       id={id}
       className="loc-carousel"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
     >
       <div
         className="loc-carousel-track"

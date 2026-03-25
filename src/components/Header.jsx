@@ -169,9 +169,7 @@ export default function Header() {
               className="nav-dropdown-trigger nav-link"
               onClick={scrollToHash("/rigging", "#products")}
             >
-              Product
-              <br />
-              Information
+              Products
             </a>
             <div className="nav-dropdown-content">
               <a
@@ -259,7 +257,7 @@ export default function Header() {
           >
             Product
             <br />
-            Info PDFs
+            Specifications
           </Link>
 
           <a
@@ -389,7 +387,7 @@ export default function Header() {
                 toggleMobileMenu();
               }}
             >
-              Product Information
+              Products
             </a>
             <div className="mobile-dropdown-items">
               <a
@@ -517,7 +515,7 @@ export default function Header() {
               className="mobile-dropdown-header"
               onClick={() => { window.scrollTo({ top: 0, behavior: "smooth" }); toggleMobileMenu(); }}
             >
-              Product Info PDFs
+              Product Specifications
             </Link>
           </div>
 

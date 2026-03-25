@@ -263,6 +263,8 @@ const services = [
   },
   {
     title: "Truck Winch Line Servicing",
+    link: "/product-info#section-S6",
+    linkLabel: "Service Information",
     items: [
       "Wire rope replacement",
       "End button replacement",
