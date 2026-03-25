@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import logoFull from "../assets/Core-Lifting-Products-Logo.png";
-import logoSimple from "../assets/Core-Simple.png";
+import logoFull from "../assets/core-logo.png";
+import logoSimple from "../assets/core-logo.png";
 import "./Header.css";
 
 export default function Header() {
@@ -77,7 +77,7 @@ export default function Header() {
           right: 0,
           zIndex: 1000,
           color: "#333",
-          padding: isCompact ? "0.4rem clamp(2rem, 4vw, 6rem) 1rem" : "0.8rem clamp(2.5rem, 4vw, 6rem) 1.4rem",
+          padding: isCompact ? "0.4rem clamp(2rem, 4vw, 6rem) 1.15rem" : "0.8rem clamp(2.5rem, 4vw, 6rem) 1.55rem",
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",

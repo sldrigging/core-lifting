@@ -8,7 +8,7 @@ import { LiquidMetal } from "@paper-design/shaders-react";
 
 import banner1 from "../assets/homepage-banner-1.png";
 import banner2 from "../assets/homepage-banner-2.png";
-import logo from "../assets/Core-Lifting-Products-Logo.png";
+import logo from "../assets/core-logo.png";
 
 import mapImage from "../assets/locations/core-map.png";
 import odessaImg from "../assets/locations/odessa-location.png";
