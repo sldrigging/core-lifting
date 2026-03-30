@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import logoFull from "../assets/core-logo.png";
-import logoSimple from "../assets/core-logo.png";
 import "./Header.css";
 
 export default function Header() {
@@ -23,9 +22,6 @@ export default function Header() {
   const isRiggingPage = location.pathname === "/rigging";
   const isCranesPage = location.pathname === "/cranes";
   const isHomePage = location.pathname === "/";
-  const isProductInfoPage = location.pathname === "/product-info";
-  const isSticky = (isRiggingPage || isCranesPage || isProductInfoPage) && isScrolled;
-  const isCompact = isSticky || isHomePage || isProductInfoPage;
   const isHeaderVisible = !isHomePage || isScrolled;
 
   // Prevent scrolling when mobile menu is open
@@ -59,10 +55,8 @@ export default function Header() {
 
   const getButtonClass = (path) => {
     const isActive = location.pathname === path;
-    return `header-action-btn${isActive ? " active" : ""}${isCompact ? " sticky" : ""}`;
+    return `header-action-btn${isActive ? " active" : ""}`;
   };
-
-  const currentLogo = isCompact ? logoSimple : logoFull;
 
   // navLinkStyle moved to .nav-link class in Header.css
 
@@ -71,17 +65,16 @@ export default function Header() {
       <header
         className={`header-container${isHomePage ? " header-home" : ""}${isHeaderVisible ? " header-visible" : " header-hidden"}`}
         style={{
-          position: (isRiggingPage || isCranesPage || isProductInfoPage) ? "sticky" : isHomePage ? "fixed" : "static",
+          position: isHomePage ? "fixed" : "sticky",
           top: 0,
           left: 0,
           right: 0,
           zIndex: 1000,
           color: "#333",
-          padding: isCompact ? "0.4rem clamp(2rem, 4vw, 6rem) 1.15rem" : "0.8rem clamp(2.5rem, 4vw, 6rem) 1.55rem",
+          padding: "0.8rem clamp(2.5rem, 4vw, 6rem) 1.55rem",
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: "2rem" }}>
@@ -91,13 +84,11 @@ export default function Header() {
             style={{ display: "flex", alignItems: "center", zIndex: 1003 }}
           >
             <img
-              src={currentLogo}
+              src={logoFull}
               alt="CORE Lifting Products"
               style={{
-                height: isCompact ? "45px" : "auto",
-                width: isCompact ? "auto" : "200px",
-                maxHeight: isCompact ? "45px" : "70px",
-                transition: "all 0.3s ease",
+                width: "200px",
+                maxHeight: "70px",
                 position: "relative",
               }}
             />
@@ -111,7 +102,7 @@ export default function Header() {
                 <Link to="/rigging" className={getButtonClass("/rigging")}>
                   RIGGING
                 </Link>
-                <Link to="/cranes" className={`header-action-btn header-action-btn--secondary${isCompact ? " sticky" : ""}`}>
+                <Link to="/cranes" className="header-action-btn header-action-btn--secondary">
                   Go to Cranes
                 </Link>
               </>
@@ -120,7 +111,7 @@ export default function Header() {
                 <Link to="/cranes" className={getButtonClass("/cranes")}>
                   CRANES
                 </Link>
-                <Link to="/rigging" className={`header-action-btn header-action-btn--secondary${isCompact ? " sticky" : ""}`}>
+                <Link to="/rigging" className="header-action-btn header-action-btn--secondary">
                   Go to Rigging
                 </Link>
               </>
@@ -153,13 +144,12 @@ export default function Header() {
           className="desktop-nav"
           style={{
             gap: "2rem",
-            fontSize: isCompact ? "0.72rem" : "0.82rem",
+            fontSize: "0.82rem",
             fontWeight: "500",
             alignItems: "center",
             color: "#444",
             textTransform: "uppercase",
             letterSpacing: "0.5px",
-            transition: "font-size 0.3s ease",
           }}
         >
           {/* Wire Rope & Rigging Products Dropdown */}

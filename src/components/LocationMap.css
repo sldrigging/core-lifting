@@ -12,7 +12,7 @@
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 14px;
+  border-radius: 0;
 }
 
 .loc-map-pin {

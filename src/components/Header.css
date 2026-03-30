@@ -550,14 +550,6 @@ a.mobile-dropdown-header:hover::after {
   box-shadow: none;
 }
 
-.header-action-btn.active.sticky {
-  font-size: 1.8rem;
-}
-
-.header-action-btn.sticky {
-  font-size: 1.8rem;
-}
-
 .header-action-btn.header-action-btn--secondary::after {
   display: none;
 }
