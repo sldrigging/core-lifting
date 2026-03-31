@@ -15,6 +15,7 @@
   width: 100%;
   height: auto;
   display: block;
+  aspect-ratio: 4400 / 1295;
 }
 
 .rigging-images-grid {

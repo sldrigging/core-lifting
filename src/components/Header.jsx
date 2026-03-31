@@ -99,28 +99,28 @@ export default function Header() {
           >
             {isRiggingPage ? (
               <>
-                <Link to="/rigging" className={getButtonClass("/rigging")}>
+                <Link to="/rigging" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className={getButtonClass("/rigging")}>
                   RIGGING
                 </Link>
-                <Link to="/cranes" className="header-action-btn header-action-btn--secondary">
+                <Link to="/cranes" onClick={() => window.scrollTo(0, 0)} className="header-action-btn header-action-btn--secondary">
                   Go to Cranes
                 </Link>
               </>
             ) : isCranesPage ? (
               <>
-                <Link to="/cranes" className={getButtonClass("/cranes")}>
+                <Link to="/cranes" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className={getButtonClass("/cranes")}>
                   CRANES
                 </Link>
-                <Link to="/rigging" className="header-action-btn header-action-btn--secondary">
+                <Link to="/rigging" onClick={() => window.scrollTo(0, 0)} className="header-action-btn header-action-btn--secondary">
                   Go to Rigging
                 </Link>
               </>
             ) : (
               <>
-                <Link to="/rigging" className={getButtonClass("/rigging")}>
+                <Link to="/rigging" onClick={() => window.scrollTo(0, 0)} className={getButtonClass("/rigging")}>
                   RIGGING
                 </Link>
-                <Link to="/cranes" className={getButtonClass("/cranes")}>
+                <Link to="/cranes" onClick={() => window.scrollTo(0, 0)} className={getButtonClass("/cranes")}>
                   CRANES
                 </Link>
               </>
@@ -318,14 +318,14 @@ export default function Header() {
               <Link
                 to="/rigging"
                 className="mobile-nav-link mobile-nav-link--primary"
-                onClick={toggleMobileMenu}
+                onClick={() => { toggleMobileMenu(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
               >
                 RIGGING
               </Link>
               <Link
                 to="/cranes"
                 className="mobile-nav-link mobile-nav-link--secondary"
-                onClick={toggleMobileMenu}
+                onClick={() => { toggleMobileMenu(); window.scrollTo(0, 0); }}
               >
                 Go to Cranes
               </Link>
@@ -335,14 +335,14 @@ export default function Header() {
               <Link
                 to="/cranes"
                 className="mobile-nav-link mobile-nav-link--primary"
-                onClick={toggleMobileMenu}
+                onClick={() => { toggleMobileMenu(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
               >
                 CRANES
               </Link>
               <Link
                 to="/rigging"
                 className="mobile-nav-link mobile-nav-link--secondary"
-                onClick={toggleMobileMenu}
+                onClick={() => { toggleMobileMenu(); window.scrollTo(0, 0); }}
               >
                 Go to Rigging
               </Link>
@@ -352,14 +352,14 @@ export default function Header() {
               <Link
                 to="/rigging"
                 className="mobile-nav-link mobile-nav-link--primary"
-                onClick={toggleMobileMenu}
+                onClick={() => { toggleMobileMenu(); window.scrollTo(0, 0); }}
               >
                 RIGGING
               </Link>
               <Link
                 to="/cranes"
                 className="mobile-nav-link mobile-nav-link--primary"
-                onClick={toggleMobileMenu}
+                onClick={() => { toggleMobileMenu(); window.scrollTo(0, 0); }}
               >
                 CRANES
               </Link>
