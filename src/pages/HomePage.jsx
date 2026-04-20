@@ -6,8 +6,9 @@ import LocationCarousel from "../components/LocationCarousel";
 import "./HomePage.css";
 import { LiquidMetal } from "@paper-design/shaders-react";
 
-import banner1 from "../assets/homepage-banner-1.png";
-import banner2 from "../assets/homepage-banner-2.png";
+import craneBanner1 from "../assets/cranes/banner-1.png";
+import craneBanner2 from "../assets/cranes/banner-2.png";
+import homepageBanner2 from "../assets/homepage-banner-2.png";
 import logo from "../assets/core-logo.png";
 
 import mapImage from "../assets/locations/core-map.png";
@@ -130,16 +131,21 @@ export default function HomePage() {
             }}
           >
             {/* Background Images */}
-            <div style={{ flex: 1, height: "100%" }}>
-              <img
-                src={banner1}
-                alt="Banner Left"
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                }}
-              />
+            <div style={{ flex: 1, height: "100%", display: "flex", flexDirection: "column" }}>
+              <div style={{ flex: 1, overflow: "hidden" }}>
+                <img
+                  src={craneBanner1}
+                  alt="Banner Top Left"
+                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                />
+              </div>
+              <div style={{ flex: 1, overflow: "hidden" }}>
+                <img
+                  src={craneBanner2}
+                  alt="Banner Bottom Left"
+                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                />
+              </div>
             </div>
             {/* Middle brown border */}
             <div
@@ -156,7 +162,7 @@ export default function HomePage() {
 
             <div style={{ flex: 1, height: "100%" }}>
               <img
-                src={banner2}
+                src={homepageBanner2}
                 alt="Banner Right"
                 style={{
                   width: "100%",

@@ -1,0 +1,181 @@
+/* ── Hero ── */
+
+.cranes-hero-section {
+  max-width: 100%;
+  padding: 0;
+}
+
+.cranes-hero-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.cranes-top-row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  width: 100%;
+  height: clamp(220px, 30vw, 520px);
+  overflow: hidden;
+}
+
+.cranes-top-row .cranes-grid-item:nth-child(2) {
+  aspect-ratio: 466 / 804;
+}
+
+.cranes-bottom-row {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  width: 100%;
+  height: clamp(150px, 18vw, 320px);
+  overflow: hidden;
+}
+
+.cranes-grid-item {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+}
+
+.cranes-grid-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Panel description paragraph ── */
+
+.crane-panel-description {
+  color: #2e2e2e;
+  font-size: 1.1rem;
+  line-height: 1.75;
+  padding: 0.25rem 0 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+@media (min-width: 1200px) {
+  .crane-panel-description {
+    font-size: 1.2rem;
+  }
+}
+
+/* ── Learn More button (no link yet) ── */
+
+.crane-learn-more {
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
+
+/* ── Classifications Panel ── */
+
+.cc-top-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.cc-logo {
+  height: 90px;
+  width: auto;
+  display: block;
+  flex-shrink: 0;
+}
+
+.cc-criteria {
+  flex: 1;
+  min-width: 200px;
+}
+
+.cc-criteria-heading {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #9c4c2a;
+  margin-bottom: 0.6rem;
+}
+
+.cc-criteria-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.15rem 1.5rem;
+}
+
+.cc-criteria-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* ── Table ── */
+
+.cc-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.cc-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.cc-table thead tr {
+  background: #1a1a1a;
+  color: #fff;
+}
+
+.cc-table thead th {
+  padding: 0.7rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.cc-table tbody tr {
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.cc-table tbody tr:nth-child(even) {
+  background: #f8f6f4;
+}
+
+.cc-table tbody td {
+  padding: 0.65rem 1rem;
+  color: #2e2e2e;
+  vertical-align: top;
+}
+
+.cc-td-class {
+  font-weight: 700;
+  color: #9c4c2a;
+  font-size: 1rem;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .cc-table {
+    font-size: 0.82rem;
+  }
+  .cc-table thead th,
+  .cc-table tbody td {
+    padding: 0.5rem 0.6rem;
+  }
+}
+
+.cranes-grid-img.img-worker    { object-position: center 40%; }
+.cranes-grid-img.img-waterbags { object-position: center 55%; }
+.cranes-grid-img.img-shop      { object-position: center 50%; }
+.cranes-grid-img.img-dark-shop { object-position: center 40%; }
+.cranes-grid-img.img-panoramic { object-position: center 50%; }
