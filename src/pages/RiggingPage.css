@@ -468,6 +468,18 @@
   height: 320px;
 }
 
+/* ── 3-image row: all side by side ── */
+
+.rp-image-grid--3-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
+.rp-image-grid--3-row .rp-image {
+  height: 320px;
+}
+
 /* ── 4+ image grid ── */
 
 .rp-image-grid--4plus {
@@ -530,6 +542,14 @@
     height: 240px;
   }
 
+  .rp-image-grid--3-row {
+    grid-template-columns: 1fr;
+  }
+
+  .rp-image-grid--3-row .rp-image {
+    height: 260px;
+  }
+
   .rp-image-grid--4plus {
     grid-template-columns: 1fr;
   }
@@ -561,6 +581,10 @@
   }
 
   .rp-image-grid--3-pair .rp-image {
+    height: 340px;
+  }
+
+  .rp-image-grid--3-row .rp-image {
     height: 340px;
   }
 

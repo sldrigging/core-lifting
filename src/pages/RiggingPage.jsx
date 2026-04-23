@@ -9,6 +9,8 @@ import riggingBanner3 from "../assets/riggingpage-banner-3.png";
 import riggingBanner4 from "../assets/riggingpage-banner-4.png";
 
 // Wire Rope & Cable images
+import teufelbergerCollage from "../assets/rigging-products/Tberger-Collage.png";
+import bridonCollage from "../assets/rigging-products/bridon-collage.png";
 import wireRopeCable1 from "../assets/rigging-products/wire-rope-and-cable-1.jpg";
 import wireRopeCable2 from "../assets/rigging-products/wire-rope-and-cable-2.jpg";
 
@@ -28,6 +30,8 @@ import synthetics2 from "../assets/rigging-products/synthetics-2.jpg";
 import synthetics3 from "../assets/rigging-products/synthetics-4.jpg";
 
 // Rigging Hardware images
+import riggingHardwareCrosby from "../assets/rigging-products/Crosby Shackle.jpg";
+import riggingHardwareVanBeest from "../assets/rigging-products/Van Beest Shackle.jpg";
 import riggingHardware1 from "../assets/rigging-products/rigging-hardware-3.jpg";
 
 // Lubricators/Lubricants images
@@ -80,7 +84,7 @@ const products = [
       "Galvanized Cable",
       "Stainless Steel Cable",
     ],
-    images: [wireRopeCable1, wireRopeCable2],
+    images: [teufelbergerCollage, bridonCollage, wireRopeCable1, wireRopeCable2],
   },
   {
     id: "wire-rope-assemblies",
@@ -137,7 +141,8 @@ const products = [
       "Rigging Tools",
       "Steamboat Ratchets",
     ],
-    images: [riggingHardware1],
+    images: [riggingHardwareCrosby, riggingHardwareVanBeest, riggingHardware1],
+    imageLayout: "row",
   },
   {
     id: "lubricators",
@@ -350,7 +355,7 @@ const imageReveal = {
 
 /* ── Reusable Panel Component ── */
 
-function RiggingPanel({ title, items, images, link, linkLabel, index, id }) {
+function RiggingPanel({ title, items, images, link, linkLabel, index, id, imageLayout }) {
   const isEven = index % 2 === 0;
   const hasImages = images && images.length > 0;
 
@@ -418,7 +423,13 @@ function RiggingPanel({ title, items, images, link, linkLabel, index, id }) {
         </div>
       )}
 
-      {images.length === 3 && (
+      {images.length === 3 && imageLayout === "row" && (
+        <div className="rp-image-grid rp-image-grid--3-row">
+          {images.map((img, i) => renderImage(img, `${title} ${i + 1}`, i * 0.1))}
+        </div>
+      )}
+
+      {images.length === 3 && imageLayout !== "row" && (
         <div className="rp-image-grid rp-image-grid--3">
           <div className="rp-image-grid--3-featured">
             {renderImage(images[0], `${title} 1`, 0, "rp-image-container--featured")}
@@ -554,6 +565,7 @@ export default function RiggingPage() {
                 items={product.items}
                 images={product.images}
                 link={product.link}
+                imageLayout={product.imageLayout}
                 index={index}
               />
             ))}
