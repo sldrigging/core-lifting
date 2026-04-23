@@ -21,6 +21,7 @@ export default function Header() {
 
   const isRiggingPage = location.pathname === "/rigging";
   const isCranesPage = location.pathname === "/cranes";
+  const isCraneInfoPage = location.pathname === "/info-center";
   const isHomePage = location.pathname === "/";
   const isHeaderVisible = !isHomePage || isScrolled;
 
@@ -171,10 +172,10 @@ export default function Header() {
                     Double Girder
                   </a>
                   <a href="/cranes#hoist-config-under-running" onClick={scrollToHash("/cranes", "#hoist-config-under-running")}>
-                    Under Running Hoists
+                    Under Running Crane
                   </a>
                   <a href="/cranes#hoist-config-top-running" onClick={scrollToHash("/cranes", "#hoist-config-top-running")}>
-                    Top Running Hoists
+                    Top Running Crane
                   </a>
                   <a href="/cranes#bridge-crane-classifications" onClick={scrollToHash("/cranes", "#bridge-crane-classifications")}>
                     Bridge Crane Classifications
@@ -276,13 +277,23 @@ export default function Header() {
             </>
           )}
 
-          <Link
-            to="/product-info"
-            className="nav-link"
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          >
-            {isCranesPage ? <>Info<br />Center</> : <>Product<br />Specifications</>}
-          </Link>
+          {isCranesPage || isCraneInfoPage ? (
+            <Link
+              to="/info-center"
+              className="nav-link"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            >
+              Info<br />Center
+            </Link>
+          ) : (
+            <Link
+              to="/product-info"
+              className="nav-link"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            >
+              Product<br />Specifications
+            </Link>
+          )}
 
           <a
             href="/#locations"
@@ -420,10 +431,10 @@ export default function Header() {
                     Double Girder
                   </a>
                   <a href="/cranes#hoist-config-under-running" onClick={(e) => { scrollToHash("/cranes", "#hoist-config-under-running")(e); toggleMobileMenu(); }}>
-                    Under Running Hoists
+                    Under Running Crane
                   </a>
                   <a href="/cranes#hoist-config-top-running" onClick={(e) => { scrollToHash("/cranes", "#hoist-config-top-running")(e); toggleMobileMenu(); }}>
-                    Top Running Hoists
+                    Top Running Crane
                   </a>
                   <a href="/cranes#bridge-crane-classifications" onClick={(e) => { scrollToHash("/cranes", "#bridge-crane-classifications")(e); toggleMobileMenu(); }}>
                     Bridge Crane Classifications
@@ -535,13 +546,23 @@ export default function Header() {
           )}
 
           <div className="mobile-nav-group">
-            <Link
-              to="/product-info"
-              className="mobile-dropdown-header"
-              onClick={() => { window.scrollTo({ top: 0, behavior: "smooth" }); toggleMobileMenu(); }}
-            >
-              {isCranesPage ? "Info Center" : "Product Specifications"}
-            </Link>
+            {isCranesPage || isCraneInfoPage ? (
+              <Link
+                to="/info-center"
+                className="mobile-dropdown-header"
+                onClick={() => { window.scrollTo({ top: 0, behavior: "smooth" }); toggleMobileMenu(); }}
+              >
+                Info Center
+              </Link>
+            ) : (
+              <Link
+                to="/product-info"
+                className="mobile-dropdown-header"
+                onClick={() => { window.scrollTo({ top: 0, behavior: "smooth" }); toggleMobileMenu(); }}
+              >
+                Product Specifications
+              </Link>
+            )}
           </div>
 
           <div className="mobile-nav-group">

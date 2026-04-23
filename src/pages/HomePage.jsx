@@ -4,7 +4,6 @@ import LocationMap from "../components/LocationMap";
 import LocationCarousel from "../components/LocationCarousel";
 
 import "./HomePage.css";
-import { LiquidMetal } from "@paper-design/shaders-react";
 
 import craneBanner1 from "../assets/cranes/banner-1.png";
 import craneBanner2 from "../assets/cranes/banner-2.png";
@@ -202,28 +201,6 @@ export default function HomePage() {
 
           {/* Center Logo Circle */}
           <div className="logo-circle">
-            <div className="liquid-metal-container">
-              <LiquidMetal
-                colorBack="#f2f2f2"
-                colorTint="#ffffff"
-                softness={1}
-                repetition={2}
-                shiftRed={0.1}
-                shiftBlue={-0.1}
-                distortion={0.5}
-                contour={0.4}
-                shape="diamond"
-                scale={2}
-                speed={0.5}
-                style={{
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  width: "100%",
-                  height: "100%",
-                }}
-              />
-            </div>
             <div className="logo-circle-inner" />
 
             <img

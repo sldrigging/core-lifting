@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import "./CranesPage.css";
 import "./RiggingPage.css";
@@ -19,7 +19,8 @@ import bridgeSingleGirder from "../assets/cranes/bridge-single-girder.png";
 import bridgeDoubleGirder from "../assets/cranes/bridge-double-girder.png";
 
 // Hoist Configuration
-import bridgeUnderRunning from "../assets/cranes/bridge-under-running.png";
+import bridgeUnderRunning from "../assets/cranes/Under-Running-Crane.png";
+import bridgeTopRunning from "../assets/cranes/Top-Running-Crane.png";
 
 // Manufacturing
 import bridgeMfgLayout from "../assets/cranes/bridge-mfg-layout.png";
@@ -77,15 +78,15 @@ const bridgeCranes = [
   // ── Hoist Configuration ──
   {
     id: "hoist-config-under-running",
-    title: "Under Running Hoists",
+    title: "Under Running Crane",
     description: "An under-running overhead crane, also called an underhung or underslung crane, is a lifting system where the bridge moves along the bottom part of runway beams that are usually hung from the roof of the building.",
     images: [bridgeUnderRunning],
   },
   {
     id: "hoist-config-top-running",
-    title: "Top Running Hoists",
+    title: "Top Running Crane",
     description: "A top running overhead crane is a lifting system used in factories where the entire bridge moves on rails attached to the top of the beams. This is different from \"underhung\" cranes, which hang from the bottom of the beams.",
-    images: [],
+    images: [bridgeTopRunning],
   },
   // ── Classifications ──
   {
@@ -312,7 +313,7 @@ const imageReveal = {
 
 /* ── Classifications Panel ── */
 
-function ClassificationsPanel({ id, index }) {
+function ClassificationsPanel({ id, index, learnMoreTo }) {
   const isEven = index % 2 === 0;
 
   return (
@@ -371,7 +372,7 @@ function ClassificationsPanel({ id, index }) {
           </motion.div>
 
           <motion.div variants={itemVariants} style={{ marginTop: "1.5rem" }}>
-            <button className="rp-learn-more crane-learn-more">LEARN MORE</button>
+            <Link to={learnMoreTo} className="rp-learn-more crane-learn-more">LEARN MORE</Link>
           </motion.div>
         </div>
       </div>
@@ -381,7 +382,7 @@ function ClassificationsPanel({ id, index }) {
 
 /* ── Reusable Panel ── */
 
-function CranePanel({ title, description, items, images, index, id }) {
+function CranePanel({ title, description, items, images, index, id, learnMoreTo }) {
   const isEven = index % 2 === 0;
   const hasImages = images && images.length > 0;
   const hasItems = items && items.length > 0;
@@ -411,7 +412,7 @@ function CranePanel({ title, description, items, images, index, id }) {
         )}
 
         <motion.div variants={itemVariants}>
-          <button className="rp-learn-more crane-learn-more">LEARN MORE</button>
+          <Link to={learnMoreTo} className="rp-learn-more crane-learn-more">LEARN MORE</Link>
         </motion.div>
       </div>
     </div>
@@ -586,7 +587,7 @@ export default function CranesPage() {
           <div className="rp-content">
             {bridgeCranes.map((item, index) =>
               item.type === "classifications" ? (
-                <ClassificationsPanel key={item.id} id={item.id} index={index} />
+                <ClassificationsPanel key={item.id} id={item.id} index={index} learnMoreTo="/info-center#section-BC" />
               ) : (
                 <CranePanel
                   key={item.id}
@@ -596,6 +597,7 @@ export default function CranesPage() {
                   items={item.items}
                   images={item.images}
                   index={index}
+                  learnMoreTo="/info-center#section-BC"
                 />
               )
             )}
@@ -617,6 +619,7 @@ export default function CranesPage() {
                 items={item.items}
                 images={item.images}
                 index={index}
+                learnMoreTo="/info-center#section-SC"
               />
             ))}
           </div>
@@ -636,6 +639,7 @@ export default function CranesPage() {
                 items={svc.items}
                 images={svc.images}
                 index={index}
+                learnMoreTo="/info-center#section-SV1"
               />
             ))}
           </div>

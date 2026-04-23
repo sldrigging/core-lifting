@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage";
 import CranesPage from "./pages/CranesPage";
 import RiggingPage from "./pages/RiggingPage";
 import ProductInfoPage from "./pages/ProductInfoPage";
+import CraneInfoPage from "./pages/CraneInfoPage";
 import VideosPage from "./pages/VideosPage";
 import BlogsPage from "./pages/BlogsPage";
 
@@ -18,6 +19,7 @@ function App() {
           <Route path="/cranes" element={<CranesPage />} />
           <Route path="/rigging" element={<RiggingPage />} />
           <Route path="/product-info" element={<ProductInfoPage />} />
+          <Route path="/info-center" element={<CraneInfoPage />} />
           <Route path="/videos" element={<VideosPage />} />
           <Route path="/blogs" element={<BlogsPage />} />
         </Routes>

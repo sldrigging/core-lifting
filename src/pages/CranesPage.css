@@ -60,12 +60,27 @@
   }
 }
 
-/* ── Learn More button (no link yet) ── */
-
 .crane-learn-more {
   cursor: pointer;
   border: none;
   font-family: inherit;
+}
+
+/* ── Top Running Crane: portrait image treatment ── */
+
+#hoist-config-top-running .rp-panel-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#hoist-config-top-running .rp-image-container--single {
+  max-width: 320px;
+}
+
+#hoist-config-top-running .rp-image-container--single .rp-image {
+  height: auto;
+  max-height: 480px;
 }
 
 /* ── Classifications Panel ── */
