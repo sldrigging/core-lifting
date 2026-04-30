@@ -3,63 +3,46 @@ import { useLocation } from "react-router-dom";
 import ProductSection from "../components/ProductSection";
 import "./ProductInfoPage.css";
 
-const craneSections = [
+const sections = [
   {
-    id: "BC",
-    title: "Bridge Cranes",
+    id: "CI",
+    title: "Crane Information",
     items: [
-      { code: "BC1",  label: "Single Girder",                image: null, pdf: null },
-      { code: "BC2",  label: "Double Girder",                image: null, pdf: null },
-      { code: "BC3",  label: "Under Running Crane",          image: null, pdf: null },
-      { code: "BC4",  label: "Top Running Crane",            image: null, pdf: null },
-      { code: "BC5",  label: "Bridge Crane Classifications", image: null, pdf: null },
-      { code: "BC6",  label: "Engineering & Manufacturing",  image: null, pdf: null },
-      { code: "BC7",  label: "Hoists",                       image: null, pdf: null },
-      { code: "BC8",  label: "Trolley",                      image: null, pdf: null },
-      { code: "BC9",  label: "Hook Block",                   image: null, pdf: null },
-      { code: "BC10", label: "End Trucks",                   image: null, pdf: null },
-      { code: "BC11", label: "Runway",                       image: null, pdf: null },
-      { code: "BC12", label: "Runway Rail (tracks)",         image: null, pdf: null },
-      { code: "BC13", label: "Bumpers",                      image: null, pdf: null },
-      { code: "BC14", label: "Pendant Controls",             image: null, pdf: null },
-      { code: "BC15", label: "Radio Controls",               image: null, pdf: null },
-      { code: "BC16", label: "Electrification",              image: null, pdf: null },
+      { code: "CI-01", label: "Crane Classifications",  pdf: "Crane Information/CI-01- Core Crane Classifications PDF.pdf" },
+      { code: "CI-02", label: "Jib Cranes",             pdf: "Crane Information/CI-02- Core Jib Cranes PDF.pdf" },
+      { code: "CI-03", label: "Workstation Cranes",     pdf: "Crane Information/CI-03- Core Workstation Cranes PDF.pdf" },
+      { code: "CI-04", label: "Shop Gantry Cranes",     pdf: "Crane Information/CI-04- Core Shop Gantry Cranes PDF.pdf" },
+      { code: "CI-05", label: "Davit Cranes",           pdf: "Crane Information/CI-05- Core Davit Cranes PDF.pdf" },
     ],
   },
   {
-    id: "SC",
-    title: "Specialty Cranes",
+    id: "CH",
+    title: "Overhead Cranes & Electric Hoists",
     items: [
-      { code: "SC1", label: "Gantry Cranes",       image: null, pdf: null },
-      { code: "SC2", label: "Monorail Cranes",      image: null, pdf: null },
-      { code: "SC3", label: "Jib Cranes",           image: null, pdf: null },
-      { code: "SC4", label: "Workstation Cranes",   image: null, pdf: null },
-      { code: "SC5", label: "Shop Gantry Cranes",   image: null, pdf: null },
-      { code: "SC6", label: "Davit Cranes",         image: null, pdf: null },
+      { code: "CH-01", label: "Street Hoists", pdf: "Overhead Cranes & Electric Hoists/CH-01- Core Street Hoists PDF.pdf" },
+      { code: "CH-02", label: "R&M Hoists",    pdf: "Overhead Cranes & Electric Hoists/CH-02- Core R&M Hoists PDF.pdf" },
+      { code: "CH-03", label: "CM Hoists",     pdf: "Overhead Cranes & Electric Hoists/CH-03- Core CM Hoists PDF.pdf" },
+    ],
+  },
+  {
+    id: "CS",
+    title: "Services Information",
+    items: [
+      { code: "CS-01", label: "Sample Inspection Report",       pdf: "Services Information/CS-01- Core Sample Inspection Report.pdf" },
+      { code: "CS-02", label: "Overhead Crane Modernizations",  pdf: "Services Information/CS-02- Core Overhead Crane Modernizations.pdf" },
+      { code: "CS-03", label: "Overhead Crane Installation",    pdf: "Services Information/CS-03- Core Overhead Crane Installation.pdf" },
     ],
   },
 ];
-
-const serviceSections = [
-  { id: "SV1", title: "Inspections",                    items: [{ code: "SV1", label: "Inspections",                    image: null, pdf: null }] },
-  { id: "SV2", title: "Preventative Maintenance Programs", items: [{ code: "SV2", label: "Preventative Maintenance Programs", image: null, pdf: null }] },
-  { id: "SV3", title: "Modernizations & Upgrades",      items: [{ code: "SV3", label: "Modernizations & Upgrades",      image: null, pdf: null }] },
-  { id: "SV4", title: "Installation",                   items: [{ code: "SV4", label: "Installation",                   image: null, pdf: null }] },
-  { id: "SV5", title: "Load Testing",                   items: [{ code: "SV5", label: "Load Testing",                   image: null, pdf: null }] },
-];
-
-const allSections = [...craneSections, ...serviceSections];
 
 export default function CraneInfoPage() {
-  const [activeIds, setActiveIds] = useState(new Set([craneSections[0].id]));
+  const [activeId, setActiveId] = useState(sections[0].id);
   const sectionRefs = useRef({});
   const scrollLock = useRef(false);
   const { hash } = useLocation();
 
   const setSectionRef = useCallback(
-    (id) => (el) => {
-      sectionRefs.current[id] = el;
-    },
+    (id) => (el) => { sectionRefs.current[id] = el; },
     []
   );
 
@@ -67,44 +50,24 @@ export default function CraneInfoPage() {
     function handleScroll() {
       if (scrollLock.current) return;
       const target = window.innerHeight * 0.3;
-      const atBottom = (window.innerHeight + window.scrollY) >= document.body.scrollHeight - 50;
+      const atBottom = window.innerHeight + window.scrollY >= document.body.scrollHeight - 50;
 
-      const servicesCard = document.getElementById("section-crane-services-combined");
-
-      if (atBottom && servicesCard) {
-        const rect = servicesCard.getBoundingClientRect();
-        if (rect.top < window.innerHeight) {
-          setActiveIds(new Set(serviceSections.map((s) => s.id)));
-          return;
-        }
-      }
-
-      const candidates = [];
-
-      for (const sec of craneSections) {
-        const el = sectionRefs.current[sec.id];
-        if (!el) continue;
-        candidates.push({ type: "crane", id: sec.id, top: el.getBoundingClientRect().top });
-      }
-
-      if (servicesCard) {
-        candidates.push({ type: "services", top: servicesCard.getBoundingClientRect().top });
+      if (atBottom) {
+        setActiveId(sections[sections.length - 1].id);
+        return;
       }
 
       let best = null;
-      for (const c of candidates) {
-        if (c.top <= target) {
-          if (!best || c.top > best.top) best = c;
+      for (const sec of sections) {
+        const el = sectionRefs.current[sec.id];
+        if (!el) continue;
+        const top = el.getBoundingClientRect().top;
+        if (top <= target) {
+          if (!best || top > best.top) best = { id: sec.id, top };
         }
       }
 
-      if (!best) return;
-
-      if (best.type === "services") {
-        setActiveIds(new Set(serviceSections.map((s) => s.id)));
-      } else {
-        setActiveIds(new Set([best.id]));
-      }
+      if (best) setActiveId(best.id);
     }
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -114,12 +77,8 @@ export default function CraneInfoPage() {
   useEffect(() => {
     if (!hash) return;
     const id = hash.replace("#section-", "");
-    let el = sectionRefs.current[id];
+    const el = sectionRefs.current[id];
     if (!el) return;
-    if (id.startsWith("SV")) {
-      const card = el.closest(".product-snap-section--combined");
-      if (card) el = card;
-    }
     setTimeout(() => {
       const top = el.getBoundingClientRect().top + window.scrollY - 96;
       window.scrollTo({ top, behavior: "smooth" });
@@ -127,22 +86,13 @@ export default function CraneInfoPage() {
   }, [hash]);
 
   function scrollToSection(id) {
-    let el = sectionRefs.current[id];
+    const el = sectionRefs.current[id];
     if (!el) return;
-    const isService = id.startsWith("SV");
-    if (isService) {
-      const card = el.closest(".product-snap-section--combined");
-      if (card) el = card;
-    }
     const top = el.getBoundingClientRect().top + window.scrollY - 96;
     scrollLock.current = true;
     window.scrollTo({ top, behavior: "smooth" });
+    setActiveId(id);
     setTimeout(() => { scrollLock.current = false; }, 800);
-    if (isService) {
-      setActiveIds(new Set(serviceSections.map((s) => s.id)));
-    } else {
-      setActiveIds(new Set([id]));
-    }
   }
 
   function scrollToTop() {
@@ -156,32 +106,16 @@ export default function CraneInfoPage() {
           <div className="products-nav-sticky">
             <h2 className="products-nav-heading">Info Center</h2>
             <p className="products-nav-desc">
-              Click any item to view crane specifications and documentation.
+              Click any document to open or download.
             </p>
-
-            <h3 className="products-nav-group-heading">Cranes</h3>
             <ul className="products-nav-list">
-              {craneSections.map((sec) => (
+              {sections.map((sec) => (
                 <li key={sec.id}>
                   <button
-                    className={`products-nav-item${activeIds.has(sec.id) ? " active" : ""}`}
+                    className={`products-nav-item${activeId === sec.id ? " active" : ""}`}
                     onClick={() => scrollToSection(sec.id)}
                   >
-                    {sec.id}: {sec.title}
-                  </button>
-                </li>
-              ))}
-            </ul>
-
-            <h3 className="products-nav-group-heading">Services</h3>
-            <ul className="products-nav-list">
-              {serviceSections.map((sec) => (
-                <li key={sec.id}>
-                  <button
-                    className={`products-nav-item${activeIds.has(sec.id) ? " active" : ""}`}
-                    onClick={() => scrollToSection(sec.id)}
-                  >
-                    {sec.id}: {sec.title}
+                    {sec.title}
                   </button>
                 </li>
               ))}
@@ -190,38 +124,13 @@ export default function CraneInfoPage() {
         </nav>
 
         <div className="products-content">
-          {craneSections.map((sec) => (
+          {sections.map((sec) => (
             <ProductSection
               key={sec.id}
               ref={setSectionRef(sec.id)}
               {...sec}
             />
           ))}
-
-          <div
-            className="product-snap-section product-snap-section--combined"
-            id="section-crane-services-combined"
-            data-nav-group="services"
-          >
-            <div className="product-snap-header">
-              <h3 className="product-snap-title">Services</h3>
-            </div>
-            <div className="product-grid">
-              {serviceSections.map((sec) => (
-                <div
-                  key={sec.id}
-                  ref={setSectionRef(sec.id)}
-                  id={`section-${sec.id}`}
-                  className="product-grid-item product-grid-item--scrolltarget"
-                >
-                  <div className="product-grid-placeholder">Coming Soon</div>
-                  <p className="product-grid-label">
-                    {sec.id} – {sec.title}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
 
