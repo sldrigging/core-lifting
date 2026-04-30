@@ -11,20 +11,57 @@ import homepageBanner2 from "../assets/homepage-banner-2.png";
 import logo from "../assets/core-logo.png";
 
 import mapImage from "../assets/locations/core-map.png";
-import odessaImg from "../assets/locations/odessa-location.png";
-import houstonImg from "../assets/locations/houston-location.png";
-import lafayetteImg from "../assets/locations/lafayette.png";
-import houmaImg from "../assets/locations/houma.png";
-import newOrleansImg from "../assets/locations/new-orleans.png";
 
-// Sample carousel placeholder images
+// New Orleans
+import newOrleansBuilding from "../assets/locations/Core New Orleans/Core-New-Orleans-Building.png";
+import newOrleans1 from "../assets/locations/Core New Orleans/Core-New-Orleans.jpeg";
 import sample1 from "../assets/locations/sample-carousel-images/DSC04131.JPG";
 import sample2 from "../assets/locations/sample-carousel-images/DSC_0154.JPG";
 import sample3 from "../assets/locations/sample-carousel-images/IMG_1078.JPG";
-import sample4 from "../assets/locations/sample-carousel-images/LARGEREWIND.JPG";
-import sample5 from "../assets/locations/sample-carousel-images/P8184142.JPG";
-import sample6 from "../assets/locations/sample-carousel-images/WIROP600-C.JPG";
-import sample7 from "../assets/locations/sample-carousel-images/chris-057.jpg";
+
+// Odessa
+import odessaBuilding from "../assets/locations/Core Odessa/Core-Odessa-Building.png";
+import odessa1 from "../assets/locations/Core Odessa/Core-Odessa (1).jpeg";
+import odessa2 from "../assets/locations/Core Odessa/Core-Odessa (2).jpeg";
+import odessa3 from "../assets/locations/Core Odessa/Core-Odessa (3).jpeg";
+import odessa7 from "../assets/locations/Core Odessa/Core-Odessa (7).jpeg";
+import odessa8 from "../assets/locations/Core Odessa/Core-Odessa (8).jpeg";
+
+// Houston
+import houstonBuilding from "../assets/locations/Core Houston/Core-Houston-Building.png";
+import houston1 from "../assets/locations/Core Houston/Core-Houston (1).jpeg";
+import houston2 from "../assets/locations/Core Houston/Core-Houston (2).jpeg";
+import houston4 from "../assets/locations/Core Houston/Core-Houston (4).jpeg";
+import houston5 from "../assets/locations/Core Houston/Core-Houston (5).jpeg";
+import houston6 from "../assets/locations/Core Houston/Core-Houston (6).jpeg";
+import houston21 from "../assets/locations/Core Houston/Core-Houston (21).jpeg";
+import houston25 from "../assets/locations/Core Houston/Core-Houston (25).jpeg";
+
+// Lafayette
+import lafayetteBuilding from "../assets/locations/Core Lafayette/Core-Lafayette-Building.png";
+import lafayette1 from "../assets/locations/Core Lafayette/Core-Lafayette (1).jpeg";
+import lafayette2 from "../assets/locations/Core Lafayette/Core-Lafayette (2).jpg";
+import lafayette3 from "../assets/locations/Core Lafayette/Core-Lafayette (3).jpeg";
+import lafayette4 from "../assets/locations/Core Lafayette/Core-Lafayette (4).jpeg";
+import lafayette5 from "../assets/locations/Core Lafayette/Core-Lafayette (5).jpeg";
+import lafayette11 from "../assets/locations/Core Lafayette/Core-Lafayette (11).jpeg";
+import lafayette12 from "../assets/locations/Core Lafayette/Core-Lafayette (12).jpg";
+import lafayette13 from "../assets/locations/Core Lafayette/Core-Lafayette (13).jpg";
+
+// Houma
+import houmaBuilding from "../assets/locations/Core Houma/Core-Houma-Building.png";
+import houma1 from "../assets/locations/Core Houma/Core-Houma (1).jpg";
+import houma2 from "../assets/locations/Core Houma/Core-Houma (2).png";
+import houma3 from "../assets/locations/Core Houma/Core-Houma (3).jpeg";
+import houma4 from "../assets/locations/Core Houma/Core-Houma (4).jpeg";
+import houma5 from "../assets/locations/Core Houma/Core-Houma (5).jpeg";
+import houma6 from "../assets/locations/Core Houma/Core-Houma (6).jpeg";
+import houma22 from "../assets/locations/Core Houma/Core-Houma (22).jpeg";
+import houma24 from "../assets/locations/Core Houma/Core-Houma (24).jpg";
+import houma31 from "../assets/locations/Core Houma/Core-Houma (31).jpg";
+import houma33 from "../assets/locations/Core Houma/Core-Houma (33).png";
+import houma41 from "../assets/locations/Core Houma/Core-Houma (41).jpg";
+import houma44 from "../assets/locations/Core Houma/Core-Houma (44).jpeg";
 
 const locations = [
   {
@@ -32,7 +69,9 @@ const locations = [
     name: "Odessa, Texas",
     address: "2301 Martin Luther King, Jr. Street, Odessa, TX 79761",
     phone: "(432) 332-0006",
-    images: [odessaImg, sample1, sample5],
+    building: odessaBuilding,
+    buildingPosition: "center 65%",
+    images: [odessa1, odessa2, odessa3, odessa7, odessa8],
     services: [
       'Wire Rope Slings to 1-3/4"',
       "Horizontal Testing to 300t",
@@ -47,7 +86,8 @@ const locations = [
     name: "Houston, Texas",
     address: "11550 Brittmore Park Drive, Houston, TX 77041",
     phone: "(281) 671-7740",
-    images: [houstonImg, sample2, sample6],
+    building: houstonBuilding,
+    images: [houston1, houston2, houston4, houston5, houston6, houston21, houston25],
     services: [
       'Wire Rope Slings to 3-1/2"',
       "Horizontal Testing to 300t",
@@ -62,7 +102,8 @@ const locations = [
     name: "Lafayette, Louisiana",
     address: "1250 Wall Road, Broussard, LA 70518",
     phone: "(337) 451-2929",
-    images: [lafayetteImg, sample3, sample7],
+    building: lafayetteBuilding,
+    images: [lafayette1, lafayette2, lafayette3, lafayette4, lafayette5, lafayette11, lafayette12, lafayette13],
     services: [
       'Wire Rope Slings to 3-1/2"',
       "Horizontal Testing to 300t",
@@ -77,7 +118,8 @@ const locations = [
     name: "Houma, Louisiana",
     address: "189 Thompson Road, Houma, LA 70363",
     phone: "(985) 346-8270",
-    images: [houmaImg, sample4, sample1],
+    building: houmaBuilding,
+    images: [houma1, houma2, houma3, houma4, houma5, houma6, houma22, houma24, houma31, houma33, houma41, houma44],
     services: [
       'Wire Rope Slings to 3-1/2"',
       "Horizontal Testing to 300t",
@@ -92,7 +134,8 @@ const locations = [
     name: "New Orleans, Louisiana",
     address: "222 Gunther Lane, Belle Chasse, LA 70037",
     phone: "(504) 833-6666",
-    images: [newOrleansImg, sample5, sample2],
+    building: newOrleansBuilding,
+    images: [newOrleans1, sample1, sample2, sample3],
     services: [
       'Wire Rope Slings to 1-3/4"',
       "Horizontal Testing to 300t",
