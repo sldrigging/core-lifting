@@ -22,6 +22,7 @@ export default function Header() {
   const isRiggingPage = location.pathname === "/rigging";
   const isCranesPage = location.pathname === "/cranes";
   const isCraneInfoPage = location.pathname === "/info-center";
+  const isProductInfoPage = location.pathname === "/product-info";
   const isHomePage = location.pathname === "/";
   const isHeaderVisible = !isHomePage || isScrolled;
 
@@ -116,6 +117,24 @@ export default function Header() {
                   Go to Rigging
                 </Link>
               </>
+            ) : isProductInfoPage ? (
+              <>
+                <Link to="/rigging" onClick={() => window.scrollTo(0, 0)} className={getButtonClass("/rigging")}>
+                  RIGGING
+                </Link>
+                <Link to="/info-center" onClick={() => window.scrollTo(0, 0)} className="header-action-btn header-action-btn--secondary">
+                  Go to Cranes
+                </Link>
+              </>
+            ) : isCraneInfoPage ? (
+              <>
+                <Link to="/cranes" onClick={() => window.scrollTo(0, 0)} className={getButtonClass("/cranes")}>
+                  CRANES
+                </Link>
+                <Link to="/product-info" onClick={() => window.scrollTo(0, 0)} className="header-action-btn header-action-btn--secondary">
+                  Go to Rigging
+                </Link>
+              </>
             ) : (
               <>
                 <Link to="/rigging" onClick={() => window.scrollTo(0, 0)} className={getButtonClass("/rigging")}>
@@ -153,7 +172,7 @@ export default function Header() {
             letterSpacing: "0.5px",
           }}
         >
-          {isCranesPage ? (
+          {isCranesPage || isCraneInfoPage ? (
             <>
               {/* Cranes dropdown */}
               <div className="nav-dropdown">

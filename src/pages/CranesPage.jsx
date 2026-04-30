@@ -302,11 +302,11 @@ const itemVariants = {
 };
 
 const imageReveal = {
-  hidden: { opacity: 0, scale: 0.95, clipPath: "inset(10% 0 10% 0)" },
+  hidden: { opacity: 0, scale: 0.95, clipPath: "inset(10% 0px 10% 0px)" },
   visible: {
     opacity: 1,
     scale: 1,
-    clipPath: "inset(0% 0 0% 0)",
+    clipPath: "inset(-60px -60px -60px -60px)",
     transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] },
   },
 };

@@ -78,9 +78,8 @@
   max-width: 320px;
 }
 
-#hoist-config-top-running .rp-image-container--single .rp-image {
-  height: auto;
-  max-height: 480px;
+#hoist-config-top-running .rp-image-container--single .rp-image-inner {
+  height: 480px;
 }
 
 /* ── Classifications Panel ── */
