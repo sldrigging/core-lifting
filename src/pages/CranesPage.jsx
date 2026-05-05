@@ -20,7 +20,7 @@ import bridgeDoubleGirder from "../assets/cranes/bridge-double-girder.png";
 
 // Hoist Configuration
 import bridgeUnderRunning from "../assets/cranes/Under-Running-Crane.png";
-import bridgeTopRunning from "../assets/cranes/Top-Running-Crane.png";
+import bridgeTopRunning from "../assets/new-imgs/Top-Running-Crane.jpg";
 
 // Manufacturing
 import bridgeMfgLayout from "../assets/cranes/bridge-mfg-layout.png";
@@ -48,7 +48,7 @@ import gantryCrane from "../assets/cranes/gantry-crane.png";
 import monorailCrane from "../assets/cranes/monorail-crane.png";
 import jibCrane1 from "../assets/cranes/jib-crane-1.png";
 import jibCrane2 from "../assets/cranes/jib-crane-2.png";
-import workstationCrane from "../assets/cranes/workstation-crane-1.png";
+import workstationCrane from "../assets/new-imgs/Workstation-Crane1.jpg";
 import shopGantryCrane from "../assets/cranes/shop-gantry-crane.png";
 import davitCrane from "../assets/cranes/davit-crane.png";
 
@@ -65,26 +65,26 @@ const bridgeCranes = [
   // ── Types ──
   {
     id: "bridge-crane-single-girder",
-    title: "Single Girder",
+    title: "Single Girder Cranes",
     description: "A single girder overhead crane has one horizontal beam (girder) that holds a trolley and hoist. This type of crane is the most common and affordable option for lifting light to medium loads.",
     images: [bridgeSingleGirder],
   },
   {
     id: "bridge-crane-double-girder",
-    title: "Double Girder",
+    title: "Double Girder Cranes",
     description: "A double girder overhead crane uses two parallel beams to hold a hoist and trolley. This setup is very effective for industrial lifting, providing more strength, stability, and height than single girder cranes.",
     images: [bridgeDoubleGirder],
   },
   // ── Hoist Configuration ──
   {
     id: "hoist-config-under-running",
-    title: "Under Running Crane",
+    title: "Under Running Cranes",
     description: "An under-running overhead crane, also called an underhung or underslung crane, is a lifting system where the bridge moves along the bottom part of runway beams that are usually hung from the roof of the building.",
     images: [bridgeUnderRunning],
   },
   {
     id: "hoist-config-top-running",
-    title: "Top Running Crane",
+    title: "Top Running Cranes",
     description: "A top running overhead crane is a lifting system used in factories where the entire bridge moves on rails attached to the top of the beams. This is different from \"underhung\" cranes, which hang from the bottom of the beams.",
     images: [bridgeTopRunning],
   },
@@ -117,13 +117,13 @@ const bridgeCranes = [
   },
   {
     id: "trolley",
-    title: "Trolley",
+    title: "Trolleys",
     description: "The trolley is the mechanism responsible for the horizontal movement of the hoist and its load along the crane's bridge girders. While the bridge moves the entire crane longitudinally (along the runway), the trolley enables the lateral positioning across the width of the workspace.",
     images: [componentTrolley],
   },
   {
     id: "hook-block",
-    title: "Hook Block",
+    title: "Hook Blocks",
     description: "The hook block serves as the primary connection between the crane's hoist and the load being moved. Its fundamental roles include providing mechanical advantage, ensuring load stability, and facilitating precise positioning of heavy or awkward materials.",
     images: [componentHookBlock],
   },
@@ -135,7 +135,7 @@ const bridgeCranes = [
   },
   {
     id: "runway",
-    title: "Runway",
+    title: "Runways",
     description: "The overhead crane runway is the structural backbone of the lifting system, providing the foundational support and defined path for the crane to move. It serves as a specialized track system that enables the crane's bridge to transport heavy loads across a facility safely and precisely.",
     images: [componentRunway],
   },
@@ -382,7 +382,7 @@ function ClassificationsPanel({ id, index, learnMoreTo }) {
 
 /* ── Reusable Panel ── */
 
-function CranePanel({ title, description, items, images, index, id, learnMoreTo }) {
+function CranePanel({ title, description, items, images, index, id, learnMoreTo, fillImage }) {
   const isEven = index % 2 === 0;
   const hasImages = images && images.length > 0;
   const hasItems = items && items.length > 0;
@@ -418,25 +418,47 @@ function CranePanel({ title, description, items, images, index, id, learnMoreTo 
     </div>
   );
 
-  const renderImage = (img, alt, delay = 0, className = "") => (
-    <motion.div
-      className={`rp-image-container ${className}`}
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true, amount: 0.1 }}
-      transition={{ duration: 0.8, delay }}
-    >
+  const renderImage = (img, alt, delay = 0, className = "") => {
+    const isSingle = className.includes("single");
+
+    if (fillImage && isSingle) {
+      return (
+        <div style={{ width: "100%", height: "300px", overflow: "hidden", borderRadius: "0.75rem" }}>
+          <img
+            src={img}
+            alt={alt}
+            style={{
+              display: "block",
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              objectPosition: "center 30%",
+            }}
+          />
+        </div>
+      );
+    }
+
+    return (
       <motion.div
-        className="rp-image-inner"
-        variants={imageReveal}
-        initial="hidden"
-        whileInView="visible"
+        className={`rp-image-container ${className}`}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
         viewport={{ once: true, amount: 0.1 }}
+        transition={{ duration: 0.8, delay }}
       >
-        <img src={img} alt={alt} className="rp-image" />
+        <motion.div
+          className="rp-image-inner"
+          variants={imageReveal}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+        >
+          <img src={img} alt={alt} className="rp-image" />
+        </motion.div>
       </motion.div>
-    </motion.div>
-  );
+    );
+  };
 
   const imageContent = hasImages ? (
     <div className={`rp-panel-visual ${isEven ? "" : "rp-panel-visual--alt"}`}>
@@ -587,7 +609,7 @@ export default function CranesPage() {
           <div className="rp-content">
             {bridgeCranes.map((item, index) =>
               item.type === "classifications" ? (
-                <ClassificationsPanel key={item.id} id={item.id} index={index} learnMoreTo="/info-center#section-BC" />
+                <ClassificationsPanel key={item.id} id={item.id} index={index} learnMoreTo="/info-center#section-CH" />
               ) : (
                 <CranePanel
                   key={item.id}
@@ -597,7 +619,8 @@ export default function CranesPage() {
                   items={item.items}
                   images={item.images}
                   index={index}
-                  learnMoreTo="/info-center#section-BC"
+                  learnMoreTo="/info-center#section-CH"
+                  fillImage={item.id === "hoist-config-top-running"}
                 />
               )
             )}
@@ -619,7 +642,7 @@ export default function CranesPage() {
                 items={item.items}
                 images={item.images}
                 index={index}
-                learnMoreTo="/info-center#section-SC"
+                learnMoreTo="/info-center#section-CI"
               />
             ))}
           </div>
@@ -639,9 +662,32 @@ export default function CranesPage() {
                 items={svc.items}
                 images={svc.images}
                 index={index}
-                learnMoreTo="/info-center#section-SV1"
+                learnMoreTo="/info-center#section-CS"
               />
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Locations */}
+      <section id="locations" className="rp-section">
+        <div className="rp-section-inner">
+          <SectionSidebar title="Locations" />
+          <div className="rp-content">
+            <div className="crane-locations-grid">
+              <div className="crane-location-card">
+                <h3 className="crane-location-city">HOUSTON, TEXAS</h3>
+                <p className="crane-location-address">11550 Brittmore Park Drive</p>
+                <p className="crane-location-address">Houston, TX 77041</p>
+                <p className="crane-location-phone">(281) 671-7740</p>
+              </div>
+              <div className="crane-location-card">
+                <h3 className="crane-location-city">LAFAYETTE, LOUISIANA</h3>
+                <p className="crane-location-address">1250 Wall Road</p>
+                <p className="crane-location-address">Broussard, LA 70518</p>
+                <p className="crane-location-phone">(337) 451-2929</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>

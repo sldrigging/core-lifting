@@ -53,19 +53,13 @@
   margin: 0 0 0.3rem;
 }
 
-.loc-info-hours {
-  font-size: 0.82rem;
-  opacity: 0.8;
-  margin: 0 0 0.75rem;
-}
-
 .loc-info-services {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.2rem 1rem;
+  flex-direction: column;
+  gap: 0.2rem;
 }
 
 .loc-info-services li {
@@ -215,11 +209,6 @@
   .loc-info-address,
   .loc-info-phone {
     font-size: 0.82rem;
-  }
-
-  .loc-info-hours {
-    font-size: 0.75rem;
-    margin-bottom: 0.5rem;
   }
 
   .loc-info-services li {

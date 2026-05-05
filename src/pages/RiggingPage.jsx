@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import "./RiggingPage.css";
+import LocationCarousel from "../components/LocationCarousel";
 
 import riggingBanner1 from "../assets/riggingpage-banner-1.png";
 import riggingBanner2 from "../assets/riggingpage-banner-2.png";
@@ -60,8 +61,9 @@ import winches2 from "../assets/rigging-products/odessa-branch-18.jpg";
 import winches3 from "../assets/rigging-products/odessa-branch-19.png";
 
 // Service images
-import svcLoadTesting1 from "../assets/rigging-products/svc-load-testing-1.jpg";
-import svcLoadTesting2 from "../assets/rigging-products/svc-load-testing-2.jpg";
+import svcLoadTesting1 from "../assets/new-imgs/Load-Testing2.jpg";
+import svcLoadTesting2 from "../assets/new-imgs/Load-Testing1.jpeg";
+import svcNonDestructive from "../assets/new-imgs/Non-Destructive-Testing.jpeg";
 import svcCraneBlock1 from "../assets/rigging-products/svc-crane-block-rebuilds-1.jpg";
 import svcCraneBlock2 from "../assets/rigging-products/svc-crane-block-rebuilds-2.jpg";
 
@@ -71,6 +73,131 @@ import rentalLiftGear2 from "../assets/rigging-products/svc-lift-gear-engineerin
 import rentalLiftGear3 from "../assets/rigging-products/svc-lift-gear-engineering-4.png";
 import rentalLiftGear4 from "../assets/rigging-products/svc-lift-gear-engineering-5.png";
 import rentalLofts1 from "../assets/rigging-products/svc-product-specifications-1.jpg";
+
+// Location building images
+import newOrleansBuilding from "../assets/new-location-imgs/Core-New-Orleans-Building.jpg";
+import odessaBuilding from "../assets/locations/Core Odessa/Core-Odessa-Building.png";
+import houstonBuilding from "../assets/locations/Core Houston/Core-Houston-Building.png";
+import lafayetteBuilding from "../assets/new-location-imgs/Core-Lafayette-Building.jpg";
+import houmaBuilding from "../assets/new-location-imgs/Core-Houma-Building.jpg";
+
+// New Orleans gallery
+import newOrleans1 from "../assets/new-location-imgs/Core-New-Orleans.jpeg";
+import newOrleans2 from "../assets/new-location-imgs/Core-New-Orleans-2.jpg";
+import newOrleans3 from "../assets/new-location-imgs/Core-New-Orleans-3.jpg";
+
+// Odessa gallery
+import odessa1 from "../assets/locations/Core Odessa/Core-Odessa (1).jpeg";
+import odessa2 from "../assets/locations/Core Odessa/Core-Odessa (2).jpeg";
+import odessa3 from "../assets/locations/Core Odessa/Core-Odessa (3).jpeg";
+import odessa7 from "../assets/locations/Core Odessa/Core-Odessa (7).jpeg";
+import odessa8 from "../assets/locations/Core Odessa/Core-Odessa (8).jpeg";
+
+// Houston gallery
+import houston1 from "../assets/locations/Core Houston/Core-Houston (1).jpeg";
+import houston2 from "../assets/locations/Core Houston/Core-Houston (2).jpeg";
+import houston4 from "../assets/locations/Core Houston/Core-Houston (4).jpeg";
+import houston5 from "../assets/locations/Core Houston/Core-Houston (5).jpeg";
+import houston6 from "../assets/locations/Core Houston/Core-Houston (6).jpeg";
+import houston21 from "../assets/locations/Core Houston/Core-Houston (21).jpeg";
+import houston25 from "../assets/locations/Core Houston/Core-Houston (25).jpeg";
+
+// Lafayette gallery
+import lafayette1 from "../assets/locations/Core Lafayette/Core-Lafayette (1).jpeg";
+import lafayette2 from "../assets/locations/Core Lafayette/Core-Lafayette (2).jpg";
+import lafayette3 from "../assets/locations/Core Lafayette/Core-Lafayette (3).jpeg";
+import lafayette4 from "../assets/locations/Core Lafayette/Core-Lafayette (4).jpeg";
+import lafayette5 from "../assets/locations/Core Lafayette/Core-Lafayette (5).jpeg";
+import lafayette11 from "../assets/locations/Core Lafayette/Core-Lafayette (11).jpeg";
+import lafayette12 from "../assets/locations/Core Lafayette/Core-Lafayette (12).jpg";
+import lafayette13 from "../assets/locations/Core Lafayette/Core-Lafayette (13).jpg";
+
+// Houma gallery
+import houma1 from "../assets/locations/Core Houma/Core-Houma (1).jpg";
+import houma2 from "../assets/locations/Core Houma/Core-Houma (2).png";
+import houma3 from "../assets/locations/Core Houma/Core-Houma (3).jpeg";
+import houma4 from "../assets/locations/Core Houma/Core-Houma (4).jpeg";
+import houma5 from "../assets/locations/Core Houma/Core-Houma (5).jpeg";
+import houma6 from "../assets/locations/Core Houma/Core-Houma (6).jpeg";
+import houma22 from "../assets/locations/Core Houma/Core-Houma (22).jpeg";
+import houma24 from "../assets/locations/Core Houma/Core-Houma (24).jpg";
+import houma31 from "../assets/locations/Core Houma/Core-Houma (31).jpg";
+import houma33 from "../assets/locations/Core Houma/Core-Houma (33).png";
+import houma41 from "../assets/locations/Core Houma/Core-Houma (41).jpg";
+import houma44 from "../assets/locations/Core Houma/Core-Houma (44).jpeg";
+
+const locations = [
+  {
+    id: "loc-odessa",
+    name: "Odessa, Texas",
+    address: "2301 Martin Luther King, Jr. Street,  Odessa, TX 79761",
+    phone: "(432) 332-0006",
+    building: odessaBuilding,
+    buildingPosition: "center 65%",
+    images: [odessa1, odessa2, odessa3, odessa7, odessa8],
+    services: [
+      'Wire Rope Slings to 1-3/4"',
+      "Taper annealing crane ropes",
+      "Horizontal testing to 500,000 lbs",
+      "Vertical testing to 150,000 lbs",
+    ],
+  },
+  {
+    id: "loc-houston",
+    name: "Houston, Texas",
+    address: "11550 Brittmore Park Drive,  Houston, TX 77041",
+    phone: "(281) 671-7740",
+    building: houstonBuilding,
+    images: [houston1, houston2, houston4, houston5, houston6, houston21, houston25],
+    services: [
+      'Wire Rope Slings to 3-1/2"',
+      "Taper annealing crane ropes",
+      "Horizontal testing to 650,000 lbs",
+      "Vertical testing to 250,000 lbs",
+    ],
+  },
+  {
+    id: "loc-lafayette",
+    name: "Lafayette, Louisiana",
+    address: "1250 Wall Road  Broussard, LA 70518",
+    phone: "(337) 451-2929",
+    building: lafayetteBuilding,
+    images: [lafayette1, lafayette2, lafayette3, lafayette4, lafayette5, lafayette11, lafayette12, lafayette13],
+    services: [
+      'Wire Rope Slings to 2-1/2"',
+      "Taper annealing crane ropes",
+      "Horizontal testing to 1.3 million lbs",
+      "Vertical testing to 250,000 lbs",
+    ],
+  },
+  {
+    id: "loc-houma",
+    name: "Houma, Louisiana",
+    address: "189 Thompson Road,  Houma, LA 70518",
+    phone: "(985) 346-8270",
+    building: houmaBuilding,
+    images: [houma1, houma2, houma3, houma4, houma5, houma6, houma22, houma24, houma31, houma33, houma41, houma44],
+    services: [
+      'Wire Rope Slings to 3-1/2"',
+      "Taper annealing crane ropes",
+      "Horizontal testing to 600,000 lbs",
+      "Vertical testing to 300,000 lbs",
+    ],
+  },
+  {
+    id: "loc-new-orleans",
+    name: "New Orleans, Louisiana",
+    address: "222 Gunther Lane,  Belle Chasse, LA 70037",
+    phone: "(504) 833-6666",
+    building: newOrleansBuilding,
+    images: [newOrleans1, newOrleans2, newOrleans3],
+    services: [
+      'Wire Rope Slings to 1-3/4"',
+      "Horizontal testing to 200,000 lbs",
+      "Vertical testing to 250,000 lbs",
+    ],
+  },
+];
 
 const products = [
   {
@@ -196,6 +323,7 @@ const products = [
   {
     id: "winches",
     title: "Winches & Accessories",
+    subtitle: "Odessa Location Only",
     link: "/product-info#section-E",
     items: [
       "Winches, PTOs & Drives",
@@ -250,32 +378,7 @@ const services = [
       "Ultrasonic testing by 3rd party upon request",
       "X-ray testing by 3rd party upon request",
     ],
-    images: [],
-  },
-  {
-    title: "Repairs",
-    link: "/product-info#section-S3",
-    linkLabel: "Service Information",
-    items: ["Hoists", "Winches", "PTOs", "Crane blocks", "Synthetic slings"],
-    images: [],
-  },
-  {
-    title: "On-Site Socketing",
-    link: "/product-info#section-S4",
-    linkLabel: "Service Information",
-    items: ["Spelter socketing", "High performance crane rope buttons"],
-    images: [],
-  },
-  {
-    title: "Truck Winch Line Servicing",
-    link: "/product-info#section-S6",
-    linkLabel: "Service Information",
-    items: [
-      "Wire rope replacement",
-      "End button replacement",
-      "Thimble and hook replacement",
-    ],
-    images: [],
+    images: [svcNonDestructive],
   },
   {
     title: "Crane Block Rebuilds",
@@ -309,23 +412,6 @@ const rentals = [
     ],
     images: [rentalLiftGear1, rentalLiftGear2, rentalLiftGear3, rentalLiftGear4],
   },
-  {
-    title: "Rigging Lofts",
-    link: "/product-info#section-R2",
-    linkLabel: "Rental Information",
-    items: [
-      'Lifting sling assemblies to 3.5"',
-      "DNV 2.7-1 sling assemblies",
-      "Boom pendant lines",
-      "Raising lines",
-      "Mooring lines",
-      "Winch lines",
-      "Pipe slings",
-      "Braided slings",
-      "Spelter socket assemblies",
-    ],
-    images: [rentalLofts1],
-  },
 ];
 
 /* ── Animation variants ── */
@@ -355,7 +441,7 @@ const imageReveal = {
 
 /* ── Reusable Panel Component ── */
 
-function RiggingPanel({ title, items, images, link, linkLabel, index, id, imageLayout }) {
+function RiggingPanel({ title, subtitle, items, images, link, linkLabel, index, id, imageLayout }) {
   const isEven = index % 2 === 0;
   const hasImages = images && images.length > 0;
 
@@ -365,6 +451,11 @@ function RiggingPanel({ title, items, images, link, linkLabel, index, id, imageL
         <motion.h3 className="rp-panel-title" variants={itemVariants}>
           {title}
         </motion.h3>
+        {subtitle && (
+          <motion.p className="rp-panel-subtitle" variants={itemVariants}>
+            {subtitle}
+          </motion.p>
+        )}
 
         <ul className="rp-panel-list">
           {items.map((item, i) => (
@@ -562,6 +653,7 @@ export default function RiggingPage() {
                 key={product.id}
                 id={product.id}
                 title={product.title}
+                subtitle={product.subtitle}
                 items={product.items}
                 images={product.images}
                 link={product.link}
@@ -661,6 +753,18 @@ export default function RiggingPage() {
               />
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Locations */}
+      <section id="locations" className="rp-section">
+        <h2 className="rigging-locations-heading">Locations</h2>
+        <div className="rigging-locations-list">
+          {locations.map((loc) => (
+            <div key={loc.id} className="rigging-location-carousel-wrap">
+              <LocationCarousel location={loc} />
+            </div>
+          ))}
         </div>
       </section>
     </>

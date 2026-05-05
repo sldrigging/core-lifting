@@ -193,3 +193,51 @@
 .cranes-grid-img.img-shop      { object-position: center 50%; }
 .cranes-grid-img.img-dark-shop { object-position: center 40%; }
 .cranes-grid-img.img-panoramic { object-position: center 50%; }
+
+
+/* ── Locations ── */
+.crane-locations-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 2rem 0;
+}
+
+.crane-location-card {
+  background: #fff;
+  border: 1px solid #e8e2db;
+  border-radius: 8px;
+  padding: 2rem 2.5rem;
+  min-width: 220px;
+  flex: 1 1 220px;
+  max-width: 320px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.crane-location-city {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #1a1a1a;
+  margin: 0 0 0.75rem;
+  text-transform: uppercase;
+}
+
+.crane-location-address {
+  font-size: 0.88rem;
+  color: #555;
+  margin: 0 0 0.2rem;
+  line-height: 1.5;
+}
+
+.crane-location-phone {
+  font-size: 0.88rem;
+  color: #555;
+  margin: 0.6rem 0 0;
+}
+
+@media (max-width: 600px) {
+  .crane-location-card {
+    max-width: 100%;
+  }
+}

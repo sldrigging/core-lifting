@@ -41,7 +41,6 @@ export default function LocationCarousel({ location }) {
           <h2 className="loc-info-name">{name}</h2>
           <p className="loc-info-address">{address}</p>
           <p className="loc-info-phone">{phone}</p>
-          <p className="loc-info-hours">Std Hrs: 7:00 - 5:00 | On Call: 24/7</p>
           <ul className="loc-info-services">
             {services.map((s, i) => (
               <li key={i}>{s}</li>

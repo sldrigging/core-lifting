@@ -16,7 +16,6 @@ export default function Header() {
       navigate(path + hash);
     }
   };
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const isRiggingPage = location.pathname === "/rigging";
@@ -24,7 +23,7 @@ export default function Header() {
   const isCraneInfoPage = location.pathname === "/info-center";
   const isProductInfoPage = location.pathname === "/product-info";
   const isHomePage = location.pathname === "/";
-  const isHeaderVisible = !isHomePage || isScrolled;
+  const isHeaderVisible = !isHomePage;
 
   // Prevent scrolling when mobile menu is open
   useEffect(() => {
@@ -40,16 +39,6 @@ export default function Header() {
     setIsMobileMenuOpen(false);
   }, [location.pathname]);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const threshold = isHomePage ? window.innerHeight - 80 : 50;
-      setIsScrolled(window.scrollY > threshold);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [isHomePage]);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -122,7 +111,7 @@ export default function Header() {
                 <Link to="/rigging" onClick={() => window.scrollTo(0, 0)} className={getButtonClass("/rigging")}>
                   RIGGING
                 </Link>
-                <Link to="/info-center" onClick={() => window.scrollTo(0, 0)} className="header-action-btn header-action-btn--secondary">
+                <Link to="/cranes" onClick={() => window.scrollTo(0, 0)} className="header-action-btn header-action-btn--secondary">
                   Go to Cranes
                 </Link>
               </>
@@ -131,7 +120,7 @@ export default function Header() {
                 <Link to="/cranes" onClick={() => window.scrollTo(0, 0)} className={getButtonClass("/cranes")}>
                   CRANES
                 </Link>
-                <Link to="/product-info" onClick={() => window.scrollTo(0, 0)} className="header-action-btn header-action-btn--secondary">
+                <Link to="/rigging" onClick={() => window.scrollTo(0, 0)} className="header-action-btn header-action-btn--secondary">
                   Go to Rigging
                 </Link>
               </>
@@ -185,16 +174,16 @@ export default function Header() {
                 </a>
                 <div className="nav-dropdown-content">
                   <a href="/cranes#bridge-crane-single-girder" onClick={scrollToHash("/cranes", "#bridge-crane-single-girder")}>
-                    Single Girder
+                    Single Girder Cranes
                   </a>
                   <a href="/cranes#bridge-crane-double-girder" onClick={scrollToHash("/cranes", "#bridge-crane-double-girder")}>
-                    Double Girder
+                    Double Girder Cranes
                   </a>
                   <a href="/cranes#hoist-config-under-running" onClick={scrollToHash("/cranes", "#hoist-config-under-running")}>
-                    Under Running Crane
+                    Under Running Cranes
                   </a>
                   <a href="/cranes#hoist-config-top-running" onClick={scrollToHash("/cranes", "#hoist-config-top-running")}>
-                    Top Running Crane
+                    Top Running Cranes
                   </a>
                   <a href="/cranes#bridge-crane-classifications" onClick={scrollToHash("/cranes", "#bridge-crane-classifications")}>
                     Bridge Crane Classifications
@@ -314,23 +303,23 @@ export default function Header() {
             </Link>
           )}
 
-          <a
-            href="/#locations"
-            className="nav-link"
-            onClick={scrollToHash("/", "#locations")}
-          >
-            Locations
-            <br />& Contact
-          </a>
-          <a
-            href="/#about-us"
-            className="nav-link"
-            onClick={scrollToHash("/", "#about-us")}
-          >
-            About
-            <br />
-            Us
-          </a>
+          {isCranesPage || isCraneInfoPage ? (
+            <a
+              href="/cranes#locations"
+              className="nav-link"
+              onClick={scrollToHash("/cranes", "#locations")}
+            >
+              Locations
+            </a>
+          ) : isRiggingPage ? (
+            <a
+              href="/rigging#locations"
+              className="nav-link"
+              onClick={scrollToHash("/rigging", "#locations")}
+            >
+              Locations
+            </a>
+          ) : null}
 
           {/* Online Certs Dropdown */}
           <div className="nav-dropdown">
@@ -444,16 +433,16 @@ export default function Header() {
                 </a>
                 <div className="mobile-dropdown-items">
                   <a href="/cranes#bridge-crane-single-girder" onClick={(e) => { scrollToHash("/cranes", "#bridge-crane-single-girder")(e); toggleMobileMenu(); }}>
-                    Single Girder
+                    Single Girder Cranes
                   </a>
                   <a href="/cranes#bridge-crane-double-girder" onClick={(e) => { scrollToHash("/cranes", "#bridge-crane-double-girder")(e); toggleMobileMenu(); }}>
-                    Double Girder
+                    Double Girder Cranes
                   </a>
                   <a href="/cranes#hoist-config-under-running" onClick={(e) => { scrollToHash("/cranes", "#hoist-config-under-running")(e); toggleMobileMenu(); }}>
-                    Under Running Crane
+                    Under Running Cranes
                   </a>
                   <a href="/cranes#hoist-config-top-running" onClick={(e) => { scrollToHash("/cranes", "#hoist-config-top-running")(e); toggleMobileMenu(); }}>
-                    Top Running Crane
+                    Top Running Cranes
                   </a>
                   <a href="/cranes#bridge-crane-classifications" onClick={(e) => { scrollToHash("/cranes", "#bridge-crane-classifications")(e); toggleMobileMenu(); }}>
                     Bridge Crane Classifications
@@ -584,31 +573,27 @@ export default function Header() {
             )}
           </div>
 
-          <div className="mobile-nav-group">
-            <a
-              href="/#locations"
-              className="mobile-dropdown-header"
-              onClick={(e) => {
-                scrollToHash("/", "#locations")(e);
-                toggleMobileMenu();
-              }}
-            >
-              Locations & Contact
-            </a>
-          </div>
-
-          <div className="mobile-nav-group">
-            <a
-              href="/#about-us"
-              className="mobile-dropdown-header"
-              onClick={(e) => {
-                scrollToHash("/", "#about-us")(e);
-                toggleMobileMenu();
-              }}
-            >
-              About Us
-            </a>
-          </div>
+          {isCranesPage || isCraneInfoPage ? (
+            <div className="mobile-nav-group">
+              <a
+                href="/cranes#locations"
+                className="mobile-dropdown-header"
+                onClick={(e) => { scrollToHash("/cranes", "#locations")(e); toggleMobileMenu(); }}
+              >
+                Locations
+              </a>
+            </div>
+          ) : isRiggingPage ? (
+            <div className="mobile-nav-group">
+              <a
+                href="/rigging#locations"
+                className="mobile-dropdown-header"
+                onClick={(e) => { scrollToHash("/rigging", "#locations")(e); toggleMobileMenu(); }}
+              >
+                Locations
+              </a>
+            </div>
+          ) : null}
 
           <div className="mobile-nav-group">
             <div className="mobile-dropdown-header mobile-dropdown-header--static">
