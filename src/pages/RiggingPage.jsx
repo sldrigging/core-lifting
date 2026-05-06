@@ -64,7 +64,7 @@ import winches3 from "../assets/rigging-products/odessa-branch-19.png";
 import svcLoadTesting1 from "../assets/new-imgs/Load-Testing2.jpg";
 import svcLoadTesting2 from "../assets/new-imgs/Load-Testing1.jpeg";
 import svcNonDestructive from "../assets/new-imgs/Non-Destructive-Testing.jpeg";
-import svcInspections from "../assets/Core-Houston (2).jpeg";
+import svcInspections from "../assets/new-imgs/Core-Houston (2).jpeg";
 import svcCraneBlock1 from "../assets/rigging-products/svc-crane-block-rebuilds-1.jpg";
 import svcCraneBlock2 from "../assets/rigging-products/svc-crane-block-rebuilds-2.jpg";
 
@@ -73,7 +73,6 @@ import rentalLiftGear1 from "../assets/rigging-products/svc-lift-gear-engineerin
 import rentalLiftGear2 from "../assets/rigging-products/svc-lift-gear-engineering-3.jpg";
 import rentalLiftGear3 from "../assets/rigging-products/svc-lift-gear-engineering-4.png";
 import rentalLiftGear4 from "../assets/rigging-products/svc-lift-gear-engineering-5.png";
-import rentalLofts1 from "../assets/rigging-products/svc-product-specifications-1.jpg";
 
 // Location building images
 import newOrleansBuilding from "../assets/new-location-imgs/Core-New-Orleans-Building.jpg";
