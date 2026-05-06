@@ -241,3 +241,21 @@
     max-width: 100%;
   }
 }
+
+/* ── Hero: 2×2 grid on mobile ── */
+
+@media (max-width: 640px) {
+  .cranes-top-row {
+    grid-template-columns: 1fr 1fr;
+    height: clamp(140px, 45vw, 260px);
+  }
+
+  .cranes-top-row .cranes-grid-item:nth-child(2) {
+    display: none;
+  }
+
+  .cranes-bottom-row {
+    grid-template-columns: 1fr 1fr;
+    height: clamp(140px, 45vw, 260px);
+  }
+}
