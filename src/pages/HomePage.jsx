@@ -4,7 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import "./HomePage.css";
 
 import craneBanner1 from "../assets/cranes/banner-1.png";
-import craneBanner2 from "../assets/cranes/banner-2.png";
+import craneBanner2 from "../assets/new-imgs/Core-Overhead-Crane.jpg";
 import bannerRightTop from "../assets/new-imgs/Core-Houston (1).png";
 import bannerRightBottom from "../assets/new-imgs/Core-Houma (22).png";
 import logo from "../assets/core-logo.png";
