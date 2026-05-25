@@ -6,12 +6,12 @@ import LocationCarousel from "../components/LocationCarousel";
 
 /* ── Hero collage images (3:2) ── */
 import heroChainSlings from "../assets/imgs-rv/3-2/Rigging Hero Collage/Chain-Slings.jpg";
-import heroLinks from "../assets/imgs-rv/3-2/Rigging Hero Collage/Links.jpg";
 import heroRiggingFab from "../assets/imgs-rv/3-2/Rigging Hero Collage/Rigging-Fab.jpg";
 import heroSewing from "../assets/imgs-rv/3-2/Rigging Hero Collage/Sewing.jpg";
 import heroSpooling from "../assets/imgs-rv/3-2/Rigging Hero Collage/Spooling.jpg";
 import heroVerticalTest from "../assets/imgs-rv/3-2/Rigging Hero Collage/Vertical-Test-bed.jpg";
 import heroWinchRepair from "../assets/imgs-rv/3-2/Rigging Hero Collage/Winch-Repair.jpg";
+import heroWireRope from "../assets/imgs-rv/3-2/Rigging Hero Collage/Wire-Rope.jpg";
 import heroHoist from "../assets/imgs-rv/Hoist.jpg";
 
 /* ── Product slide images ── */
@@ -89,8 +89,8 @@ import houma44 from "../assets/locations/Core Houma/Core-Houma (44).jpeg";
 const heroCollage = [
   heroSewing,
   heroChainSlings,
-  heroLinks,
   heroHoist,
+  heroWireRope,
   heroVerticalTest,
   heroRiggingFab,
   heroWinchRepair,
