@@ -61,6 +61,7 @@
 .hero-image-panel {
   overflow: hidden;
   position: relative;
+  cursor: pointer;
 }
 
 .hero-image-panel--left  { grid-area: crane; }
@@ -96,7 +97,9 @@
   transition: background 0.2s ease, color 0.2s ease;
 }
 
-.hero-nav-link:hover {
+.hero-nav-link:hover,
+.home-hero-container:has(.hero-image-panel--left:hover) .hero-nav-link--cranes,
+.home-hero-container:has(.hero-image-panel--right:hover) .hero-nav-link--rigging {
   background: linear-gradient(
     160deg,
     #585a58 0%,

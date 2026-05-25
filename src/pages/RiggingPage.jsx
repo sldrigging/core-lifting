@@ -12,10 +12,10 @@ import heroSewing from "../assets/imgs-rv/3-2/Rigging Hero Collage/Sewing.jpg";
 import heroSpooling from "../assets/imgs-rv/3-2/Rigging Hero Collage/Spooling.jpg";
 import heroVerticalTest from "../assets/imgs-rv/3-2/Rigging Hero Collage/Vertical-Test-bed.jpg";
 import heroWinchRepair from "../assets/imgs-rv/3-2/Rigging Hero Collage/Winch-Repair.jpg";
-import heroWireRope from "../assets/imgs-rv/3-2/Rigging Hero Collage/Wire-Rope.jpg";
+import heroHoist from "../assets/imgs-rv/Hoist.jpg";
 
 /* ── Product slide images ── */
-import imgHoists from "../assets/imgs-rv/Hoists-Img.jpg";
+import imgHoists from "../assets/imgs-rv/Hoists.jpg";
 import imgWireRope from "../assets/imgs-rv/Wire-Rope.jpg";
 import imgWireRopeAssemblies from "../assets/imgs-rv/3-2/Wire-Rope-Assemblies.jpg";
 import imgRiggingHardware from "../assets/imgs-rv/Rigging-Hardware.jpg";
@@ -40,9 +40,9 @@ import jdnLogo from "../assets/imgs-rv/jdn-repair-center-blue.png";
 
 /* ── Location building images ── */
 import newOrleansBuilding from "../assets/new-location-imgs/Sea-Ropes-New-Orleans-Building.jpg";
-import odessaBuilding from "../assets/locations/Core Odessa/Core-Odessa-Building.png";
+import odessaBuilding from "../assets/imgs-rv/Core-Odessa.jpg";
 import houstonBuilding from "../assets/locations/Core Houston/Core-Houston-Building.png";
-import lafayetteBuilding from "../assets/new-location-imgs/Core-Lafayette-Building.jpg";
+import lafayetteBuilding from "../assets/imgs-rv/Core-Lafayette.jpg";
 import houmaBuilding from "../assets/new-location-imgs/Sea-Ropes-Houma-Building.jpg";
 
 import newOrleans1 from "../assets/new-location-imgs/Core-New-Orleans.jpeg";
@@ -90,7 +90,7 @@ const heroCollage = [
   heroSewing,
   heroChainSlings,
   heroLinks,
-  heroWireRope,
+  heroHoist,
   heroVerticalTest,
   heroRiggingFab,
   heroWinchRepair,

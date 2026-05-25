@@ -4,7 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import "./HomePage.css";
 
 import craneImg from "../assets/imgs-rv/Core-Overhead-Crane-32.jpg";
-import chainImg from "../assets/imgs-rv/Chain-Sling-Inspection-32.jpg";
+import chainImg from "../assets/imgs-rv/Chain-Sling-Inspection-Hero.jpg";
 import logo from "../assets/core-logo.png";
 
 export default function HomePage() {
@@ -30,15 +30,15 @@ export default function HomePage() {
 
           <div className="hero-accent-bar" />
 
-          <div className="hero-image-panel hero-image-panel--left">
+          <Link to="/cranes" className="hero-image-panel hero-image-panel--left">
             <img src={craneImg} alt="Core Overhead Crane" />
-          </div>
+          </Link>
 
           <Link to="/cranes" className="hero-nav-link hero-nav-link--cranes">CRANES & SERVICES</Link>
 
-          <div className="hero-image-panel hero-image-panel--right">
+          <Link to="/rigging" className="hero-image-panel hero-image-panel--right">
             <img src={chainImg} alt="Chain Sling Inspection" />
-          </div>
+          </Link>
 
           <Link to="/rigging" className="hero-nav-link hero-nav-link--rigging">RIGGING & SERVICES</Link>
 
