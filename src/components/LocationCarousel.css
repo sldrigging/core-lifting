@@ -41,6 +41,16 @@
   line-height: 1.2;
 }
 
+.loc-info-company {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin: 0 0 0.3rem;
+  opacity: 0.6;
+  line-height: 1;
+}
+
 .loc-info-address {
   font-size: 0.88rem;
   margin: 0 0 0.2rem;
@@ -204,6 +214,10 @@
 
   .loc-info-name {
     font-size: 1.3rem;
+  }
+
+  .loc-info-company {
+    font-size: 0.65rem;
   }
 
   .loc-info-address,

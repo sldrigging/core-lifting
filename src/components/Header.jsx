@@ -166,39 +166,18 @@ export default function Header() {
               {/* Cranes dropdown */}
               <div className="nav-dropdown">
                 <a
-                  href="/cranes#bridge-cranes"
+                  href="/cranes#cranes"
                   className="nav-dropdown-trigger nav-link"
-                  onClick={scrollToHash("/cranes", "#bridge-cranes")}
+                  onClick={scrollToHash("/cranes", "#cranes")}
                 >
                   Cranes
                 </a>
                 <div className="nav-dropdown-content">
-                  <a href="/cranes#bridge-crane-single-girder" onClick={scrollToHash("/cranes", "#bridge-crane-single-girder")}>
-                    Single Girder Cranes
-                  </a>
-                  <a href="/cranes#bridge-crane-double-girder" onClick={scrollToHash("/cranes", "#bridge-crane-double-girder")}>
-                    Double Girder Cranes
-                  </a>
-                  <a href="/cranes#hoist-config-under-running" onClick={scrollToHash("/cranes", "#hoist-config-under-running")}>
-                    Under Running Cranes
-                  </a>
-                  <a href="/cranes#hoist-config-top-running" onClick={scrollToHash("/cranes", "#hoist-config-top-running")}>
-                    Top Running Cranes
-                  </a>
-                  <a href="/cranes#bridge-crane-classifications" onClick={scrollToHash("/cranes", "#bridge-crane-classifications")}>
-                    Bridge Crane Classifications
+                  <a href="/cranes#bridge-cranes" onClick={scrollToHash("/cranes", "#bridge-cranes")}>
+                    Bridge Cranes
                   </a>
                   <a href="/cranes#manufacturing" onClick={scrollToHash("/cranes", "#manufacturing")}>
-                    Engineering &amp; Manufacturing
-                  </a>
-                  <a href="/cranes#hoists" onClick={scrollToHash("/cranes", "#hoists")}>
-                    Crane Components
-                  </a>
-                  <a href="/cranes#gantry-cranes" onClick={scrollToHash("/cranes", "#gantry-cranes")}>
-                    Gantry Cranes
-                  </a>
-                  <a href="/cranes#monorail-cranes" onClick={scrollToHash("/cranes", "#monorail-cranes")}>
-                    Monorail Cranes
+                    Manufacturing
                   </a>
                   <a href="/cranes#jib-cranes" onClick={scrollToHash("/cranes", "#jib-cranes")}>
                     Jib Cranes
@@ -206,22 +185,32 @@ export default function Header() {
                   <a href="/cranes#workstation-cranes" onClick={scrollToHash("/cranes", "#workstation-cranes")}>
                     Workstation Cranes
                   </a>
-                  <a href="/cranes#shop-gantry-cranes" onClick={scrollToHash("/cranes", "#shop-gantry-cranes")}>
-                    Shop Gantry Cranes
-                  </a>
                   <a href="/cranes#davit-cranes" onClick={scrollToHash("/cranes", "#davit-cranes")}>
                     Davit Cranes
                   </a>
                 </div>
               </div>
 
-              <a
-                href="/cranes#crane-services"
-                className="nav-link"
-                onClick={scrollToHash("/cranes", "#crane-services")}
-              >
-                Services
-              </a>
+              <div className="nav-dropdown">
+                <a
+                  href="/cranes#crane-services"
+                  className="nav-dropdown-trigger nav-link"
+                  onClick={scrollToHash("/cranes", "#crane-services")}
+                >
+                  Services
+                </a>
+                <div className="nav-dropdown-content">
+                  <a href="/cranes#field-services" onClick={scrollToHash("/cranes", "#field-services")}>
+                    Field Services
+                  </a>
+                  <a href="/cranes#load-testing" onClick={scrollToHash("/cranes", "#load-testing")}>
+                    Load Testing
+                  </a>
+                  <a href="/cranes#installation" onClick={scrollToHash("/cranes", "#installation")}>
+                    Installation
+                  </a>
+                </div>
+              </div>
             </>
           ) : (
             <>
@@ -235,46 +224,68 @@ export default function Header() {
                   Products
                 </a>
                 <div className="nav-dropdown-content">
-                  <a href="/rigging#wire-rope-cable" onClick={scrollToHash("/rigging", "#wire-rope-cable")}>
-                    Wire Rope & Cable
+                  <a href="/rigging#hoists" onClick={scrollToHash("/rigging", "#hoists")}>
+                    Hoists
+                  </a>
+                  <a href="/rigging#wire-rope" onClick={scrollToHash("/rigging", "#wire-rope")}>
+                    Wire Rope
                   </a>
                   <a href="/rigging#wire-rope-assemblies" onClick={scrollToHash("/rigging", "#wire-rope-assemblies")}>
                     Wire Rope Assemblies
                   </a>
-                  <a href="/rigging#chain-fittings" onClick={scrollToHash("/rigging", "#chain-fittings")}>
-                    Chain & Fittings
+                  <a href="/rigging#rigging-hardware" onClick={scrollToHash("/rigging", "#rigging-hardware")}>
+                    Rigging Hardware
+                  </a>
+                  <a href="/rigging#chain-products" onClick={scrollToHash("/rigging", "#chain-products")}>
+                    Chain Products
                   </a>
                   <a href="/rigging#synthetics" onClick={scrollToHash("/rigging", "#synthetics")}>
                     Synthetics
                   </a>
-                  <a href="/rigging#rigging-hardware" onClick={scrollToHash("/rigging", "#rigging-hardware")}>
-                    Rigging Hardware
-                  </a>
                   <a href="/rigging#lubricators" onClick={scrollToHash("/rigging", "#lubricators")}>
-                    Lubricators / Lubricants
-                  </a>
-                  <a href="/rigging#load-securement" onClick={scrollToHash("/rigging", "#load-securement")}>
-                    Load Securement
-                  </a>
-                  <a href="/rigging#cordage" onClick={scrollToHash("/rigging", "#cordage")}>
-                    Cordage
-                  </a>
-                  <a href="/rigging#hoists" onClick={scrollToHash("/rigging", "#hoists")}>
-                    Hoists, Service & Repairs
-                  </a>
-                  <a href="/rigging#winches" onClick={scrollToHash("/rigging", "#winches")}>
-                    Winches & Accessories
+                    Lubricators
                   </a>
                 </div>
               </div>
 
-              <a
-                href="/rigging#services"
-                className="nav-link"
-                onClick={scrollToHash("/rigging", "#services")}
-              >
-                Services
-              </a>
+              <div className="nav-dropdown">
+                <a
+                  href="/rigging#services"
+                  className="nav-dropdown-trigger nav-link"
+                  onClick={scrollToHash("/rigging", "#services")}
+                >
+                  Services
+                </a>
+                <div className="nav-dropdown-content">
+                  <a href="/rigging#taper-annealing" onClick={scrollToHash("/rigging", "#taper-annealing")}>
+                    Taper Annealing
+                  </a>
+                  <a href="/rigging#load-testing" onClick={scrollToHash("/rigging", "#load-testing")}>
+                    Load Testing
+                  </a>
+                  <a href="/rigging#portable-pad-eye-testing" onClick={scrollToHash("/rigging", "#portable-pad-eye-testing")}>
+                    Portable Pad Eye Testing
+                  </a>
+                  <a href="/rigging#inspections" onClick={scrollToHash("/rigging", "#inspections")}>
+                    Inspections
+                  </a>
+                  <a href="/rigging#ndt" onClick={scrollToHash("/rigging", "#ndt")}>
+                    NDT
+                  </a>
+                  <a href="/rigging#winch-servicing" onClick={scrollToHash("/rigging", "#winch-servicing")}>
+                    Winch Servicing
+                  </a>
+                  <a href="/rigging#hoist-repair" onClick={scrollToHash("/rigging", "#hoist-repair")}>
+                    Hoist Repair
+                  </a>
+                  <a href="/rigging#block-rebuilds" onClick={scrollToHash("/rigging", "#block-rebuilds")}>
+                    Block Rebuilds
+                  </a>
+                  <a href="/rigging#winch-line-servicing" onClick={scrollToHash("/rigging", "#winch-line-servicing")}>
+                    Winch Line Servicing
+                  </a>
+                </div>
+              </div>
               <a
                 href="/rigging#rentals"
                 className="nav-link"
@@ -425,48 +436,24 @@ export default function Header() {
             <>
               <div className="mobile-nav-group">
                 <a
-                  href="/cranes#bridge-cranes"
+                  href="/cranes#cranes"
                   className="mobile-dropdown-header"
-                  onClick={(e) => { scrollToHash("/cranes", "#bridge-cranes")(e); toggleMobileMenu(); }}
+                  onClick={(e) => { scrollToHash("/cranes", "#cranes")(e); toggleMobileMenu(); }}
                 >
                   Cranes
                 </a>
                 <div className="mobile-dropdown-items">
-                  <a href="/cranes#bridge-crane-single-girder" onClick={(e) => { scrollToHash("/cranes", "#bridge-crane-single-girder")(e); toggleMobileMenu(); }}>
-                    Single Girder Cranes
-                  </a>
-                  <a href="/cranes#bridge-crane-double-girder" onClick={(e) => { scrollToHash("/cranes", "#bridge-crane-double-girder")(e); toggleMobileMenu(); }}>
-                    Double Girder Cranes
-                  </a>
-                  <a href="/cranes#hoist-config-under-running" onClick={(e) => { scrollToHash("/cranes", "#hoist-config-under-running")(e); toggleMobileMenu(); }}>
-                    Under Running Cranes
-                  </a>
-                  <a href="/cranes#hoist-config-top-running" onClick={(e) => { scrollToHash("/cranes", "#hoist-config-top-running")(e); toggleMobileMenu(); }}>
-                    Top Running Cranes
-                  </a>
-                  <a href="/cranes#bridge-crane-classifications" onClick={(e) => { scrollToHash("/cranes", "#bridge-crane-classifications")(e); toggleMobileMenu(); }}>
-                    Bridge Crane Classifications
+                  <a href="/cranes#bridge-cranes" onClick={(e) => { scrollToHash("/cranes", "#bridge-cranes")(e); toggleMobileMenu(); }}>
+                    Bridge Cranes
                   </a>
                   <a href="/cranes#manufacturing" onClick={(e) => { scrollToHash("/cranes", "#manufacturing")(e); toggleMobileMenu(); }}>
-                    Engineering &amp; Manufacturing
-                  </a>
-                  <a href="/cranes#hoists" onClick={(e) => { scrollToHash("/cranes", "#hoists")(e); toggleMobileMenu(); }}>
-                    Crane Components
-                  </a>
-                  <a href="/cranes#gantry-cranes" onClick={(e) => { scrollToHash("/cranes", "#gantry-cranes")(e); toggleMobileMenu(); }}>
-                    Gantry Cranes
-                  </a>
-                  <a href="/cranes#monorail-cranes" onClick={(e) => { scrollToHash("/cranes", "#monorail-cranes")(e); toggleMobileMenu(); }}>
-                    Monorail Cranes
+                    Manufacturing
                   </a>
                   <a href="/cranes#jib-cranes" onClick={(e) => { scrollToHash("/cranes", "#jib-cranes")(e); toggleMobileMenu(); }}>
                     Jib Cranes
                   </a>
                   <a href="/cranes#workstation-cranes" onClick={(e) => { scrollToHash("/cranes", "#workstation-cranes")(e); toggleMobileMenu(); }}>
                     Workstation Cranes
-                  </a>
-                  <a href="/cranes#shop-gantry-cranes" onClick={(e) => { scrollToHash("/cranes", "#shop-gantry-cranes")(e); toggleMobileMenu(); }}>
-                    Shop Gantry Cranes
                   </a>
                   <a href="/cranes#davit-cranes" onClick={(e) => { scrollToHash("/cranes", "#davit-cranes")(e); toggleMobileMenu(); }}>
                     Davit Cranes
@@ -482,6 +469,17 @@ export default function Header() {
                 >
                   Services
                 </a>
+                <div className="mobile-dropdown-items">
+                  <a href="/cranes#field-services" onClick={(e) => { scrollToHash("/cranes", "#field-services")(e); toggleMobileMenu(); }}>
+                    Field Services
+                  </a>
+                  <a href="/cranes#load-testing" onClick={(e) => { scrollToHash("/cranes", "#load-testing")(e); toggleMobileMenu(); }}>
+                    Load Testing
+                  </a>
+                  <a href="/cranes#installation" onClick={(e) => { scrollToHash("/cranes", "#installation")(e); toggleMobileMenu(); }}>
+                    Installation
+                  </a>
+                </div>
               </div>
             </>
           ) : (
@@ -498,35 +496,26 @@ export default function Header() {
                   Products
                 </a>
                 <div className="mobile-dropdown-items">
-                  <a href="/rigging#wire-rope-cable" onClick={(e) => { scrollToHash("/rigging", "#wire-rope-cable")(e); toggleMobileMenu(); }}>
-                    Wire Rope & Cable
+                  <a href="/rigging#hoists" onClick={(e) => { scrollToHash("/rigging", "#hoists")(e); toggleMobileMenu(); }}>
+                    Hoists
+                  </a>
+                  <a href="/rigging#wire-rope" onClick={(e) => { scrollToHash("/rigging", "#wire-rope")(e); toggleMobileMenu(); }}>
+                    Wire Rope
                   </a>
                   <a href="/rigging#wire-rope-assemblies" onClick={(e) => { scrollToHash("/rigging", "#wire-rope-assemblies")(e); toggleMobileMenu(); }}>
                     Wire Rope Assemblies
                   </a>
-                  <a href="/rigging#chain-fittings" onClick={(e) => { scrollToHash("/rigging", "#chain-fittings")(e); toggleMobileMenu(); }}>
-                    Chain & Fittings
+                  <a href="/rigging#rigging-hardware" onClick={(e) => { scrollToHash("/rigging", "#rigging-hardware")(e); toggleMobileMenu(); }}>
+                    Rigging Hardware
+                  </a>
+                  <a href="/rigging#chain-products" onClick={(e) => { scrollToHash("/rigging", "#chain-products")(e); toggleMobileMenu(); }}>
+                    Chain Products
                   </a>
                   <a href="/rigging#synthetics" onClick={(e) => { scrollToHash("/rigging", "#synthetics")(e); toggleMobileMenu(); }}>
                     Synthetics
                   </a>
-                  <a href="/rigging#rigging-hardware" onClick={(e) => { scrollToHash("/rigging", "#rigging-hardware")(e); toggleMobileMenu(); }}>
-                    Rigging Hardware
-                  </a>
                   <a href="/rigging#lubricators" onClick={(e) => { scrollToHash("/rigging", "#lubricators")(e); toggleMobileMenu(); }}>
-                    Lubricators / Lubricants
-                  </a>
-                  <a href="/rigging#load-securement" onClick={(e) => { scrollToHash("/rigging", "#load-securement")(e); toggleMobileMenu(); }}>
-                    Load Securement
-                  </a>
-                  <a href="/rigging#cordage" onClick={(e) => { scrollToHash("/rigging", "#cordage")(e); toggleMobileMenu(); }}>
-                    Cordage
-                  </a>
-                  <a href="/rigging#hoists" onClick={(e) => { scrollToHash("/rigging", "#hoists")(e); toggleMobileMenu(); }}>
-                    Hoists, Service & Repairs
-                  </a>
-                  <a href="/rigging#winches" onClick={(e) => { scrollToHash("/rigging", "#winches")(e); toggleMobileMenu(); }}>
-                    Winches & Accessories
+                    Lubricators
                   </a>
                 </div>
               </div>
@@ -539,6 +528,35 @@ export default function Header() {
                 >
                   Services
                 </a>
+                <div className="mobile-dropdown-items">
+                  <a href="/rigging#taper-annealing" onClick={(e) => { scrollToHash("/rigging", "#taper-annealing")(e); toggleMobileMenu(); }}>
+                    Taper Annealing
+                  </a>
+                  <a href="/rigging#load-testing" onClick={(e) => { scrollToHash("/rigging", "#load-testing")(e); toggleMobileMenu(); }}>
+                    Load Testing
+                  </a>
+                  <a href="/rigging#portable-pad-eye-testing" onClick={(e) => { scrollToHash("/rigging", "#portable-pad-eye-testing")(e); toggleMobileMenu(); }}>
+                    Portable Pad Eye Testing
+                  </a>
+                  <a href="/rigging#inspections" onClick={(e) => { scrollToHash("/rigging", "#inspections")(e); toggleMobileMenu(); }}>
+                    Inspections
+                  </a>
+                  <a href="/rigging#ndt" onClick={(e) => { scrollToHash("/rigging", "#ndt")(e); toggleMobileMenu(); }}>
+                    NDT
+                  </a>
+                  <a href="/rigging#winch-servicing" onClick={(e) => { scrollToHash("/rigging", "#winch-servicing")(e); toggleMobileMenu(); }}>
+                    Winch Servicing
+                  </a>
+                  <a href="/rigging#hoist-repair" onClick={(e) => { scrollToHash("/rigging", "#hoist-repair")(e); toggleMobileMenu(); }}>
+                    Hoist Repair
+                  </a>
+                  <a href="/rigging#block-rebuilds" onClick={(e) => { scrollToHash("/rigging", "#block-rebuilds")(e); toggleMobileMenu(); }}>
+                    Block Rebuilds
+                  </a>
+                  <a href="/rigging#winch-line-servicing" onClick={(e) => { scrollToHash("/rigging", "#winch-line-servicing")(e); toggleMobileMenu(); }}>
+                    Winch Line Servicing
+                  </a>
+                </div>
               </div>
 
               <div className="mobile-nav-group">

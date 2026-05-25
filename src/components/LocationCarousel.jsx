@@ -2,7 +2,7 @@ import { useState, useCallback, useEffect } from "react";
 import "./LocationCarousel.css";
 
 export default function LocationCarousel({ location }) {
-  const { id, name, address, phone, services, images, building } = location;
+  const { id, name, company, address, phone, services, images, building } = location;
   const [perView, setPerView] = useState(3);
   const [current, setCurrent] = useState(0);
 
@@ -38,6 +38,7 @@ export default function LocationCarousel({ location }) {
           style={{ objectPosition: location.buildingPosition || "center center" }}
         />
         <div className="loc-info-box">
+          {company && <h2 className="loc-info-company">{company}</h2>}
           <h2 className="loc-info-name">{name}</h2>
           <p className="loc-info-address">{address}</p>
           <p className="loc-info-phone">{phone}</p>
