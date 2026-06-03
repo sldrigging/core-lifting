@@ -4,9 +4,8 @@
   grid-template-areas:
     "logo    logo"
     "accent  accent"
-    "crane   chain"
-    "cranes  rigging";
-  grid-template-rows: 114px 10px 1fr 90px;
+    "crane   chain";
+  grid-template-rows: 114px 10px 1fr;
   grid-template-columns: 1fr 1fr;
   width: 100%;
   height: 100vh;
@@ -62,6 +61,7 @@
   overflow: hidden;
   position: relative;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .hero-image-panel--left  { grid-area: crane; }
@@ -74,61 +74,64 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform 0.4s ease;
 }
 
-/* ── Nav links (shared styles) ── */
-.hero-nav-link {
+.hero-image-panel:hover img {
+  transform: scale(1.03);
+}
+
+/* ── Overlay (title + enter button) ── */
+.hero-panel-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(255, 255, 255, 0.88);
-  text-decoration: none;
-  font-size: 1.15rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  background: linear-gradient(
-    160deg,
-    #4e504e 0%,
-    #414241 30%,
-    #363836 50%,
-    #414241 70%,
-    #4a4c4a 100%
-  );
-  transition: background 0.2s ease, color 0.2s ease;
+  gap: 1.5rem;
+  padding: 1.1rem 1.5rem;
+  background: rgba(65, 66, 65, 0.7);
+  transition: background 0.3s ease;
 }
 
-.hero-nav-link:hover,
-.home-hero-container:has(.hero-image-panel--left:hover) .hero-nav-link--cranes,
-.home-hero-container:has(.hero-image-panel--right:hover) .hero-nav-link--rigging {
-  background: linear-gradient(
-    160deg,
-    #585a58 0%,
-    #4a4c4a 30%,
-    #404240 50%,
-    #4a4c4a 70%,
-    #545654 100%
-  );
+.hero-image-panel:hover .hero-panel-overlay {
+  background: rgba(65, 66, 65, 0.85);
+}
+
+.hero-panel-title {
   color: #fff;
+  font-size: clamp(1.3rem, 2.6vw, 1.9rem);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
-.hero-nav-link--cranes {
-  grid-area: cranes;
-  box-shadow:
-    0 -3px 12px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.25);
-  border-right: 1px solid rgba(255, 255, 255, 0.07);
+.hero-panel-enter {
+  display: inline-block;
+  background: #9c4c2a;
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 0.6rem 1.3rem;
+  border-radius: 2px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  flex-shrink: 0;
 }
 
-.hero-nav-link--rigging {
-  grid-area: rigging;
-  box-shadow:
-    0 -3px 12px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.25);
+.hero-image-panel:hover .hero-panel-enter {
+  background: #b35a32;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
 }
 
-/* ── Mobile: flex column — cranes bar divides images, rigging bar at bottom ── */
+/* ── Mobile ── */
 @media (max-width: 600px) {
   .home-hero-container {
     display: flex;
@@ -138,17 +141,19 @@
   .hero-logo-bar           { order: 1; height: 80px; flex-shrink: 0; }
   .hero-accent-bar         { order: 2; height: 10px; flex-shrink: 0; }
   .hero-image-panel--left  { order: 3; flex: 1; }
-  .hero-nav-link--cranes   { order: 4; height: 72px; flex-shrink: 0; border-right: none; }
-  .hero-image-panel--right { order: 5; flex: 1; }
-  .hero-nav-link--rigging  { order: 6; height: 72px; flex-shrink: 0; }
+  .hero-image-panel--right { order: 4; flex: 1; }
 
   .hero-logo-bar-img {
     height: 56px;
   }
 
-  .hero-nav-link {
-    font-size: 0.85rem;
-    letter-spacing: 0.1em;
+  .hero-panel-title {
+    font-size: clamp(0.95rem, 4.5vw, 1.2rem);
+  }
+
+  .hero-panel-enter {
+    font-size: 0.6rem;
+    padding: 0.45rem 0.9rem;
   }
 }
 

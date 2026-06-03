@@ -32,15 +32,19 @@ export default function HomePage() {
 
           <Link to="/cranes" className="hero-image-panel hero-image-panel--left">
             <img src={craneImg} alt="Core Overhead Crane" />
+            <div className="hero-panel-overlay">
+              <span className="hero-panel-title">CRANES & SERVICES</span>
+              <span className="hero-panel-enter">ENTER</span>
+            </div>
           </Link>
-
-          <Link to="/cranes" className="hero-nav-link hero-nav-link--cranes">CRANES & SERVICES</Link>
 
           <Link to="/rigging" className="hero-image-panel hero-image-panel--right">
             <img src={chainImg} alt="Chain Sling Inspection" />
+            <div className="hero-panel-overlay">
+              <span className="hero-panel-enter">ENTER</span>
+              <span className="hero-panel-title">RIGGING & SERVICES</span>
+            </div>
           </Link>
-
-          <Link to="/rigging" className="hero-nav-link hero-nav-link--rigging">RIGGING & SERVICES</Link>
 
         </div>
       </section>
