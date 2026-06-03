@@ -103,7 +103,7 @@
 
 .hero-panel-title {
   color: #fff;
-  font-size: clamp(1.3rem, 2.6vw, 1.9rem);
+  font-size: clamp(1.6rem, 3.5vw, 2.6rem);
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
