@@ -525,7 +525,7 @@ export default function RiggingPage() {
         </div>
       </section>
       {/* Contact Form Section */}
-<section id="contact-form" style={{ display: 'flex', justifyContent: 'center', padding: '4rem 1rem', backgroundColor: '#f9f9f9' }}>
+<section id="contact-form" style={{ display: 'flex', justifyContent: 'center' }}>
   <iframe 
     width="950px" 
     height="1650px" 
