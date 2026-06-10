@@ -524,6 +524,22 @@ export default function RiggingPage() {
           ))}
         </div>
       </section>
+      {/* Contact Form Section */}
+<section id="contact-form" style={{ display: 'flex', justifyContent: 'center', padding: '4rem 1rem', backgroundColor: '#f9f9f9' }}>
+  <iframe 
+    width="640px" 
+    height="480px" 
+    src="https://forms.office.com/r/wssL87gKyR?embed=true" 
+    frameBorder="0" 
+    marginWidth="0" 
+    marginHeight="0" 
+    style={{ border: 'none', maxWidth: '100%', maxHeight: '100vh' }} 
+    allowFullScreen 
+    webkitAllowFullScreen 
+    mozAllowFullScreen 
+    msAllowFullScreen
+  ></iframe>
+</section>
     </>
   );
 }
