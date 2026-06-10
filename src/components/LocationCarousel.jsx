@@ -1,5 +1,6 @@
 import { useState, useCallback, useEffect } from "react";
 import "./LocationCarousel.css";
+import "../pages/RiggingPage.css";
 import { Link } from "react-router-dom";
 
 export default function LocationCarousel({ location }) {
