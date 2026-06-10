@@ -528,7 +528,7 @@ export default function RiggingPage() {
 <section id="contact-form" style={{ display: 'flex', justifyContent: 'center', padding: '4rem 1rem', backgroundColor: '#f9f9f9' }}>
   <iframe 
     width="950px" 
-    height="1600px" 
+    height="1650px" 
     src="https://forms.office.com/r/wssL87gKyR?embed=true" 
     frameBorder="0" 
     marginWidth="0" 
