@@ -320,7 +320,7 @@ export default function Header() {
               className="nav-link"
               onClick={scrollToHash("/cranes", "#locations")}
             >
-              Locations
+              Locations<br />&amp; Contact
             </a>
           ) : isRiggingPage ? (
             <a
@@ -328,7 +328,7 @@ export default function Header() {
               className="nav-link"
               onClick={scrollToHash("/rigging", "#locations")}
             >
-              Locations
+              Locations<br />&amp; Contact
             </a>
           ) : null}
 
