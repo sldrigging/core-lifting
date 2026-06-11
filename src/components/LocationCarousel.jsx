@@ -44,9 +44,23 @@ export default function LocationCarousel({ location }) {
           <h2 className="loc-info-name">{name}</h2>
           <p className="loc-info-address">{address}</p>
           <p className="loc-info-phone">{phone}</p>
-          <Link to="#contact-form" className="rig-overlay-btn location-contact-btn">
+/*         <Link to="#contact-form" className="rig-overlay-btn location-contact-btn">
   Contact This Location
-</Link>
+</Link> */
+<a 
+  href="#contact-form" 
+  className="rig-overlay-btn location-contact-btn"
+  onClick={(e) => {
+    const element = document.getElementById('contact-form');
+    if (element) {
+      e.preventDefault(); // Prevents the browser from doing nothing
+      element.scrollIntoView({ behavior: 'smooth' }); // Forces the jump
+    }
+  }}
+>
+  Contact This Location
+</a>
+          
           <ul className="loc-info-services">
             {services.map((s, i) => (
               <li key={i}>{s}</li>
