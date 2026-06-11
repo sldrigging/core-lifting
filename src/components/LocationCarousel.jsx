@@ -44,9 +44,6 @@ export default function LocationCarousel({ location }) {
           <h2 className="loc-info-name">{name}</h2>
           <p className="loc-info-address">{address}</p>
           <p className="loc-info-phone">{phone}</p>
-/*         <Link to="#contact-form" className="rig-overlay-btn location-contact-btn">
-  Contact This Location
-</Link> */
 <a 
   href="#contact-form" 
   className="rig-overlay-btn location-contact-btn"
