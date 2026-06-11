@@ -598,7 +598,7 @@ export default function Header() {
                 className="mobile-dropdown-header"
                 onClick={(e) => { scrollToHash("/cranes", "#locations")(e); toggleMobileMenu(); }}
               >
-                Locations
+                Locations &amp; Contact
               </a>
             </div>
           ) : isRiggingPage ? (
@@ -608,7 +608,7 @@ export default function Header() {
                 className="mobile-dropdown-header"
                 onClick={(e) => { scrollToHash("/rigging", "#locations")(e); toggleMobileMenu(); }}
               >
-                Locations
+                Locations &amp; Contact
               </a>
             </div>
           ) : null}
