@@ -468,6 +468,24 @@ function SectionTitle({ id, title }) {
 }
 
 /* ── Main Page ── */
+/* ── Fixes Dead Anchor Link ── */
+const location = useLocation();
+
+useEffect(() => {
+  if (location.hash) {
+    // Strip the '#' character to get the ID
+    const id = location.hash.replace('#', '');
+    const element = document.getElementById(id);
+    
+    if (element) {
+      // Small timeout ensures the DOM has fully rendered before scrolling
+      setTimeout(() => {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
+  }
+}, [location]); // Triggers every time the URL/hash changes
+/* ── END Fixes Dead Anchor Link ── */
 
 export default function RiggingPage() {
   const { hash } = useLocation();
