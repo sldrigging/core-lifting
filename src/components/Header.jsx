@@ -322,7 +322,7 @@ export default function Header() {
             >
               Locations<br />&amp; Contact
             </a>
-          ) : isRiggingPage ? (
+          ) : isRiggingPage || isProductInfoPage ? (
             <a
               href="/rigging#locations"
               className="nav-link"
@@ -601,7 +601,7 @@ export default function Header() {
                 Locations &amp; Contact
               </a>
             </div>
-          ) : isRiggingPage ? (
+          ) : isRiggingPage || isProductInfoPage ? (
             <div className="mobile-nav-group">
               <a
                 href="/rigging#locations"
