@@ -241,11 +241,11 @@ export default function CranesPage() {
 
       {/* Cranes */}
       <SectionTitle id="cranes" title="CRANES" />
-      {cranes.map((s) => <Slide key={s.id} slide={s} basePath="/cranes" />)}
+      {cranes.map((s) => <Slide key={s.id} slide={s} />)}
 
       {/* Services */}
       <SectionTitle id="crane-services" title="SERVICES" />
-      {services.map((s) => <Slide key={s.id} slide={s} basePath="/cranes" />)}
+      {services.map((s) => <Slide key={s.id} slide={s} />)}
 
       {/* Locations */}
       <section id="locations" className="rp-section">

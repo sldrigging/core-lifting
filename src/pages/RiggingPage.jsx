@@ -510,15 +510,15 @@ export default function RiggingPage() {
 
       {/* Products */}
       <SectionTitle id="products" title="PRODUCTS" />
-      {products.map((s) => <Slide key={s.id} slide={s} basePath="/rigging" />)}
+      {products.map((s) => <Slide key={s.id} slide={s} />)}
 
       {/* Services */}
       <SectionTitle id="services" title="SERVICES" />
-      {services.map((s) => <Slide key={s.id} slide={s} basePath="/rigging" />)}
+      {services.map((s) => <Slide key={s.id} slide={s} />)}
 
       {/* Rentals */}
       <SectionTitle id="rentals" title="RENTALS" />
-      {rentals.map((s) => <Slide key={s.id} slide={s} basePath="/rigging" />)}
+      {rentals.map((s) => <Slide key={s.id} slide={s} />)}
 
       {/* Locations */}
       <section id="locations" className="rp-section">
