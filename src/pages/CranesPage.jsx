@@ -35,7 +35,7 @@ const cranes = [
     image: imgBridgeCranes,
     position: "tl",
     link: "/info-center#section-CH",
-    linkLabel: "LEARN MORE",
+    linkLabel: "MORE INFO",
   },
   {
     id: "manufacturing",
@@ -44,7 +44,7 @@ const cranes = [
     image: imgManufacturing,
     position: "br",
     link: "/info-center#section-CH",
-    linkLabel: "LEARN MORE",
+    linkLabel: "MORE INFO",
   },
   {
     id: "jib-cranes",
@@ -58,7 +58,7 @@ const cranes = [
     image: imgJibCranes,
     position: "tl",
     link: "/info-center#section-CI",
-    linkLabel: "LEARN MORE",
+    linkLabel: "MORE INFO",
   },
   {
     id: "workstation-cranes",
@@ -67,7 +67,7 @@ const cranes = [
     image: imgWorkstationCranes,
     position: "bl",
     link: "/info-center#section-CI",
-    linkLabel: "LEARN MORE",
+    linkLabel: "MORE INFO",
   },
   {
     id: "davit-cranes",
@@ -80,7 +80,7 @@ const cranes = [
     image: imgDavitCranes,
     position: "tr",
     link: "/info-center#section-CI",
-    linkLabel: "LEARN MORE",
+    linkLabel: "MORE INFO",
   },
 ];
 
@@ -97,7 +97,7 @@ const services = [
     image: imgFieldServices,
     position: "bl",
     link: "/info-center#section-CS",
-    linkLabel: "LEARN MORE",
+    linkLabel: "MORE INFO",
   },
   {
     id: "load-testing",
@@ -106,7 +106,7 @@ const services = [
     image: imgLoadTesting,
     position: "tl",
     link: "/info-center#section-CS",
-    linkLabel: "LEARN MORE",
+    linkLabel: "MORE INFO",
   },
   {
     id: "installation",
@@ -115,7 +115,7 @@ const services = [
     image: imgInstallation,
     position: "cr",
     link: "/info-center#section-CS",
-    linkLabel: "LEARN MORE",
+    linkLabel: "MORE INFO",
   },
 ];
 
@@ -132,7 +132,7 @@ const overlayVariants = {
 
 /* ── Slide ── */
 
-function Slide({ slide }) {
+function Slide({ slide, basePath }) {
   const {
     id,
     title,
@@ -174,11 +174,18 @@ function Slide({ slide }) {
           </ul>
         )}
 
-        {link && (
-          <Link to={link} className="rig-overlay-btn">
-            {linkLabel || "LEARN MORE"}
-          </Link>
-        )}
+        <div className="rig-overlay-btns">
+          {link && (
+            <Link to={link} className="rig-overlay-btn">
+              {linkLabel || "MORE INFO"}
+            </Link>
+          )}
+          {basePath && (
+            <Link to={`${basePath}/${id}`} className="rig-overlay-btn rig-overlay-btn--outline">
+              LEARN MORE
+            </Link>
+          )}
+        </div>
       </motion.div>
     </section>
   );
@@ -234,11 +241,11 @@ export default function CranesPage() {
 
       {/* Cranes */}
       <SectionTitle id="cranes" title="CRANES" />
-      {cranes.map((s) => <Slide key={s.id} slide={s} />)}
+      {cranes.map((s) => <Slide key={s.id} slide={s} basePath="/cranes" />)}
 
       {/* Services */}
       <SectionTitle id="crane-services" title="SERVICES" />
-      {services.map((s) => <Slide key={s.id} slide={s} />)}
+      {services.map((s) => <Slide key={s.id} slide={s} basePath="/cranes" />)}
 
       {/* Locations */}
       <section id="locations" className="rp-section">

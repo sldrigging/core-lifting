@@ -387,7 +387,7 @@ const overlayVariants = {
 
 /* ── Slide ── */
 
-function Slide({ slide }) {
+function Slide({ slide, basePath }) {
   const {
     id,
     title,
@@ -436,11 +436,18 @@ function Slide({ slide }) {
           </ul>
         )}
 
-        {link && (
-          <Link to={link} className="rig-overlay-btn">
-            {linkLabel || "PRODUCT INFORMATION"}
-          </Link>
-        )}
+        <div className="rig-overlay-btns">
+          {link && (
+            <Link to={link} className="rig-overlay-btn">
+              {linkLabel || "PRODUCT INFORMATION"}
+            </Link>
+          )}
+          {basePath && (
+            <Link to={`${basePath}/${id}`} className="rig-overlay-btn rig-overlay-btn--outline">
+              LEARN MORE
+            </Link>
+          )}
+        </div>
       </motion.div>
 
       {showJdnLogo && !jdnLogoInline && (
@@ -503,15 +510,15 @@ export default function RiggingPage() {
 
       {/* Products */}
       <SectionTitle id="products" title="PRODUCTS" />
-      {products.map((s) => <Slide key={s.id} slide={s} />)}
+      {products.map((s) => <Slide key={s.id} slide={s} basePath="/rigging" />)}
 
       {/* Services */}
       <SectionTitle id="services" title="SERVICES" />
-      {services.map((s) => <Slide key={s.id} slide={s} />)}
+      {services.map((s) => <Slide key={s.id} slide={s} basePath="/rigging" />)}
 
       {/* Rentals */}
       <SectionTitle id="rentals" title="RENTALS" />
-      {rentals.map((s) => <Slide key={s.id} slide={s} />)}
+      {rentals.map((s) => <Slide key={s.id} slide={s} basePath="/rigging" />)}
 
       {/* Locations */}
       <section id="locations" className="rp-section">

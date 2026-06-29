@@ -201,10 +201,24 @@ section.rp-section {
 .rig-overlay--tc .rig-overlay-list,
 .rig-overlay--bc .rig-overlay-list { text-align: center; }
 
-/* Button */
+/* Button row */
+.rig-overlay-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.4rem;
+}
+
+.rig-overlay--tr .rig-overlay-btns,
+.rig-overlay--br .rig-overlay-btns,
+.rig-overlay--cr .rig-overlay-btns { justify-content: flex-end; }
+
+.rig-overlay--tc .rig-overlay-btns,
+.rig-overlay--bc .rig-overlay-btns { justify-content: center; }
+
+/* Primary button */
 .rig-overlay-btn {
   display: inline-block;
-  margin-top: 0.4rem;
   background: #9c4c2a;
   color: #fff;
   font-size: 0.78rem;
@@ -222,6 +236,18 @@ section.rp-section {
   background: #b35a32;
   transform: translateY(-1px);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+/* Outline / secondary button */
+.rig-overlay-btn--outline {
+  background: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.7);
+  box-shadow: none;
+}
+
+.rig-overlay-btn--outline:hover {
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: none;
 }
 
 /* ── Inline title + JDN logo row ────────────────────────────── */
