@@ -1,0 +1,282 @@
+/* ──────────────────────────────────────────────────────────────────
+   Product / Service detail page
+   ────────────────────────────────────────────────────────────────── */
+
+.dp-root {
+  background: #fff;
+}
+
+.dp-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 4rem;
+}
+
+/* ── Breadcrumb ──────────────────────────────────────────────────── */
+
+.dp-breadcrumb {
+  padding: 1.5rem 0 0;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #aaa;
+  line-height: 1;
+}
+
+.dp-breadcrumb a {
+  color: #9c4c2a;
+  transition: opacity 0.15s ease;
+}
+
+.dp-breadcrumb a:hover {
+  opacity: 0.72;
+  text-decoration: underline;
+}
+
+.dp-breadcrumb-sep {
+  margin: 0 0.55rem;
+  color: #ccc;
+}
+
+/* ── Hero — two-column grid ──────────────────────────────────────── */
+
+.dp-hero {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  grid-template-areas:
+    "top   image"
+    "body  image"
+    "after after";
+  column-gap: 2.5rem;
+  row-gap: 0;
+  padding: 1.75rem 0 2.5rem;
+}
+
+.dp-hero-top     { grid-area: top; align-self: start; }
+.dp-content-body { grid-area: body; align-self: start; }
+.dp-image-col    { grid-area: image; align-self: start; }
+.dp-after-hero   { grid-area: after; padding-bottom: 1.5rem; }
+
+/* ── Content column ─────────────────────────────────────────────── */
+
+.dp-title {
+  font-size: clamp(2.4rem, 4.5vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 0.96;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  margin: 0 0 1.25rem;
+}
+
+.dp-title-line {
+  display: block;
+}
+
+.dp-action-btn {
+  display: inline-flex;
+  align-items: center;
+  background: #9c4c2a;
+  color: #fff;
+  text-decoration: none;
+  padding: 0.75rem 1.4rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  margin-bottom: 1.75rem;
+  transition: background 0.2s ease;
+}
+
+.dp-action-btn:hover {
+  background: #b35a32;
+}
+
+.dp-btn-prefix {
+  font-weight: 400;
+  opacity: 0.8;
+  padding-right: 0.8rem;
+  margin-right: 0.8rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.dp-desc {
+  font-size: 0.98rem;
+  line-height: 1.72;
+  color: #3a3a3a;
+  margin-bottom: 1.25rem;
+}
+
+.dp-feature {
+  margin-bottom: 0.9rem;
+  font-size: 0.93rem;
+  line-height: 1.65;
+  color: #4a4a4a;
+}
+
+.dp-feature strong {
+  color: #1a1a1a;
+}
+
+/* ── Image column — fixed aspect ratio, does NOT stretch ─────────── */
+
+.dp-image-col {
+  position: relative;
+  aspect-ratio: 3 / 2;
+  max-height: 420px;
+  overflow: hidden;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    #ebebeb 0px,
+    #ebebeb 10px,
+    #f5f5f5 10px,
+    #f5f5f5 20px
+  );
+}
+
+.dp-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.dp-placeholder-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid #c0c0c0;
+  padding: 0.5rem 1.4rem;
+  color: #999;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.65);
+  white-space: nowrap;
+}
+
+.dp-image-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #1a1a1a;
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 0.6rem 1.2rem;
+}
+
+/* ── After-hero — full-width content below the two-column hero ───── */
+
+.dp-after-hero {
+  padding-bottom: 2rem;
+  margin-bottom: 0;
+}
+
+/* ── Provision placeholder box ───────────────────────────────────── */
+
+.dp-provision {
+  border: 1px solid #ddd;
+  padding: 2rem 1.75rem;
+  margin: 1.5rem 0 2.5rem;
+  color: #aaa;
+  font-size: 0.88rem;
+  line-height: 1.65;
+  font-style: italic;
+}
+
+/* ── FAQ — override global section styles ────────────────────────── */
+
+.dp-faq {
+  padding: 0 0 4.5rem;
+  max-width: none;
+  margin: 0;
+}
+
+.dp-faq-heading {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin: 0 0 1.5rem;
+  letter-spacing: -0.01em;
+}
+
+.dp-faq-item {
+  border-top: 1px solid #e0e0e0;
+}
+
+.dp-faq-item:last-child {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.dp-faq-q {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: none;
+  border: none;
+  padding: 1rem 0;
+  cursor: pointer;
+  text-align: left;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  gap: 1rem;
+  font-family: inherit;
+}
+
+.dp-faq-q:hover {
+  color: #444;
+}
+
+.dp-faq-icon {
+  color: #9c4c2a;
+  font-size: 1.1rem;
+  font-weight: 300;
+  flex-shrink: 0;
+  line-height: 1;
+  width: 1rem;
+  text-align: center;
+}
+
+.dp-faq-a {
+  padding: 0 2rem 1.25rem 0;
+  font-size: 0.92rem;
+  line-height: 1.72;
+  color: #444;
+  max-width: 680px;
+}
+
+/* ── Mobile ──────────────────────────────────────────────────────── */
+
+@media (max-width: 720px) {
+  .dp-inner {
+    padding: 0 1.25rem;
+  }
+
+  .dp-hero {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "top"
+      "image"
+      "body"
+      "after";
+    row-gap: 1.25rem;
+    column-gap: 0;
+    padding: 1.5rem 0 2rem;
+  }
+
+  .dp-title {
+    font-size: clamp(2rem, 9vw, 2.8rem);
+  }
+}
