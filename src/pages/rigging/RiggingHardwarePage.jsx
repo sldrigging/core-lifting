@@ -18,7 +18,7 @@ export default function RiggingHardwarePage() {
       parent="RIGGING"
       parentPath="/rigging"
       title={"RIGGING\nHARDWARE"}
-      actionLink="/product-info#section-C"
+      actionLink="/core-pdfs/C1%20Core%20Shackles.pdf"
       actionLabel="PRODUCT INFORMATION PDF"
       afterHero={
         <>

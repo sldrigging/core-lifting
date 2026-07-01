@@ -18,8 +18,6 @@ export default function NDTPage() {
       parent="RIGGING"
       parentPath="/rigging"
       title="NDT"
-      actionLink="/product-info#section-S2"
-      actionLabel="PRODUCT INFORMATION PDF"
       afterHero={
         <>
           <div className="dp-feature">

@@ -18,8 +18,6 @@ export default function InspectionsPage() {
       parent="RIGGING"
       parentPath="/rigging"
       title="INSPECTIONS"
-      actionLink="/product-info#section-S1"
-      actionLabel="PRODUCT INFORMATION PDF"
       afterHero={
         <>
           <div className="dp-feature">

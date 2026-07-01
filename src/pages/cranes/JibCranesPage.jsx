@@ -18,7 +18,7 @@ export default function JibCranesPage() {
       parent="CRANES"
       parentPath="/cranes"
       title={"JIB\nCRANES"}
-      actionLink="/info-center#section-CI"
+      actionLink="/core-pdfs/Crane%20Information/CI-02-%20Core%20Jib%20Cranes%20PDF.pdf"
       actionLabel="PRODUCT INFORMATION PDF"
       afterHero={
         <>

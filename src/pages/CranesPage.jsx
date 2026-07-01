@@ -34,7 +34,7 @@ const cranes = [
     ],
     image: imgBridgeCranes,
     position: "tl",
-    link: "/info-center#section-CH",
+    link: "/cranes/bridge-cranes",
     linkLabel: "MORE INFO",
   },
   {
@@ -43,7 +43,7 @@ const cranes = [
     bullets: [],
     image: imgManufacturing,
     position: "br",
-    link: "/info-center#section-CH",
+    link: "/cranes/manufacturing",
     linkLabel: "MORE INFO",
   },
   {
@@ -57,7 +57,7 @@ const cranes = [
     ],
     image: imgJibCranes,
     position: "tl",
-    link: "/info-center#section-CI",
+    link: "/cranes/jib-cranes",
     linkLabel: "MORE INFO",
   },
   {
@@ -66,7 +66,7 @@ const cranes = [
     bullets: [],
     image: imgWorkstationCranes,
     position: "bl",
-    link: "/info-center#section-CI",
+    link: "/cranes/workstation-cranes",
     linkLabel: "MORE INFO",
   },
   {
@@ -79,7 +79,7 @@ const cranes = [
     ],
     image: imgDavitCranes,
     position: "tr",
-    link: "/info-center#section-CI",
+    link: "/cranes/davit-cranes",
     linkLabel: "MORE INFO",
   },
 ];
@@ -96,7 +96,7 @@ const services = [
     ],
     image: imgFieldServices,
     position: "bl",
-    link: "/info-center#section-CS",
+    link: "/cranes/field-services",
     linkLabel: "MORE INFO",
   },
   {
@@ -105,7 +105,7 @@ const services = [
     bullets: ["Fixed Weights", "Water Bags"],
     image: imgLoadTesting,
     position: "tl",
-    link: "/info-center#section-CS",
+    link: "/cranes/load-testing",
     linkLabel: "MORE INFO",
   },
   {
@@ -114,7 +114,7 @@ const services = [
     bullets: [],
     image: imgInstallation,
     position: "cr",
-    link: "/info-center#section-CS",
+    link: "/cranes/installation",
     linkLabel: "MORE INFO",
   },
 ];

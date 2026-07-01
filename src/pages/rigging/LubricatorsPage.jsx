@@ -18,7 +18,7 @@ export default function LubricatorsPage() {
       parent="RIGGING"
       parentPath="/rigging"
       title="LUBRICATORS"
-      actionLink="/product-info#section-J"
+      actionLink="/core-pdfs/J1%20Core%20Lubricant%20Products.pdf"
       actionLabel="PRODUCT INFORMATION PDF"
       afterHero={
         <>

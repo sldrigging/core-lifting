@@ -108,7 +108,7 @@ const products = [
     position: "tr",
     showJdnLogo: true,
     jdnLogoInline: true,
-    link: "/product-info#section-E",
+    link: "/rigging/hoists",
     linkLabel: "PRODUCT INFORMATION",
   },
   {
@@ -122,7 +122,7 @@ const products = [
     ],
     image: imgWireRope,
     position: "tl",
-    link: "/product-info#section-A",
+    link: "/rigging/wire-rope",
     linkLabel: "PRODUCT INFORMATION",
   },
   {
@@ -136,7 +136,7 @@ const products = [
     ],
     image: imgWireRopeAssemblies,
     position: "bl",
-    link: "/product-info#section-B",
+    link: "/rigging/wire-rope-assemblies",
     linkLabel: "PRODUCT INFORMATION",
   },
   {
@@ -153,7 +153,7 @@ const products = [
     ],
     image: imgRiggingHardware,
     position: "br",
-    link: "/product-info#section-C",
+    link: "/rigging/rigging-hardware",
     linkLabel: "PRODUCT INFORMATION",
   },
   {
@@ -162,7 +162,7 @@ const products = [
     bullets: ["Chain slings", "Industrial chains", "Chain fittings"],
     image: imgChainSlings,
     position: "cl",
-    link: "/product-info#section-F",
+    link: "/rigging/chain-products",
     linkLabel: "PRODUCT INFORMATION",
   },
   {
@@ -171,7 +171,7 @@ const products = [
     bullets: ["Web slings", "Roundslings"],
     image: imgSynthetics,
     position: "cr",
-    link: "/product-info#section-B",
+    link: "/rigging/synthetics",
     linkLabel: "PRODUCT INFORMATION",
   },
   {
@@ -183,7 +183,7 @@ const products = [
     ],
     image: imgLubricator,
     position: "tr",
-    link: "/product-info#section-J",
+    link: "/rigging/lubricators",
     linkLabel: "PRODUCT INFORMATION",
   },
 ];
@@ -196,6 +196,8 @@ const services = [
     bullets: [],
     image: imgAnnealing,
     position: "tc",
+    link: "/rigging/taper-annealing",
+    linkLabel: "LEARN MORE",
   },
   {
     id: "load-testing",
@@ -203,7 +205,7 @@ const services = [
     bullets: ["Horizontal testing", "Vertical testing", "Water bag testing"],
     image: imgLoadTesting,
     position: "tr",
-    link: "/product-info#section-S1",
+    link: "/rigging/load-testing",
     linkLabel: "SERVICE INFORMATION",
   },
   {
@@ -212,7 +214,7 @@ const services = [
     bullets: [],
     image: imgPadEye,
     position: "tl",
-    link: "/product-info#section-S1",
+    link: "/rigging/portable-pad-eye-testing",
     linkLabel: "SERVICE INFORMATION",
   },
   {
@@ -221,7 +223,7 @@ const services = [
     bullets: ["Sling inspections", "Fitting inspections"],
     image: imgInspections,
     position: "tr",
-    link: "/product-info#section-S1",
+    link: "/rigging/inspections",
     linkLabel: "SERVICE INFORMATION",
   },
   {
@@ -231,7 +233,7 @@ const services = [
     bullets: [],
     image: imgNDT,
     position: "bc",
-    link: "/product-info#section-S2",
+    link: "/rigging/ndt",
     linkLabel: "SERVICE INFORMATION",
   },
   {
@@ -240,7 +242,7 @@ const services = [
     bullets: ["Repair", "Testing"],
     image: imgWinchServicing,
     position: "cl",
-    link: "/product-info#section-S3",
+    link: "/rigging/winch-servicing",
     linkLabel: "SERVICE INFORMATION",
   },
   {
@@ -255,7 +257,7 @@ const services = [
     image: imgHoistRepair,
     position: "tr",
     showJdnLogo: true,
-    link: "/product-info#section-S3",
+    link: "/rigging/hoist-repair",
     linkLabel: "SERVICE INFORMATION",
   },
   {
@@ -270,7 +272,7 @@ const services = [
     ],
     image: imgBlockRebuilds,
     position: "bl",
-    link: "/product-info#section-S5",
+    link: "/rigging/block-rebuilds",
     linkLabel: "SERVICE INFORMATION",
   },
   {
@@ -279,7 +281,7 @@ const services = [
     bullets: ["Replacement wire rope", "Replace end fittings"],
     image: imgWinchLineServicing,
     position: "tc",
-    link: "/product-info#section-S6",
+    link: "/rigging/winch-line-servicing",
     linkLabel: "SERVICE INFORMATION",
   },
 ];
@@ -291,7 +293,7 @@ const rentals = [
     bullets: ["Spreader bars", "Slings", "Blocks", "Shackles"],
     image: imgRentals,
     position: "tl",
-    link: "/product-info#section-R1",
+    link: "/rigging/rentals",
     linkLabel: "RENTAL INFORMATION",
   },
 ];

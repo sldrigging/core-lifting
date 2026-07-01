@@ -18,7 +18,7 @@ export default function CraneLoadTestingPage() {
       parent="CRANES"
       parentPath="/cranes"
       title={"LOAD\nTESTING"}
-      actionLink="/info-center#section-CS"
+      actionLink="/core-pdfs/Services%20Information/CS-01-%20Core%20Sample%20Inspection%20Report.pdf"
       actionLabel="PRODUCT INFORMATION PDF"
       afterHero={
         <>

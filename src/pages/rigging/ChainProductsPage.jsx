@@ -18,7 +18,7 @@ export default function ChainProductsPage() {
       parent="RIGGING"
       parentPath="/rigging"
       title={"CHAIN\nPRODUCTS"}
-      actionLink="/product-info#section-F"
+      actionLink="/core-pdfs/F1%20Core%20Industrial%20Chain%20%26%20Fittings.pdf"
       actionLabel="PRODUCT INFORMATION PDF"
       afterHero={
         <>

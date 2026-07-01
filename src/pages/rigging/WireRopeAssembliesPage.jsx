@@ -30,7 +30,7 @@ export default function WireRopeAssembliesPage() {
       parent="RIGGING"
       parentPath="/rigging"
       title={"WIRE ROPE\nASSEMBLIES"}
-      actionLink="/product-info#section-B"
+      actionLink="/core-pdfs/B1%20Core%20Wire%20Rope%20Slings%20Catalog.pdf"
       actionLabel="PRODUCT INFORMATION PDF"
       afterHero={
         <>

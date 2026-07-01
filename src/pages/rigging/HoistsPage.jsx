@@ -18,7 +18,7 @@ export default function HoistsPage() {
       parent="RIGGING"
       parentPath="/rigging"
       title="HOISTS"
-      actionLink="/product-info#section-E"
+      actionLink="/core-pdfs/E1%20Core%20Air%20Hoists.pdf"
       actionLabel="PRODUCT INFORMATION PDF"
       afterHero={
         <>

@@ -18,7 +18,7 @@ export default function WorkstationCranesPage() {
       parent="CRANES"
       parentPath="/cranes"
       title={"WORKSTATION\nCRANES"}
-      actionLink="/info-center#section-CI"
+      actionLink="/core-pdfs/Crane%20Information/CI-03-%20Core%20Workstation%20Cranes%20PDF.pdf"
       actionLabel="PRODUCT INFORMATION PDF"
       afterHero={
         <>

@@ -18,7 +18,7 @@ export default function ManufacturingPage() {
       parent="CRANES"
       parentPath="/cranes"
       title="MANUFACTURING"
-      actionLink="/info-center#section-CH"
+      actionLink="/core-pdfs/Overhead%20Cranes/CH-01-%20Core%20Street%20Hoists%20PDF.pdf"
       actionLabel="PRODUCT INFORMATION PDF"
       afterHero={
         <>

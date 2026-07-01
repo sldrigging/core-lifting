@@ -18,8 +18,8 @@ export default function Header() {
   };
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const isRiggingPage = location.pathname === "/rigging";
-  const isCranesPage = location.pathname === "/cranes";
+  const isRiggingPage = location.pathname.startsWith("/rigging");
+  const isCranesPage = location.pathname.startsWith("/cranes");
   const isCraneInfoPage = location.pathname === "/info-center";
   const isProductInfoPage = location.pathname === "/product-info";
   const isHomePage = location.pathname === "/";
@@ -45,7 +45,7 @@ export default function Header() {
   };
 
   const getButtonClass = (path) => {
-    const isActive = location.pathname === path;
+    const isActive = location.pathname.startsWith(path);
     return `header-action-btn${isActive ? " active" : ""}`;
   };
 

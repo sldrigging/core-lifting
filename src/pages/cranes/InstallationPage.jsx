@@ -18,7 +18,7 @@ export default function InstallationPage() {
       parent="CRANES"
       parentPath="/cranes"
       title="INSTALLATION"
-      actionLink="/info-center#section-CS"
+      actionLink="/core-pdfs/Services%20Information/CS-03-%20Core%20Overhead%20Crane%20Installation.pdf"
       actionLabel="PRODUCT INFORMATION PDF"
       afterHero={
         <>

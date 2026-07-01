@@ -18,8 +18,6 @@ export default function HoistRepairPage() {
       parent="RIGGING"
       parentPath="/rigging"
       title={"HOIST\nREPAIR"}
-      actionLink="/product-info#section-S3"
-      actionLabel="PRODUCT INFORMATION PDF"
       afterHero={
         <>
           <div className="dp-feature">

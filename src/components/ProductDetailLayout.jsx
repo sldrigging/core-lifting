@@ -26,14 +26,11 @@ export default function ProductDetailLayout({
   title,
   actionLink,
   actionLabel,
-  actionPrefix,
   heroImage,
-  figCaption,
-  figPlaceholder = "SHOP / FABRICATION PHOTO",
-  children,       // left column — appears alongside image
-  afterHero,      // full-width content below the two-column hero
-  provisionText,  // optional gray provision placeholder box
-  faq,            // array of { question, answer }
+  children,
+  afterHero,
+  provisionText,
+  faq,
 }) {
   const { pathname } = useLocation();
 
@@ -47,15 +44,21 @@ export default function ProductDetailLayout({
   return (
     <div className="dp-root">
       <div className="dp-inner">
+        {/* Breadcrumb */}
         <nav className="dp-breadcrumb">
           <Link to={parentPath}>{parent}</Link>
           <span className="dp-breadcrumb-sep">/</span>
           <span>{titleFlat}</span>
         </nav>
 
+        {/* Hero — full-width image with title+button overlay */}
         <div className="dp-hero">
-          {/* Title + button — on mobile these appear above the image */}
-          <div className="dp-hero-top">
+          {heroImage ? (
+            <img src={heroImage} alt={titleFlat} className="dp-hero-img" />
+          ) : (
+            <div className="dp-hero-placeholder" />
+          )}
+          <div className="dp-hero-overlay">
             <h1 className="dp-title">
               {lines.map((line, i) => (
                 <span key={i} className="dp-title-line">
@@ -63,42 +66,37 @@ export default function ProductDetailLayout({
                 </span>
               ))}
             </h1>
-
             {actionLink && (
-              <Link to={actionLink} className="dp-action-btn">
-                {actionPrefix && (
-                  <span className="dp-btn-prefix">{actionPrefix}</span>
-                )}
-                {actionLabel}
-              </Link>
+              actionLink.startsWith("/core-pdfs/") ? (
+                <a href={actionLink} target="_blank" rel="noreferrer" className="dp-action-btn">
+                  {actionLabel}
+                </a>
+              ) : (
+                <Link to={actionLink} className="dp-action-btn">
+                  {actionLabel}
+                </Link>
+              )
             )}
           </div>
-
-          {/* Image — on mobile sits between title/button and description */}
-          <div className="dp-image-col">
-            {heroImage && (
-              <img src={heroImage} alt={titleFlat} className="dp-hero-img" />
-            )}
-          </div>
-
-          {/* Description + features — below image on mobile */}
-          <div className="dp-content-body">{children}</div>
-
-          {afterHero && <div className="dp-after-hero">{afterHero}</div>}
         </div>
 
-        {faq && faq.length > 0 && (
-          <div className="dp-faq">
-            <h2 className="dp-faq-heading">FAQ</h2>
-            {faq.map((item, i) => (
-              <FAQItem
-                key={i}
-                question={item.question}
-                answer={item.answer}
-              />
-            ))}
+        {/* Content + FAQ — two-column grid */}
+        <div className="dp-body-grid">
+          <div className="dp-body-content">
+            {children}
+            {afterHero}
+            {provisionText && <div className="dp-provision">{provisionText}</div>}
           </div>
-        )}
+
+          {faq && faq.length > 0 && (
+            <div className="dp-faq">
+              <h2 className="dp-faq-heading">FAQ</h2>
+              {faq.map((item, i) => (
+                <FAQItem key={i} question={item.question} answer={item.answer} />
+              ))}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

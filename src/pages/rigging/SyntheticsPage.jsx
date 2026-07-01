@@ -18,7 +18,7 @@ export default function SyntheticsPage() {
       parent="RIGGING"
       parentPath="/rigging"
       title="SYNTHETICS"
-      actionLink="/product-info#section-B"
+      actionLink="/core-pdfs/B3%20Core%20Web%20Sling%20Catalog.pdf"
       actionLabel="PRODUCT INFORMATION PDF"
       afterHero={
         <>

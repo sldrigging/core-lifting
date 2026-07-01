@@ -18,8 +18,6 @@ export default function BlockRebuildsPage() {
       parent="RIGGING"
       parentPath="/rigging"
       title={"BLOCK\nREBUILDS"}
-      actionLink="/product-info#section-S5"
-      actionLabel="PRODUCT INFORMATION PDF"
       afterHero={
         <>
           <div className="dp-feature">

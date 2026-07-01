@@ -18,8 +18,6 @@ export default function WinchLineServicingPage() {
       parent="RIGGING"
       parentPath="/rigging"
       title={"WINCH LINE\nSERVICING"}
-      actionLink="/product-info#section-S6"
-      actionLabel="PRODUCT INFORMATION PDF"
       afterHero={
         <>
           <div className="dp-feature">

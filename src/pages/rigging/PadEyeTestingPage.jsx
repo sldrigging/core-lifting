@@ -18,8 +18,6 @@ export default function PadEyeTestingPage() {
       parent="RIGGING"
       parentPath="/rigging"
       title={"PORTABLE PAD\nEYE TESTING"}
-      actionLink="/product-info#section-S1"
-      actionLabel="PRODUCT INFORMATION PDF"
       afterHero={
         <>
           <div className="dp-feature">

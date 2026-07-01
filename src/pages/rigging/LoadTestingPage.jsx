@@ -18,8 +18,6 @@ export default function LoadTestingPage() {
       parent="RIGGING"
       parentPath="/rigging"
       title={"LOAD\nTESTING"}
-      actionLink="/product-info#section-S1"
-      actionLabel="PRODUCT INFORMATION PDF"
       afterHero={
         <>
           <div className="dp-feature">

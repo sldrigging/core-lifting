@@ -18,7 +18,7 @@ export default function WireRopePage() {
       parent="RIGGING"
       parentPath="/rigging"
       title="WIRE ROPE"
-      actionLink="/product-info#section-A"
+      actionLink="/core-pdfs/A1%20Core%20Bridon%20Ropes.pdf"
       actionLabel="PRODUCT INFORMATION PDF"
       afterHero={
         <>

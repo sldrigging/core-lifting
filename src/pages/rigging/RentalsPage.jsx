@@ -18,8 +18,6 @@ export default function RentalsPage() {
       parent="RIGGING"
       parentPath="/rigging"
       title="RENTALS"
-      actionLink="/product-info#section-R1"
-      actionLabel="PRODUCT INFORMATION PDF"
       afterHero={
         <>
           <div className="dp-feature">

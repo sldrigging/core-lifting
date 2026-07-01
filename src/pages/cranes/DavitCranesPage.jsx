@@ -18,7 +18,7 @@ export default function DavitCranesPage() {
       parent="CRANES"
       parentPath="/cranes"
       title={"DAVIT\nCRANES"}
-      actionLink="/info-center#section-CI"
+      actionLink="/core-pdfs/Crane%20Information/CI-05-%20Core%20Davit%20Cranes%20PDF.pdf"
       actionLabel="PRODUCT INFORMATION PDF"
       afterHero={
         <>
