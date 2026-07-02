@@ -340,6 +340,10 @@ section.rp-section {
     object-position: 15% center;
   }
 
+  #chain-products .rig-slide-img {
+    object-position: 15% center;
+  }
+
   .rig-overlay-title {
     font-size: clamp(1.4rem, 6vw, 2rem);
   }
