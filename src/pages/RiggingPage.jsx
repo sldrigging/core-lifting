@@ -347,7 +347,7 @@ const locations = [
     id: "loc-houma",
     name: "Houma, Louisiana",
     company: "Sea Ropes",
-    address: "189 Thompson Road,  Houma, LA 70518",
+    address: "189 Thompson Road,  Houma, LA 70363",
     phone: "(985) 346-8270",
     building: houmaBuilding,
     images: [houma1, houma2, houma3, houma4, houma5, houma6, houma22, houma24, houma31, houma33, houma41, houma44],
