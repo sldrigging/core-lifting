@@ -78,25 +78,6 @@ import houma3 from "../assets/locations/Core Houma/Core-Houma (3).jpeg";
 import houma4 from "../assets/locations/Core Houma/Core-Houma (4).jpeg";
 import houma5 from "../assets/locations/Core Houma/Core-Houma (5).jpeg";
 import houma6 from "../assets/locations/Core Houma/Core-Houma (6).jpeg";
-import houma22 from "../assets/locations/Core Houma/Core-Houma (22).jpeg";
-import houma24 from "../assets/locations/Core Houma/Core-Houma (24).jpg";
-import houma31 from "../assets/locations/Core Houma/Core-Houma (31).jpg";
-import houma33 from "../assets/locations/Core Houma/Core-Houma (33).png";
-import houma41 from "../assets/locations/Core Houma/Core-Houma (41).jpg";
-import houma44 from "../assets/locations/Core Houma/Core-Houma (44).jpeg";
-
-/* ── Hero collage tiles (4×2) ── */
-const heroCollage = [
-  heroSewing,
-  heroChainSlings,
-  heroHoist,
-  heroWireRope,
-  heroVerticalTest,
-  heroRiggingFab,
-  heroWinchRepair,
-  heroSpooling,
-];
-
 /* ── Slide data ── */
 
 const products = [
@@ -139,6 +120,25 @@ const products = [
     link: "/rigging/wire-rope-assemblies",
     linkLabel: "PRODUCT INFORMATION",
   },
+import houma22 from "../assets/locations/Core Houma/Core-Houma (22).jpeg";
+import houma24 from "../assets/locations/Core Houma/Core-Houma (24).jpg";
+import houma31 from "../assets/locations/Core Houma/Core-Houma (31).jpg";
+import houma33 from "../assets/locations/Core Houma/Core-Houma (33).png";
+import houma41 from "../assets/locations/Core Houma/Core-Houma (41).jpg";
+import houma44 from "../assets/locations/Core Houma/Core-Houma (44).jpeg";
+
+/* ── Hero collage tiles (4×2) ── */
+const heroCollage = [
+  heroSewing,
+  heroChainSlings,
+  heroHoist,
+  heroWireRope,
+  heroVerticalTest,
+  heroRiggingFab,
+  heroWinchRepair,
+  heroSpooling,
+];
+
   {
     id: "rigging-hardware",
     title: "RIGGING\nHARDWARE",
@@ -349,7 +349,7 @@ const locations = [
     id: "loc-houma",
     name: "Houma, Louisiana",
     company: "Sea Ropes",
-    address: "189 Thompson Road,  Houma, LA 70518",
+    address: "189 Thompson Road,  Houma, LA 70363",
     phone: "(985) 346-8270",
     building: houmaBuilding,
     images: [houma1, houma2, houma3, houma4, houma5, houma6, houma22, houma24, houma31, houma33, houma41, houma44],
