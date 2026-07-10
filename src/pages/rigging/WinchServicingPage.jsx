@@ -1,15 +1,22 @@
 import ProductDetailLayout from "../../components/ProductDetailLayout";
+import heroImg from "../../assets/imgs-rv/Winch-Servicing.jpg";
 
 const faq = [
   {
-    question: "WHAT WINCH BRANDS DO YOU SERVICE?",
+    question: "WHAT TYPES OF WINCHES DO YOU SERVICE?",
     answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "We service manual, electric, hydraulic, and air-powered winches from major manufacturers used in industrial, marine, and drilling applications.",
   },
-  { question: "DO YOU STOCK REPLACEMENT PARTS?", answer: null },
-  { question: "HOW LONG DOES A TYPICAL REPAIR TAKE?", answer: null },
-  { question: "CAN SERVICING BE PERFORMED ON-SITE?", answer: null },
-  { question: "DO YOU PROVIDE LOAD TEST DOCUMENTATION AFTER SERVICE?", answer: null },
+  {
+    question: "DO YOU PROVIDE LOAD TESTING AFTER WINCH REPAIR?",
+    answer:
+      "Yes. All repaired winches undergo functional and load testing with certification to verify safe performance before return.",
+  },
+  {
+    question: "DO YOU SERVE CUSTOMERS IN LOUISIANA, TEXAS, AND THE GULF COAST?",
+    answer:
+      "Yes. Core Lifting provides winch repair, testing, and servicing with fast response throughout Louisiana, Texas, and the Gulf Coast region.",
+  },
 ];
 
 export default function WinchServicingPage() {
@@ -18,28 +25,20 @@ export default function WinchServicingPage() {
       parent="RIGGING"
       parentPath="/rigging"
       title={"WINCH\nSERVICING"}
-      afterHero={
-        <>
-          <div className="dp-feature">
-            <strong>Parts Inventory:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris.
-          </div>
-          <div className="dp-feature">
-            <strong>Turnaround &amp; Documentation:</strong> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.
-          </div>
-        </>
-      }
+      heroImage={heroImg}
       faq={faq}
     >
+      <h1 className="dp-h1">Professional Winch Servicing &amp; Repair</h1>
       <p className="dp-desc">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua — complete winch repair and testing services, returning equipment to <strong>OEM specifications</strong> with full load test documentation.
+        Core Lifting provides expert winch servicing including repair and testing for industrial, marine, and oilfield applications across Louisiana, Texas, and the Gulf Coast. Our technicians restore performance and verify safe operation of your winches with full documentation.
       </p>
 
       <div className="dp-feature">
-        <strong>Repair Services:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip.
+        <strong>Repair:</strong> Our experienced technicians diagnose and repair mechanical, hydraulic, and electric winches using quality parts to restore reliable performance and extend equipment life.
       </div>
 
       <div className="dp-feature">
-        <strong>Testing &amp; Certification:</strong> Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit.
+        <strong>Testing:</strong> We perform thorough functional and load testing after service to confirm proper operation and safe working capacity before returning equipment to service.
       </div>
     </ProductDetailLayout>
   );

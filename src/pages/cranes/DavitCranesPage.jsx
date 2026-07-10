@@ -1,4 +1,5 @@
 import ProductDetailLayout from "../../components/ProductDetailLayout";
+import heroImg from "../../assets/imgs-rv/Cranes/Thern-Davit-Crane.jpg";
 
 const faq = [
   {
@@ -18,6 +19,7 @@ export default function DavitCranesPage() {
       parent="CRANES"
       parentPath="/cranes"
       title={"DAVIT\nCRANES"}
+      heroImage={heroImg}
       actionLink="/core-pdfs/Crane%20Information/CI-05-%20Core%20Davit%20Cranes%20PDF.pdf"
       actionLabel="PRODUCT INFORMATION PDF"
       afterHero={

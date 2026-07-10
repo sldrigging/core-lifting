@@ -78,6 +78,27 @@ import houma3 from "../assets/locations/Core Houma/Core-Houma (3).jpeg";
 import houma4 from "../assets/locations/Core Houma/Core-Houma (4).jpeg";
 import houma5 from "../assets/locations/Core Houma/Core-Houma (5).jpeg";
 import houma6 from "../assets/locations/Core Houma/Core-Houma (6).jpeg";
+import houma22 from "../assets/locations/Core Houma/Core-Houma (22).jpeg";
+import houma24 from "../assets/locations/Core Houma/Core-Houma (24).jpg";
+import houma31 from "../assets/locations/Core Houma/Core-Houma (31).jpg";
+import houma33 from "../assets/locations/Core Houma/Core-Houma (33).png";
+import houma41 from "../assets/locations/Core Houma/Core-Houma (41).jpg";
+import houma44 from "../assets/locations/Core Houma/Core-Houma (44).jpeg";
+
+import imgBridonConstructex from "../assets/rigging-products/bridon-collage.png";
+
+/* ── Hero collage tiles (4×2) ── */
+const heroCollage = [
+  heroSewing,
+  heroChainSlings,
+  heroHoist,
+  heroWireRope,
+  heroVerticalTest,
+  heroRiggingFab,
+  heroWinchRepair,
+  heroSpooling,
+];
+
 /* ── Slide data ── */
 
 const products = [
@@ -120,25 +141,19 @@ const products = [
     link: "/rigging/wire-rope-assemblies",
     linkLabel: "PRODUCT INFORMATION",
   },
-import houma22 from "../assets/locations/Core Houma/Core-Houma (22).jpeg";
-import houma24 from "../assets/locations/Core Houma/Core-Houma (24).jpg";
-import houma31 from "../assets/locations/Core Houma/Core-Houma (31).jpg";
-import houma33 from "../assets/locations/Core Houma/Core-Houma (33).png";
-import houma41 from "../assets/locations/Core Houma/Core-Houma (41).jpg";
-import houma44 from "../assets/locations/Core Houma/Core-Houma (44).jpeg";
-
-/* ── Hero collage tiles (4×2) ── */
-const heroCollage = [
-  heroSewing,
-  heroChainSlings,
-  heroHoist,
-  heroWireRope,
-  heroVerticalTest,
-  heroRiggingFab,
-  heroWinchRepair,
-  heroSpooling,
-];
-
+  {
+    id: "bridon-constructex",
+    title: "BRIDON\nCONSTRUCTEX",
+    bullets: [
+      "High Breaking Force | 24% Stronger",
+      "Long Service Life | More Up Time",
+      "Lower Overall Cost",
+    ],
+    image: imgBridonConstructex,
+    position: "br",
+    link: "/rigging/bridon-constructex",
+    linkLabel: "PRODUCT INFORMATION",
+  },
   {
     id: "rigging-hardware",
     title: "RIGGING\nHARDWARE",

@@ -1,4 +1,5 @@
 import ProductDetailLayout from "../../components/ProductDetailLayout";
+import heroImg from "../../assets/imgs-rv/Cranes/Gorbel-workstation-crane.jpg";
 
 const faq = [
   {
@@ -18,6 +19,7 @@ export default function WorkstationCranesPage() {
       parent="CRANES"
       parentPath="/cranes"
       title={"WORKSTATION\nCRANES"}
+      heroImage={heroImg}
       actionLink="/core-pdfs/Crane%20Information/CI-03-%20Core%20Workstation%20Cranes%20PDF.pdf"
       actionLabel="PRODUCT INFORMATION PDF"
       afterHero={

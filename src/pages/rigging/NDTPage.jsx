@@ -1,15 +1,32 @@
 import ProductDetailLayout from "../../components/ProductDetailLayout";
+import heroImg from "../../assets/imgs-rv/3-2/NDT.jpg";
 
 const faq = [
   {
-    question: "WHAT NDT METHODS DO YOU PERFORM?",
+    question: "WHAT IS MAGNETIC PARTICLE INSPECTION USED FOR?",
     answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "Magnetic particle testing detects surface and near-surface cracks and defects in ferromagnetic materials such as steel shackles, hooks, and lifting hardware.",
   },
-  { question: "WHAT COMPONENTS CAN BE NDT TESTED?", answer: null },
-  { question: "ARE YOUR TECHNICIANS CERTIFIED?", answer: null },
-  { question: "CAN NDT BE PERFORMED ON-SITE?", answer: null },
-  { question: "WHAT DOCUMENTATION IS PROVIDED AFTER TESTING?", answer: null },
+  {
+    question: "DO YOU OFFER ON-SITE NDT SERVICES?",
+    answer:
+      "Yes. Our certified technicians perform magnetic particle inspections at your facility or job site throughout Louisiana, Texas, and the Gulf Coast.",
+  },
+  {
+    question: "CAN NDT BE COMBINED WITH LOAD TESTING?",
+    answer:
+      "Yes. We frequently combine magnetic particle inspections with load testing in our facilities for complete verification and certification of your rigging equipment.",
+  },
+  {
+    question: "ARE YOUR NDT TECHNICIANS CERTIFIED?",
+    answer:
+      "Yes. All magnetic particle inspections are performed by certified Level II or Level III technicians following applicable industry standards.",
+  },
+  {
+    question: "WHY IS NDT IMPORTANT FOR RIGGING EQUIPMENT?",
+    answer:
+      "NDT helps identify hidden defects before they lead to failure, improving safety and extending the reliable service life of critical lifting components.",
+  },
 ];
 
 export default function NDTPage() {
@@ -18,28 +35,29 @@ export default function NDTPage() {
       parent="RIGGING"
       parentPath="/rigging"
       title="NDT"
+      heroImage={heroImg}
       afterHero={
         <>
           <div className="dp-feature">
-            <strong>Equipment &amp; Capabilities:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris.
-          </div>
-          <div className="dp-feature">
-            <strong>Applications:</strong> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.
+            <strong>In-House with Load Testing:</strong> Our facilities combine magnetic particle inspections with load testing to provide comprehensive evaluation and certification of slings, fittings, and lifting hardware in one visit.
           </div>
         </>
       }
       faq={faq}
     >
+      <h1 className="dp-h1">
+        Certified Magnetic Particle Non Destructive Testing and Evaluations | MPI, NDT, NDE
+      </h1>
       <p className="dp-desc">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua — certified <strong>magnetic particle inspection</strong> services for hooks, shackles, and lifting components, performed by qualified Level II technicians.
+        Core Lifting provides certified Non-Destructive Testing (NDT) including magnetic particle inspections to detect surface and near-surface defects in rigging hardware and lifting equipment. Our services are available both on-site and in-house, often combined with load testing for complete verification.
       </p>
 
       <div className="dp-feature">
-        <strong>Magnetic Particle Testing:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip.
+        <strong>Certified Mag Particle Inspections:</strong> Our certified technicians perform magnetic particle testing to identify cracks, seams, and other surface defects that visual inspections may miss, ensuring critical components remain safe for use.
       </div>
 
       <div className="dp-feature">
-        <strong>Certification:</strong> Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit.
+        <strong>On-Site NDT Services:</strong> We bring certified NDT capabilities directly to your location across Louisiana, Texas, and the Gulf Coast, minimizing equipment downtime and transportation costs.
       </div>
     </ProductDetailLayout>
   );

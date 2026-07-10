@@ -1,15 +1,32 @@
 import ProductDetailLayout from "../../components/ProductDetailLayout";
+import heroImg from "../../assets/imgs-rv/3-2/Portable-Pad-Eye-Testing.jpg";
 
 const faq = [
   {
     question: "WHAT IS PORTABLE PAD EYE TESTING?",
     answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "Portable pad eye testing uses mobile equipment to apply controlled loads and verify the strength of pad eyes directly at your location without removing them from service.",
   },
-  { question: "WHAT CAPACITIES CAN YOU TEST TO?", answer: null },
-  { question: "CAN TESTING BE PERFORMED OFFSHORE OR ON-SITE?", answer: null },
-  { question: "WHAT DOCUMENTATION DO YOU PROVIDE?", answer: null },
-  { question: "HOW FAR IN ADVANCE SHOULD TESTING BE SCHEDULED?", answer: null },
+  {
+    question: "WHY SHOULD I TEST MY PAD EYES?",
+    answer:
+      "Regular testing confirms structural integrity, ensures safe working load limits, and helps prevent failures that could lead to accidents or equipment damage.",
+  },
+  {
+    question: "DO YOU PROVIDE CERTIFIED TEST REPORTS?",
+    answer:
+      "Yes. Every portable pad eye test includes complete documentation and certification for regulatory compliance and record-keeping.",
+  },
+  {
+    question: "CAN YOU TEST PAD EYES ON-SITE AT MY FACILITY?",
+    answer:
+      "Yes. Our mobile testing teams travel to your location throughout Louisiana, Texas, and the Gulf Coast for convenient on-site pad eye load testing.",
+  },
+  {
+    question: "HOW OFTEN SHOULD PAD EYES BE TESTED?",
+    answer:
+      "We recommend testing pad eyes annually or after any suspected overload, damage, or as required by your safety program and applicable regulations.",
+  },
 ];
 
 export default function PadEyeTestingPage() {
@@ -18,28 +35,34 @@ export default function PadEyeTestingPage() {
       parent="RIGGING"
       parentPath="/rigging"
       title={"PORTABLE PAD\nEYE TESTING"}
+      heroImage={heroImg}
       afterHero={
         <>
           <div className="dp-feature">
-            <strong>Site Requirements:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris.
+            <strong>Improved Safety &amp; Compliance:</strong> Regular portable pad eye testing helps maintain safe working conditions and meets regulatory standards for lifting points on structures and equipment.
           </div>
           <div className="dp-feature">
-            <strong>Documentation &amp; Certification:</strong> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.
+            <strong>Fast Turnaround:</strong> Our mobile teams deliver quick, reliable testing with minimal disruption to your operations across the Gulf Coast region.
           </div>
         </>
       }
       faq={faq}
     >
+      <h1 className="dp-h1">Portable Pad Eye Load Testing &ndash; On-Site Safety Verification</h1>
       <p className="dp-desc">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua — utilizing portable tensioning equipment to proof-test <strong>welded pad eyes and lift points</strong> in place, without removal from structure.
+        Core Lifting provides portable pad eye load testing services to verify the strength and safety of pad eyes directly at your location across Louisiana, Texas, and the Gulf Coast. Our mobile testing equipment delivers accurate results with full certification, minimizing downtime while ensuring compliance with industry standards.
       </p>
 
       <div className="dp-feature">
-        <strong>Portable Equipment:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip.
+        <strong>On-Site Convenience:</strong> Our portable pad eye testing brings certified load testing directly to your facility or job site, eliminating the need to remove and transport equipment.
       </div>
 
       <div className="dp-feature">
-        <strong>Testing Capacity:</strong> Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit.
+        <strong>Accurate Load Verification:</strong> We apply precise, calibrated loads to confirm pad eye capacity and identify any weaknesses before they become safety hazards.
+      </div>
+
+      <div className="dp-feature">
+        <strong>Full Certification:</strong> Every pad eye test includes detailed documentation and certification for customer compliance requirements.
       </div>
     </ProductDetailLayout>
   );

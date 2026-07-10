@@ -1,4 +1,5 @@
 import ProductDetailLayout from "../../components/ProductDetailLayout";
+import heroImg from "../../assets/imgs-rv/Cranes/Manufacturing.jpg";
 
 const faq = [
   {
@@ -18,6 +19,7 @@ export default function ManufacturingPage() {
       parent="CRANES"
       parentPath="/cranes"
       title="MANUFACTURING"
+      heroImage={heroImg}
       actionLink="/core-pdfs/Overhead%20Cranes/CH-01-%20Core%20Street%20Hoists%20PDF.pdf"
       actionLabel="PRODUCT INFORMATION PDF"
       afterHero={

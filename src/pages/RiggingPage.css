@@ -113,6 +113,11 @@ section.rp-section {
   z-index: 1;
 }
 
+/* Keep the BRIDON wordmark/tagline in frame instead of cropping into it */
+#bridon-constructex .rig-slide-img {
+  object-position: center top;
+}
+
 /* Subtle dark gradient for text legibility — direction varies by overlay position */
 .rig-slide-scrim {
   position: absolute;

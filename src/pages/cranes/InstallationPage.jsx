@@ -1,4 +1,5 @@
 import ProductDetailLayout from "../../components/ProductDetailLayout";
+import heroImg from "../../assets/imgs-rv/Cranes/OHC-Installation.jpg";
 
 const faq = [
   {
@@ -18,6 +19,7 @@ export default function InstallationPage() {
       parent="CRANES"
       parentPath="/cranes"
       title="INSTALLATION"
+      heroImage={heroImg}
       actionLink="/core-pdfs/Services%20Information/CS-03-%20Core%20Overhead%20Crane%20Installation.pdf"
       actionLabel="PRODUCT INFORMATION PDF"
       afterHero={

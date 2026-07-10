@@ -31,6 +31,9 @@ export default function ProductDetailLayout({
   afterHero,
   provisionText,
   faq,
+  brands,
+  heroImagePosition,
+  titleLogo,
 }) {
   const { pathname } = useLocation();
 
@@ -54,18 +57,28 @@ export default function ProductDetailLayout({
         {/* Hero — full-width image with title+button overlay */}
         <div className="dp-hero">
           {heroImage ? (
-            <img src={heroImage} alt={titleFlat} className="dp-hero-img" />
+            <img
+              src={heroImage}
+              alt={titleFlat}
+              className="dp-hero-img"
+              style={heroImagePosition ? { objectPosition: heroImagePosition } : undefined}
+            />
           ) : (
             <div className="dp-hero-placeholder" />
           )}
           <div className="dp-hero-overlay">
-            <h1 className="dp-title">
-              {lines.map((line, i) => (
-                <span key={i} className="dp-title-line">
-                  {line}
-                </span>
-              ))}
-            </h1>
+            <div className={titleLogo ? "dp-title-row" : undefined}>
+              <div className="dp-title">
+                {lines.map((line, i) => (
+                  <span key={i} className="dp-title-line">
+                    {line}
+                  </span>
+                ))}
+              </div>
+              {titleLogo && (
+                <img src={titleLogo.src} alt={titleLogo.alt} className="dp-title-logo" />
+              )}
+            </div>
             {actionLink && (
               actionLink.startsWith("/core-pdfs/") ? (
                 <a href={actionLink} target="_blank" rel="noreferrer" className="dp-action-btn">
@@ -79,6 +92,17 @@ export default function ProductDetailLayout({
             )}
           </div>
         </div>
+
+        {/* Mainline brand logos — 8 across, wraps to a new line beyond that */}
+        {brands && brands.length > 0 && (
+          <div className="dp-brands">
+            {brands.map((b, i) => (
+              <div key={i} className="dp-brand-item">
+                <img src={b.src} alt={b.name} className="dp-brand-logo" />
+              </div>
+            ))}
+          </div>
+        )}
 
         {/* Content + FAQ — two-column grid */}
         <div className="dp-body-grid">

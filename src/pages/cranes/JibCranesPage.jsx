@@ -1,4 +1,5 @@
 import ProductDetailLayout from "../../components/ProductDetailLayout";
+import heroImg from "../../assets/imgs-rv/Cranes/Gorbel-Jib-Crane.jpg";
 
 const faq = [
   {
@@ -18,6 +19,7 @@ export default function JibCranesPage() {
       parent="CRANES"
       parentPath="/cranes"
       title={"JIB\nCRANES"}
+      heroImage={heroImg}
       actionLink="/core-pdfs/Crane%20Information/CI-02-%20Core%20Jib%20Cranes%20PDF.pdf"
       actionLabel="PRODUCT INFORMATION PDF"
       afterHero={

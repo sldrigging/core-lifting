@@ -1,15 +1,43 @@
 import ProductDetailLayout from "../../components/ProductDetailLayout";
+import heroImg from "../../assets/imgs-rv/Wire-Rope.jpg";
+import logoBridon from "../../assets/brand-logos/Wire Rope/bridon-200w.png";
+import logoTeufelberger from "../../assets/brand-logos/Wire Rope/Teufelberger-200w.png";
+import logoRedaelli from "../../assets/brand-logos/Wire Rope/Redaelli-200w.png";
+import logoAmericanWireRope from "../../assets/brand-logos/Wire Rope/american-wire-rope-200w.png";
 
 const faq = [
   {
-    question: "WHAT WIRE ROPE CONSTRUCTIONS DO YOU STOCK?",
+    question: "WHAT BRANDS OF WIRE ROPE DOES CORE LIFTING CARRY?",
     answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "We stock premium wire rope from top manufacturers including Bridon, Teufelberger, and Redaelli, selected for their proven quality and performance in industrial applications.",
   },
-  { question: "WHAT IS THE DIFFERENCE BETWEEN EIPS AND EEIPS?", answer: null },
-  { question: "DO YOU CUT AND SPOOL ROPE TO LENGTH?", answer: null },
-  { question: "WHAT GRADES OF WIRE ROPE DO YOU CARRY?", answer: null },
-  { question: "CAN YOU MATCH AN EXISTING ROPE SPECIFICATION?", answer: null },
+  {
+    question: "DO YOU OFFER WIRE ROPE FOR CRANES AND DRILLING OPERATIONS?",
+    answer:
+      "Yes. We supply specialized Bridon, Teufelberger, and Redaelli crane ropes and drill lines designed for high-cycle fatigue resistance and maximum safety in crane and drilling environments.",
+  },
+  {
+    question: "CAN I GET HELP SELECTING THE RIGHT WIRE ROPE FOR MY EQUIPMENT?",
+    answer:
+      "Absolutely. Our experienced team provides expert guidance on wire rope selection, construction, diameter, and grade to match your specific load, duty cycle, and operating conditions.",
+  },
+  {
+    question: "ARE YOUR WIRE ROPES CERTIFIED AND TESTED?",
+    answer:
+      "Yes. All wire rope we supply meets or exceeds relevant industry standards with full traceability and certification for reliable, safe performance.",
+  },
+  {
+    question: "DO YOU SERVE CUSTOMERS IN LOUISIANA, TEXAS, AND THE GULF COAST?",
+    answer:
+      "Yes. As a Louisiana and Texas based supplier, Core Lifting provides fast access to premium wire rope with expert support and quick delivery throughout Louisiana, Texas, and the Gulf Coast region.",
+  },
+];
+
+const brands = [
+  { name: "Bridon", src: logoBridon },
+  { name: "Teufelberger", src: logoTeufelberger },
+  { name: "Redaelli", src: logoRedaelli },
+  { name: "American Wire Rope", src: logoAmericanWireRope },
 ];
 
 export default function WireRopePage() {
@@ -18,30 +46,35 @@ export default function WireRopePage() {
       parent="RIGGING"
       parentPath="/rigging"
       title="WIRE ROPE"
+      heroImage={heroImg}
       actionLink="/core-pdfs/A1%20Core%20Bridon%20Ropes.pdf"
       actionLabel="PRODUCT INFORMATION PDF"
+      brands={brands}
       afterHero={
         <>
           <div className="dp-feature">
-            <strong>General Purpose Ropes:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris.
+            <strong>Redaelli Crane Ropes:</strong> Redaelli crane ropes available through Core Lifting feature premium compaction and specialized designs that deliver outstanding durability and efficiency for heavy-duty crane applications.
           </div>
           <div className="dp-feature">
-            <strong>Drill Lines:</strong> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.
+            <strong>General Purpose Ropes:</strong> Our general purpose wire ropes offer versatile, cost-effective solutions with reliable strength and flexibility for a wide range of standard lifting, rigging, and material handling tasks.
           </div>
         </>
       }
       faq={faq}
     >
+      <h1 className="dp-h1">
+        Premium Wire Rope Solutions from Top Brands, Serving Louisiana, Texas, and the Gulf Coast
+      </h1>
       <p className="dp-desc">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua — stocked in premium <strong>EIPS / EEIPS</strong> grades, engineered for crane and industrial lifting applications.
+        Core Lifting supplies premium wire rope from leading manufacturers including Bridon, Teufelberger, and Redaelli to meet the toughest demands in crane, drilling, and industrial applications. Our expert team helps you select the right wire rope for maximum safety, performance, and service life.
       </p>
 
       <div className="dp-feature">
-        <strong>BRIDON Crane Ropes:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco.
+        <strong>Bridon Crane Ropes &amp; Drill Lines:</strong> We supply high-performance Bridon crane ropes and drill lines engineered for exceptional fatigue resistance, abrasion resistance, and reliability in demanding crane and drilling environments. Learn more about Bridon Constructex&rsquo;s Drill Lines with unbeatable TON-MILE ratings.
       </div>
 
       <div className="dp-feature">
-        <strong>TEUFELBERGER Crane Ropes:</strong> Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit.
+        <strong>Teufelberger Crane Ropes:</strong> Teufelberger crane ropes from Core Lifting provide advanced construction and high breaking strength, ensuring safer lifts and longer service life in overhead crane and heavy industrial use.
       </div>
     </ProductDetailLayout>
   );

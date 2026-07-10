@@ -51,6 +51,10 @@
   margin-bottom: 2.5rem;
 }
 
+.dp-hero:has(+ .dp-brands) {
+  margin-bottom: 0;
+}
+
 .dp-hero-img {
   width: 100%;
   height: 100%;
@@ -102,6 +106,26 @@
   display: block;
 }
 
+/* ── Inline title + logo row (e.g. JD Neuhaus authorized repair badge) ── */
+
+.dp-title-row {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.dp-title-row .dp-title {
+  margin-bottom: 0;
+}
+
+.dp-title-logo {
+  width: clamp(90px, 11vw, 160px);
+  height: auto;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.35));
+  flex-shrink: 0;
+}
+
 /* ── Action button ───────────────────────────────────────────────── */
 
 .dp-action-btn {
@@ -124,6 +148,51 @@
   background: #b35a32;
 }
 
+/* ── Mainline brand logos — 8 across, wraps to a new line beyond that ── */
+
+.dp-brands {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem 0 2rem;
+}
+
+.dp-brand-item {
+  flex: 0 0 12.5%;
+  max-width: 12.5%;
+  box-sizing: border-box;
+  padding: 0.5rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dp-brand-logo {
+  max-width: 100%;
+  max-height: 56px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 900px) {
+  .dp-brand-item {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+}
+
+@media (max-width: 520px) {
+  .dp-brand-item {
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .dp-brand-logo {
+    max-height: 44px;
+  }
+}
+
 /* ── Body grid — content left, FAQ right ─────────────────────────── */
 
 .dp-body-grid {
@@ -144,6 +213,15 @@
   line-height: 1.72;
   color: #3a3a3a;
   margin-bottom: 1.25rem;
+}
+
+.dp-h1 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.005em;
+  color: #1a1a1a;
+  margin: 0 0 1.1rem;
 }
 
 .dp-feature {
