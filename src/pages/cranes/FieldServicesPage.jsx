@@ -1,4 +1,5 @@
 import ProductDetailLayout from "../../components/ProductDetailLayout";
+import { getCraneDocItems } from "../../data/productSpecs";
 import heroImg from "../../assets/imgs-rv/Cranes/OHC-Services.jpg";
 
 const faq = [
@@ -13,6 +14,8 @@ const faq = [
   { question: "DO YOU PROVIDE INSPECTION REPORTS AND DOCUMENTATION?", answer: null },
 ];
 
+const downloads = getCraneDocItems(["CS-01"]);
+
 export default function FieldServicesPage() {
   return (
     <ProductDetailLayout
@@ -20,8 +23,8 @@ export default function FieldServicesPage() {
       parentPath="/cranes"
       title={"FIELD\nSERVICES"}
       heroImage={heroImg}
-      actionLink="/core-pdfs/Services%20Information/CS-01-%20Core%20Sample%20Inspection%20Report.pdf"
-      actionLabel="PRODUCT INFORMATION PDF"
+      downloads={downloads}
+      downloadsTitle="Field Services PDF Downloads"
       afterHero={
         <>
           <div className="dp-feature">

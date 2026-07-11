@@ -1,4 +1,5 @@
 import ProductDetailLayout from "../../components/ProductDetailLayout";
+import { getPdfItems } from "../../data/productSpecs";
 import heroImg from "../../assets/imgs-rv/Chain-Slings.jpg";
 import logoPeerless from "../../assets/brand-logos/Chain/peerless.png";
 import logoGunnebo from "../../assets/brand-logos/Chain/gunnebo.png";
@@ -36,6 +37,8 @@ const brands = [
   { name: "Gunnebo", src: logoGunnebo },
 ];
 
+const downloads = getPdfItems(["B2", "F1", "G1", "C1", "C2", "C3", "C12"]);
+
 export default function ChainProductsPage() {
   return (
     <ProductDetailLayout
@@ -43,9 +46,9 @@ export default function ChainProductsPage() {
       parentPath="/rigging"
       title={"CHAIN\nPRODUCTS"}
       heroImage={heroImg}
-      actionLink="/core-pdfs/F1%20Core%20Industrial%20Chain%20%26%20Fittings.pdf"
-      actionLabel="PRODUCT INFORMATION PDF"
       brands={brands}
+      downloads={downloads}
+      downloadsTitle="Chain Products PDF Downloads"
       afterHero={
         <>
           <div className="dp-feature">

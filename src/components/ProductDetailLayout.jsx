@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import PdfDownloads from "./PdfDownloads";
 import "./ProductDetailLayout.css";
 
 function FAQItem({ question, answer }) {
@@ -24,8 +25,6 @@ export default function ProductDetailLayout({
   parent,
   parentPath,
   title,
-  actionLink,
-  actionLabel,
   heroImage,
   children,
   afterHero,
@@ -34,6 +33,9 @@ export default function ProductDetailLayout({
   brands,
   heroImagePosition,
   titleLogo,
+  downloads,
+  downloadsTitle,
+  featuredProducts,
 }) {
   const { pathname } = useLocation();
 
@@ -79,17 +81,6 @@ export default function ProductDetailLayout({
                 <img src={titleLogo.src} alt={titleLogo.alt} className="dp-title-logo" />
               )}
             </div>
-            {actionLink && (
-              actionLink.startsWith("/core-pdfs/") ? (
-                <a href={actionLink} target="_blank" rel="noreferrer" className="dp-action-btn">
-                  {actionLabel}
-                </a>
-              ) : (
-                <Link to={actionLink} className="dp-action-btn">
-                  {actionLabel}
-                </Link>
-              )
-            )}
           </div>
         </div>
 
@@ -112,15 +103,34 @@ export default function ProductDetailLayout({
             {provisionText && <div className="dp-provision">{provisionText}</div>}
           </div>
 
-          {faq && faq.length > 0 && (
-            <div className="dp-faq">
-              <h2 className="dp-faq-heading">FAQ</h2>
-              {faq.map((item, i) => (
-                <FAQItem key={i} question={item.question} answer={item.answer} />
-              ))}
+          {((featuredProducts && featuredProducts.length > 0) || (faq && faq.length > 0)) && (
+            <div className="dp-side-col">
+              {featuredProducts && featuredProducts.length > 0 && (
+                <div className="dp-featured">
+                  <h2 className="dp-featured-heading">FEATURED PRODUCTS</h2>
+                  <ul className="dp-featured-list">
+                    {featuredProducts.map((item, i) => (
+                      <li key={i}>
+                        <Link to={item.to}>{item.label}</Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {faq && faq.length > 0 && (
+                <div className="dp-faq">
+                  <h2 className="dp-faq-heading">FAQ</h2>
+                  {faq.map((item, i) => (
+                    <FAQItem key={i} question={item.question} answer={item.answer} />
+                  ))}
+                </div>
+              )}
             </div>
           )}
         </div>
+
+        <PdfDownloads title={downloadsTitle} items={downloads} />
       </div>
     </div>
   );

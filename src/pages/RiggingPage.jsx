@@ -3,6 +3,14 @@ import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import "./RiggingPage.css";
 import LocationCarousel from "../components/LocationCarousel";
+import {
+  hoistsBrands,
+  wireRopeBrands,
+  riggingHardwareBrands,
+  chainBrands,
+  syntheticsBrands,
+  lubricationBrands,
+} from "../data/brandLogos";
 
 /* ── Hero collage images (3:2) ── */
 import heroChainSlings from "../assets/imgs-rv/3-2/Rigging Hero Collage/Chain-Slings.jpg";
@@ -85,8 +93,6 @@ import houma33 from "../assets/locations/Core Houma/Core-Houma (33).png";
 import houma41 from "../assets/locations/Core Houma/Core-Houma (41).jpg";
 import houma44 from "../assets/locations/Core Houma/Core-Houma (44).jpeg";
 
-import imgBridonConstructex from "../assets/rigging-products/bridon-collage.png";
-
 /* ── Hero collage tiles (4×2) ── */
 const heroCollage = [
   heroSewing,
@@ -112,6 +118,7 @@ const products = [
     jdnLogoInline: true,
     link: "/rigging/hoists",
     linkLabel: "PRODUCT INFORMATION",
+    brands: hoistsBrands,
   },
   {
     id: "wire-rope",
@@ -126,6 +133,7 @@ const products = [
     position: "tl",
     link: "/rigging/wire-rope",
     linkLabel: "PRODUCT INFORMATION",
+    brands: wireRopeBrands,
   },
   {
     id: "wire-rope-assemblies",
@@ -142,19 +150,6 @@ const products = [
     linkLabel: "PRODUCT INFORMATION",
   },
   {
-    id: "bridon-constructex",
-    title: "BRIDON\nCONSTRUCTEX",
-    bullets: [
-      "High Breaking Force | 24% Stronger",
-      "Long Service Life | More Up Time",
-      "Lower Overall Cost",
-    ],
-    image: imgBridonConstructex,
-    position: "br",
-    link: "/rigging/bridon-constructex",
-    linkLabel: "PRODUCT INFORMATION",
-  },
-  {
     id: "rigging-hardware",
     title: "RIGGING\nHARDWARE",
     bullets: [
@@ -167,9 +162,10 @@ const products = [
       "Plate clamps",
     ],
     image: imgRiggingHardware,
-    position: "br",
+    position: "tr",
     link: "/rigging/rigging-hardware",
     linkLabel: "PRODUCT INFORMATION",
+    brands: riggingHardwareBrands,
   },
   {
     id: "chain-products",
@@ -179,6 +175,7 @@ const products = [
     position: "cl",
     link: "/rigging/chain-products",
     linkLabel: "PRODUCT INFORMATION",
+    brands: chainBrands,
   },
   {
     id: "synthetics",
@@ -188,6 +185,7 @@ const products = [
     position: "cr",
     link: "/rigging/synthetics",
     linkLabel: "PRODUCT INFORMATION",
+    brands: syntheticsBrands,
   },
   {
     id: "lubricators",
@@ -200,6 +198,7 @@ const products = [
     position: "tr",
     link: "/rigging/lubricators",
     linkLabel: "PRODUCT INFORMATION",
+    brands: lubricationBrands,
   },
 ];
 
@@ -416,60 +415,71 @@ function Slide({ slide, basePath }) {
     linkLabel,
     showJdnLogo,
     jdnLogoInline,
+    brands,
   } = slide;
 
   return (
     <section id={id} className="rig-slide">
-      <img src={image} alt={title.replace(/\n/g, " ")} className="rig-slide-img" />
-      <div className="rig-slide-scrim" />
+      <div className="rig-slide-media">
+        <img src={image} alt={title.replace(/\n/g, " ")} className="rig-slide-img" />
+        <div className="rig-slide-scrim" />
 
-      <motion.div
-        className={`rig-overlay rig-overlay--${position}`}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        variants={overlayVariants}
-      >
-        <div className={jdnLogoInline ? "rig-overlay-title-row" : undefined}>
-          <h2 className="rig-overlay-title">
-            {title.split("\n").map((line, i) => (
-              <span key={i} className="rig-overlay-title-line">
-                {line}
-              </span>
-            ))}
-          </h2>
-          {showJdnLogo && jdnLogoInline && (
-            <img src={jdnLogo} alt="JD Neuhaus Authorized Repair Center" className="rig-jdn-logo-inline" />
+        <motion.div
+          className={`rig-overlay rig-overlay--${position}`}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={overlayVariants}
+        >
+          <div className={jdnLogoInline ? "rig-overlay-title-row" : undefined}>
+            <h2 className="rig-overlay-title">
+              {title.split("\n").map((line, i) => (
+                <span key={i} className="rig-overlay-title-line">
+                  {line}
+                </span>
+              ))}
+            </h2>
+            {showJdnLogo && jdnLogoInline && (
+              <img src={jdnLogo} alt="JD Neuhaus Authorized Repair Center" className="rig-jdn-logo-inline" />
+            )}
+          </div>
+
+          {subtitle && <p className="rig-overlay-subtitle">{subtitle}</p>}
+
+          {bullets.length > 0 && (
+            <ul className="rig-overlay-list">
+              {bullets.map((b, i) => (
+                <li key={i}>{b}</li>
+              ))}
+            </ul>
           )}
-        </div>
 
-        {subtitle && <p className="rig-overlay-subtitle">{subtitle}</p>}
+          <div className="rig-overlay-btns">
+            {link && (
+              <Link to={link} className="rig-overlay-btn">
+                {linkLabel || "PRODUCT INFORMATION"}
+              </Link>
+            )}
+            {basePath && (
+              <Link to={`${basePath}/${id}`} className="rig-overlay-btn rig-overlay-btn--outline">
+                LEARN MORE
+              </Link>
+            )}
+          </div>
+        </motion.div>
 
-        {bullets.length > 0 && (
-          <ul className="rig-overlay-list">
-            {bullets.map((b, i) => (
-              <li key={i}>{b}</li>
-            ))}
-          </ul>
+        {showJdnLogo && !jdnLogoInline && (
+          <img src={jdnLogo} alt="JD Neuhaus Authorized Repair Center" className="rig-jdn-logo" />
         )}
 
-        <div className="rig-overlay-btns">
-          {link && (
-            <Link to={link} className="rig-overlay-btn">
-              {linkLabel || "PRODUCT INFORMATION"}
-            </Link>
-          )}
-          {basePath && (
-            <Link to={`${basePath}/${id}`} className="rig-overlay-btn rig-overlay-btn--outline">
-              LEARN MORE
-            </Link>
-          )}
-        </div>
-      </motion.div>
-
-      {showJdnLogo && !jdnLogoInline && (
-        <img src={jdnLogo} alt="JD Neuhaus Authorized Repair Center" className="rig-jdn-logo" />
-      )}
+        {brands && brands.length > 0 && (
+          <div className="rig-slide-brands">
+            {brands.map((b) => (
+              <img key={b.name} src={b.src} alt={b.name} className="rig-slide-brand-logo" />
+            ))}
+          </div>
+        )}
+      </div>
     </section>
   );
 }
@@ -542,7 +552,7 @@ export default function RiggingPage() {
         <h2 className="rigging-locations-heading">LOCATIONS</h2>
         <div className="rigging-locations-list">
           {locations.map((loc) => (
-            <div key={loc.id} className="rigging-location-carousel-wrap">
+            <div key={loc.id} id={loc.id} className="rigging-location-carousel-wrap">
               <LocationCarousel location={loc} />
             </div>
           ))}

@@ -1,4 +1,5 @@
 import ProductDetailLayout from "../../components/ProductDetailLayout";
+import { getCraneDocItems } from "../../data/productSpecs";
 import heroImg from "../../assets/imgs-rv/Cranes/Gorbel-Jib-Crane.jpg";
 
 const faq = [
@@ -13,6 +14,8 @@ const faq = [
   { question: "WHAT IS THE TYPICAL LEAD TIME FOR A JIB CRANE?", answer: null },
 ];
 
+const downloads = getCraneDocItems(["CI-02"]);
+
 export default function JibCranesPage() {
   return (
     <ProductDetailLayout
@@ -20,8 +23,8 @@ export default function JibCranesPage() {
       parentPath="/cranes"
       title={"JIB\nCRANES"}
       heroImage={heroImg}
-      actionLink="/core-pdfs/Crane%20Information/CI-02-%20Core%20Jib%20Cranes%20PDF.pdf"
-      actionLabel="PRODUCT INFORMATION PDF"
+      downloads={downloads}
+      downloadsTitle="Jib Cranes PDF Downloads"
       afterHero={
         <>
           <div className="dp-feature">

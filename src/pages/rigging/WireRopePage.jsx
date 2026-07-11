@@ -1,4 +1,5 @@
 import ProductDetailLayout from "../../components/ProductDetailLayout";
+import { getPdfItems } from "../../data/productSpecs";
 import heroImg from "../../assets/imgs-rv/Wire-Rope.jpg";
 import logoBridon from "../../assets/brand-logos/Wire Rope/bridon-200w.png";
 import logoTeufelberger from "../../assets/brand-logos/Wire Rope/Teufelberger-200w.png";
@@ -40,6 +41,12 @@ const brands = [
   { name: "American Wire Rope", src: logoAmericanWireRope },
 ];
 
+const downloads = getPdfItems(["A1", "A2", "A3", "A4", "A5"]);
+
+const featuredProducts = [
+  { label: "Bridon Constructex Drill Line – TON MILE CHAMP", to: "/rigging/bridon-constructex" },
+];
+
 export default function WireRopePage() {
   return (
     <ProductDetailLayout
@@ -47,9 +54,10 @@ export default function WireRopePage() {
       parentPath="/rigging"
       title="WIRE ROPE"
       heroImage={heroImg}
-      actionLink="/core-pdfs/A1%20Core%20Bridon%20Ropes.pdf"
-      actionLabel="PRODUCT INFORMATION PDF"
       brands={brands}
+      downloads={downloads}
+      downloadsTitle="Wire Rope PDF Downloads"
+      featuredProducts={featuredProducts}
       afterHero={
         <>
           <div className="dp-feature">

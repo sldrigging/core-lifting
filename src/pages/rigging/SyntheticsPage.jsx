@@ -1,4 +1,5 @@
 import ProductDetailLayout from "../../components/ProductDetailLayout";
+import { getPdfItems } from "../../data/productSpecs";
 import heroImg from "../../assets/imgs-rv/Synthetic-Slings.jpg";
 import logoCoreTex from "../../assets/brand-logos/Synthetics/core-tex.png";
 import logoBexco from "../../assets/brand-logos/Synthetics/bexco.png";
@@ -38,6 +39,8 @@ const brands = [
   { name: "Continental Western Corporation", src: logoCwc },
 ];
 
+const downloads = getPdfItems(["B3", "B4", "B5", "H1", "H2", "C8", "G1"]);
+
 export default function SyntheticsPage() {
   return (
     <ProductDetailLayout
@@ -45,9 +48,9 @@ export default function SyntheticsPage() {
       parentPath="/rigging"
       title="SYNTHETICS"
       heroImage={heroImg}
-      actionLink="/core-pdfs/B3%20Core%20Web%20Sling%20Catalog.pdf"
-      actionLabel="PRODUCT INFORMATION PDF"
       brands={brands}
+      downloads={downloads}
+      downloadsTitle="Synthetics & Cordage PDF Downloads"
       afterHero={
         <>
           <div className="dp-feature">

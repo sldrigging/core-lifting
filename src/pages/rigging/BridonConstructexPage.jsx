@@ -1,5 +1,8 @@
 import ProductDetailLayout from "../../components/ProductDetailLayout";
+import { getPdfItems } from "../../data/productSpecs";
 import heroImg from "../../assets/rigging-products/bridon-collage.png";
+
+const downloads = getPdfItems(["A1"]);
 
 const faq = [
   {
@@ -32,8 +35,8 @@ export default function BridonConstructexPage() {
       title={"BRIDON\nCONSTRUCTEX"}
       heroImage={heroImg}
       heroImagePosition="center top"
-      actionLink="/core-pdfs/A1%20Core%20Bridon%20Ropes.pdf"
-      actionLabel="PRODUCT INFORMATION PDF"
+      downloads={downloads}
+      downloadsTitle="Wire Rope PDF Downloads"
       afterHero={
         <>
           <div className="dp-feature">

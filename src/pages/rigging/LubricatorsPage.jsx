@@ -1,4 +1,5 @@
 import ProductDetailLayout from "../../components/ProductDetailLayout";
+import { getPdfItems } from "../../data/productSpecs";
 import heroImg from "../../assets/imgs-rv/Lubricator-.jpg";
 import logoSeaLube from "../../assets/brand-logos/Lubrication/Sea-Lube.png";
 import logoSeaGrease from "../../assets/brand-logos/Lubrication/Sea-Grease.png";
@@ -36,6 +37,8 @@ const brands = [
   { name: "SeaGrease", src: logoSeaGrease },
 ];
 
+const downloads = getPdfItems(["J1", "J2"]);
+
 export default function LubricatorsPage() {
   return (
     <ProductDetailLayout
@@ -43,9 +46,9 @@ export default function LubricatorsPage() {
       parentPath="/rigging"
       title="LUBRICATORS"
       heroImage={heroImg}
-      actionLink="/core-pdfs/J1%20Core%20Lubricant%20Products.pdf"
-      actionLabel="PRODUCT INFORMATION PDF"
       brands={brands}
+      downloads={downloads}
+      downloadsTitle="Lubrication PDF Downloads"
       afterHero={
         <>
           <div className="dp-feature">

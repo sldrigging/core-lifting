@@ -1,4 +1,5 @@
 import ProductDetailLayout from "../../components/ProductDetailLayout";
+import { getPdfItems } from "../../data/productSpecs";
 import heroImg from "../../assets/imgs-rv/Hoists.jpg";
 import jdnRepairLogo from "../../assets/imgs-rv/jdn-repair-center-blue.png";
 import logoJdn from "../../assets/brand-logos/Hoists/jdn-200w.png";
@@ -45,6 +46,8 @@ const brands = [
   { name: "AMH", src: logoAmh },
 ];
 
+const downloads = getPdfItems(["E1", "E2", "E3", "E4", "E5", "E6", "E7", "E8"]);
+
 export default function HoistsPage() {
   return (
     <ProductDetailLayout
@@ -53,9 +56,9 @@ export default function HoistsPage() {
       title="HOISTS"
       heroImage={heroImg}
       titleLogo={{ src: jdnRepairLogo, alt: "JD Neuhaus Authorized Repair Center" }}
-      actionLink="/core-pdfs/E1%20Core%20Air%20Hoists.pdf"
-      actionLabel="PRODUCT INFORMATION PDF"
       brands={brands}
+      downloads={downloads}
+      downloadsTitle="Hoists PDF Downloads"
       afterHero={
         <>
           <div className="dp-feature">

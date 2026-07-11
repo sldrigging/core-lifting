@@ -1,4 +1,5 @@
 import ProductDetailLayout from "../../components/ProductDetailLayout";
+import { getCraneDocItems } from "../../data/productSpecs";
 import heroImg from "../../assets/imgs-rv/Cranes/Bridge-cranes.jpg";
 
 const faq = [
@@ -13,6 +14,8 @@ const faq = [
   { question: "WHAT IS YOUR TYPICAL LEAD TIME FOR A NEW CRANE?", answer: null },
 ];
 
+const downloads = getCraneDocItems(["CI-01", "CS-01", "CS-02", "CS-03", "CH-01", "CH-02", "CH-03"]);
+
 export default function BridgeCranesPage() {
   return (
     <ProductDetailLayout
@@ -20,8 +23,8 @@ export default function BridgeCranesPage() {
       parentPath="/cranes"
       title={"BRIDGE\nCRANES"}
       heroImage={heroImg}
-      actionLink="/core-pdfs/Overhead%20Cranes/CH-01-%20Core%20Street%20Hoists%20PDF.pdf"
-      actionLabel="PRODUCT INFORMATION PDF"
+      downloads={downloads}
+      downloadsTitle="Bridge Cranes PDF Downloads"
       afterHero={
         <>
           <div className="dp-feature">

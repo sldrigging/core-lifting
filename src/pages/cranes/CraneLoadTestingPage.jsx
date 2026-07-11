@@ -20,8 +20,6 @@ export default function CraneLoadTestingPage() {
       parentPath="/cranes"
       title={"LOAD\nTESTING"}
       heroImage={heroImg}
-      actionLink="/core-pdfs/Services%20Information/CS-01-%20Core%20Sample%20Inspection%20Report.pdf"
-      actionLabel="PRODUCT INFORMATION PDF"
       afterHero={
         <>
           <div className="dp-feature">

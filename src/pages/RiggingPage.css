@@ -7,7 +7,8 @@
 [id="services"],
 [id="rentals"],
 [id="locations"],
-.rig-slide[id] {
+.rig-slide[id],
+.rigging-location-carousel-wrap[id] {
   scroll-margin-top: 96px;
 }
 
@@ -97,10 +98,15 @@ section.rp-section {
 .rig-slide {
   position: relative;
   width: 100%;
+  background: #111;
+}
+
+.rig-slide-media {
+  position: relative;
+  width: 100%;
   aspect-ratio: 2 / 1;
   min-height: 420px;
   overflow: hidden;
-  background: #111;
 }
 
 .rig-slide-img {
@@ -113,9 +119,30 @@ section.rp-section {
   z-index: 1;
 }
 
-/* Keep the BRIDON wordmark/tagline in frame instead of cropping into it */
-#bridon-constructex .rig-slide-img {
-  object-position: center top;
+/* ── Brand logo strip — solid white bar across the image ─────────── */
+
+.rig-slide-brands {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 40px;
+  z-index: 3;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  padding: 1.25rem 2rem;
+  background: #fff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.rig-slide-brand-logo {
+  max-height: 58px;
+  max-width: 175px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
 }
 
 /* Subtle dark gradient for text legibility — direction varies by overlay position */
@@ -290,10 +317,21 @@ section.rp-section {
 /* ── Mobile ──────────────────────────────────────────────────── */
 
 @media (max-width: 700px) {
-  .rig-slide {
+  .rig-slide-media {
     aspect-ratio: auto;
     min-height: 540px;
     max-height: none;
+  }
+
+  .rig-slide-brands {
+    bottom: 20px;
+    gap: 1.5rem;
+    padding: 1.25rem 1.5rem;
+  }
+
+  .rig-slide-brand-logo {
+    max-height: 44px;
+    max-width: 130px;
   }
 
   /* On mobile, normalize all overlays to bottom and pin a stronger scrim */

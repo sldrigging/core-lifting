@@ -1,5 +1,8 @@
 import ProductDetailLayout from "../../components/ProductDetailLayout";
+import { getPdfItems } from "../../data/productSpecs";
 import heroImg from "../../assets/imgs-rv/3-2/Wire-Rope-Assemblies.jpg";
+
+const downloads = getPdfItems(["B1", "C1", "C2", "C3", "C5", "C6", "C9", "C10", "C11"]);
 
 const faq = [
   {
@@ -36,8 +39,8 @@ export default function WireRopeAssembliesPage() {
       parentPath="/rigging"
       title={"WIRE ROPE\nASSEMBLIES"}
       heroImage={heroImg}
-      actionLink="/core-pdfs/B1%20Core%20Wire%20Rope%20Slings%20Catalog.pdf"
-      actionLabel="PRODUCT INFORMATION PDF"
+      downloads={downloads}
+      downloadsTitle="Wire Rope Assemblies PDF Downloads"
       afterHero={
         <>
           <div className="dp-feature">

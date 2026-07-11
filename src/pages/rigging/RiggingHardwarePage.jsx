@@ -1,4 +1,5 @@
 import ProductDetailLayout from "../../components/ProductDetailLayout";
+import { getPdfItems } from "../../data/productSpecs";
 import heroImg from "../../assets/imgs-rv/Rigging-Hardware.jpg";
 import logoCrosby from "../../assets/brand-logos/rigging-hardware/crosby.png";
 import logoGunnebo from "../../assets/brand-logos/rigging-hardware/gunnebo.png";
@@ -52,6 +53,12 @@ const brands = [
   { name: "Renfroe", src: logoRenfroe },
 ];
 
+const downloads = getPdfItems([
+  "C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8", "C9", "C10", "C11", "C12", "C13", "C14",
+  "D1", "D2", "D3", "D4", "D5", "D6",
+  "G1",
+]);
+
 export default function RiggingHardwarePage() {
   return (
     <ProductDetailLayout
@@ -59,9 +66,9 @@ export default function RiggingHardwarePage() {
       parentPath="/rigging"
       title={"RIGGING\nHARDWARE"}
       heroImage={heroImg}
-      actionLink="/core-pdfs/C1%20Core%20Shackles.pdf"
-      actionLabel="PRODUCT INFORMATION PDF"
       brands={brands}
+      downloads={downloads}
+      downloadsTitle="Rigging Hardware PDF Downloads"
       afterHero={
         <>
           <div className="dp-feature">
