@@ -194,10 +194,10 @@
 }
 
 .dp-h1 {
-  font-size: 1.4rem;
-  font-weight: 700;
-  line-height: 1.35;
-  letter-spacing: -0.005em;
+  font-size: 1.45rem;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
   color: #1a1a1a;
   margin: 0 0 1.1rem;
 }
@@ -240,8 +240,8 @@
 }
 
 .dp-featured-heading {
-  font-size: 1.75rem;
-  font-weight: 800;
+  font-size: 1.3rem;
+  font-weight: 700;
   color: #1a1a1a;
   margin: 0 0 1.25rem;
   letter-spacing: -0.01em;
@@ -292,8 +292,8 @@
 }
 
 .dp-faq-heading {
-  font-size: 1.75rem;
-  font-weight: 800;
+  font-size: 1.3rem;
+  font-weight: 700;
   color: #1a1a1a;
   margin: 0 0 1.5rem;
   letter-spacing: -0.01em;
