@@ -3,6 +3,12 @@ import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import "./CranesPage.css";
 import "./RiggingPage.css";
+import {
+  bridgeCranesBrands,
+  overheadCraneHoistsBrands,
+  jibWorkstationBrands,
+  davitCranesBrands,
+} from "../data/brandLogos";
 
 /* ── Hero image ── */
 import heroImg from "../assets/imgs-rv/Cranes/OHC-Hero.jpg";
@@ -13,6 +19,7 @@ import imgManufacturing from "../assets/imgs-rv/Cranes/Manufacturing.jpg";
 import imgJibCranes from "../assets/imgs-rv/Cranes/Gorbel-Jib-Crane.jpg";
 import imgWorkstationCranes from "../assets/imgs-rv/Cranes/Gorbel-workstation-crane.jpg";
 import imgDavitCranes from "../assets/imgs-rv/Cranes/Thern-Davit-Crane.jpg";
+import imgOverheadCraneHoists from "../assets/cranes/Overhead-Crane-Hoists.jpg";
 
 /* ── Service slide images ── */
 import imgFieldServices from "../assets/imgs-rv/Cranes/OHC-Services.jpg";
@@ -34,8 +41,9 @@ const cranes = [
     ],
     image: imgBridgeCranes,
     position: "tl",
-    link: "/cranes/bridge-cranes",
+    link: "/info-center#section-CI",
     linkLabel: "MORE INFO",
+    brands: bridgeCranesBrands,
   },
   {
     id: "manufacturing",
@@ -43,8 +51,25 @@ const cranes = [
     bullets: [],
     image: imgManufacturing,
     position: "br",
-    link: "/cranes/manufacturing",
+    link: "/info-center#section-CI",
     linkLabel: "MORE INFO",
+  },
+  {
+    id: "overhead-crane-hoists",
+    title: "OVERHEAD\nCRANE HOISTS",
+    bullets: [
+      "Quality Brands",
+      "CM",
+      "Yale Hoists",
+      "R&M Materials Handling",
+      "Street",
+      "Repair & Inspection Services",
+    ],
+    image: imgOverheadCraneHoists,
+    position: "tl",
+    link: "/info-center#section-CH",
+    linkLabel: "MORE INFO",
+    brands: overheadCraneHoistsBrands,
   },
   {
     id: "jib-cranes",
@@ -57,17 +82,19 @@ const cranes = [
     ],
     image: imgJibCranes,
     position: "tl",
-    link: "/cranes/jib-cranes",
+    link: "/info-center#section-CI",
     linkLabel: "MORE INFO",
+    brands: jibWorkstationBrands,
   },
   {
     id: "workstation-cranes",
     title: "WORKSTATION\nCRANES",
     bullets: [],
     image: imgWorkstationCranes,
-    position: "bl",
-    link: "/cranes/workstation-cranes",
+    position: "cl",
+    link: "/info-center#section-CI",
     linkLabel: "MORE INFO",
+    brands: jibWorkstationBrands,
   },
   {
     id: "davit-cranes",
@@ -79,8 +106,9 @@ const cranes = [
     ],
     image: imgDavitCranes,
     position: "tr",
-    link: "/cranes/davit-cranes",
+    link: "/info-center#section-CI",
     linkLabel: "MORE INFO",
+    brands: davitCranesBrands,
   },
 ];
 
@@ -96,7 +124,7 @@ const services = [
     ],
     image: imgFieldServices,
     position: "bl",
-    link: "/cranes/field-services",
+    link: "/info-center#section-CS",
     linkLabel: "MORE INFO",
   },
   {
@@ -105,7 +133,7 @@ const services = [
     bullets: ["Fixed Weights", "Water Bags"],
     image: imgLoadTesting,
     position: "tl",
-    link: "/cranes/load-testing",
+    link: "/info-center#section-CS",
     linkLabel: "MORE INFO",
   },
   {
@@ -114,7 +142,7 @@ const services = [
     bullets: [],
     image: imgInstallation,
     position: "cr",
-    link: "/cranes/installation",
+    link: "/info-center#section-CS",
     linkLabel: "MORE INFO",
   },
 ];
@@ -142,6 +170,7 @@ function Slide({ slide, basePath }) {
     position = "tl",
     link,
     linkLabel,
+    brands,
   } = slide;
 
   return (
@@ -189,6 +218,14 @@ function Slide({ slide, basePath }) {
           </div>
         </motion.div>
       </div>
+
+      {brands && brands.length > 0 && (
+        <div className="rig-slide-brands">
+          {brands.map((b) => (
+            <img key={b.name} src={b.src} alt={b.name} className="rig-slide-brand-logo" />
+          ))}
+        </div>
+      )}
     </section>
   );
 }

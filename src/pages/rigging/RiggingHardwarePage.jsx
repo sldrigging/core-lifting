@@ -10,33 +10,34 @@ import logoMiller from "../../assets/brand-logos/rigging-hardware/miller.png";
 import logoAmh from "../../assets/brand-logos/rigging-hardware/amh-200w.png";
 import logoMuncy from "../../assets/brand-logos/rigging-hardware/muncy.png";
 import logoRopeblock from "../../assets/brand-logos/rigging-hardware/ropeblock.png";
+import logoMckissick from "../../assets/brand-logos/rigging-hardware/mckissick.png";
 import logoRenfroe from "../../assets/brand-logos/rigging-hardware/renfroe.png";
 
 const faq = [
   {
-    question: "WHAT BRANDS OF RIGGING HARDWARE DOES CORE LIFTING SUPPLY?",
+    question: "What brands of rigging hardware does Core Lifting supply?",
     answer:
-      "We stock premium rigging hardware from industry leaders including Crosby, Gunnebo, and Green Pin, selected for their proven quality and safety certifications.",
+      "We stock a comprehensive selection of premium rigging hardware from industry leaders—including Crosby, Gunnebo, Green Pin, CM, William Hackett, Miller, AMH, Muncy Machine, RopeBlock, McKissick, and Renfroe. Every brand is chosen for its proven quality and engineering excellence. By offering a vast array of product configurations within these trusted lineups, we ensure your team has the exact attachment points, capacities, and specialized designs needed to safely handle any lifting application.",
   },
   {
-    question: "ARE YOUR RIGGING HARDWARE PRODUCTS CERTIFIED?",
+    question: "Will your rigging hardware meet my certification or identification requirements?",
     answer:
-      "Yes. All hardware meets or exceeds OSHA, ASME, and manufacturer standards with full traceability and working load limits clearly marked.",
+      "Yes. Our selection of top-tier domestic brands features all required OSHA and ASME manufacturer markings, sizes, and clearly legible Working Load Limits, ensuring full compliance and traceability for your critical lifts. We also carry fully compliant, high-quality imported hardware options that meet all relevant identification and load-rating standards, ensuring meets your compliance requirements.",
   },
   {
-    question: "CAN YOU HELP SELECT THE RIGHT RIGGING HARDWARE FOR MY APPLICATION?",
+    question: "Can you help select the right rigging hardware for my application?",
     answer:
       "Absolutely. Our experienced team provides expert recommendations based on load requirements, environment, and usage to ensure safe and efficient operations.",
   },
   {
-    question: "DO YOU OFFER CUSTOM RIGGING ASSEMBLIES WITH THIS HARDWARE?",
+    question: "Do you offer custom rigging assemblies with this hardware?",
     answer:
-      "Yes. We fabricate complete custom slings and assemblies using these premium components for your specific lifting needs.",
+      "Yes, we fabricate complete custom slings and assemblies using these premium components to meet your exact lifting needs. Our team specializes in designing highly engineered, custom solutions to solve unique and complex lifting challenges, while also excelling in the high-volume production of quality, cost-effective common rigging assemblies for your everyday operations.",
   },
   {
-    question: "DO YOU SERVE CUSTOMERS IN LOUISIANA, TEXAS, AND THE GULF COAST?",
+    question: "Can you service jobsites across Texas, and Louisiana?",
     answer:
-      "Yes. With locations across the region, Core Lifting delivers premium rigging hardware quickly to customers throughout Louisiana, Texas, and the Gulf Coast.",
+      "Yes. With our strategic network of rigging fabrication shops located in Odessa, Houston, Lafayette, Houma, and New Orleans, we are positioned to provide rapid, reliable service to jobsites across Texas, Louisiana, and the entire Gulf Coast, in addition to supporting projects and performing work nationwide.",
   },
 ];
 
@@ -50,6 +51,7 @@ const brands = [
   { name: "AMH", src: logoAmh },
   { name: "Muncy Machine", src: logoMuncy },
   { name: "RopeBlock", src: logoRopeblock },
+  { name: "McKissick", src: logoMckissick },
   { name: "Renfroe", src: logoRenfroe },
 ];
 
@@ -72,33 +74,33 @@ export default function RiggingHardwarePage() {
       afterHero={
         <>
           <div className="dp-feature">
-            <strong>Turnbuckles:</strong> We offer robust Crosby and Green Pin turnbuckles built for precise tensioning and reliable load securing in structural and rigging applications.
+            <strong>Turnbuckles:</strong> We offer robust Crosby, CM, and Green Pin turnbuckles built for precise tensioning and reliable load securing in structural and rigging applications.
           </div>
           <div className="dp-feature">
-            <strong>Hoist Rings:</strong> High-performance hoist rings from top brands allow safe, pivoting lifts at any angle, ideal for machinery handling and maintenance in industrial environments.
+            <strong>Hoist Rings:</strong> High-performance hoist rings from Crosby, Gunnebo, GreenPin, and AMH allow safe, pivoting lifts at any angle, ideal for machinery handling and maintenance in industrial environments.
           </div>
           <div className="dp-feature">
-            <strong>Plate Clamps:</strong> Our plate clamps from trusted manufacturers provide secure, non-marring vertical and horizontal lifting of steel plates with high safety factors.
+            <strong>Plate Clamps & Magnets:</strong> Our plate clamps from Crosby, Green Pin, CM, AMH, and Renfroe are available in a wide selection of configurations to match any lifting angle. Designed with flexible attachment points and articulating lifting eyes, they allow for seamless turning, flipping, and manipulation of steel plates.
           </div>
         </>
       }
       faq={faq}
     >
-      <h1 className="dp-h1">Premium Rigging Hardware from Crosby, Gunnebo, Green Pin and more</h1>
+      <h1 className="dp-h1">Premium Rigging Hardware from Crosby, Gunnebo, Green Pin and more…</h1>
       <p className="dp-desc">
-        Core Lifting supplies premium rigging hardware from leading brands including Crosby, Gunnebo, and Green Pin for safe, reliable performance in industrial, construction, and oilfield applications across Louisiana, Texas, and the Gulf Coast. Our expert team helps you select the right shackles, blocks, hooks, turnbuckles, hoist rings, and plate clamps to meet your exact lifting requirements.
+        Core Lifting supplies premium rigging hardware from leading brands including Crosby, Gunnebo, and Green Pin for safe, reliable performance in industrial, construction, and oilfield applications across Louisiana, Texas, and the Gulf Coast. Our expert team helps you select the right shackles, blocks, hooks, turnbuckles, hoist rings, plate clamps, and other rigging hardware to meet your exact lifting requirements.
       </p>
 
       <div className="dp-feature">
-        <strong>Shackles:</strong> We supply high-strength Crosby and Green Pin shackles in a full range of sizes and styles, engineered for maximum load ratings and long-term reliability in heavy rigging applications.
+        <strong>Shackles:</strong> We supply high-strength Crosby, Green Pin, Gunnebo, and CM shackles in a full range of sizes and styles, engineered for long-term reliability in heavy rigging applications.
       </div>
 
       <div className="dp-feature">
-        <strong>Blocks:</strong> Our selection of quality blocks from leading brands delivers smooth operation, high working load limits, and durable construction for wire rope and lifting systems.
+        <strong>Blocks:</strong> Core Lifting supplies high-performance rigging blocks from trusted industry leaders, including Crosby, McKissick, RopeBlock, Miller, and Green Pin. We purposefully stock our inventory with the exact block styles and capacities demanded by the heavy-lift, marine, and oilfield sectors in our region, ensuring you always have immediate access to the right equipment for your specific job.
       </div>
 
       <div className="dp-feature">
-        <strong>Hooks:</strong> Premium Crosby and Gunnebo hooks provide secure load attachment with safety latches and high capacity ratings for safe overhead lifting and rigging operations.
+        <strong>Hooks:</strong> Premium hooks from Crosby, Miller, Green Pin, and CM provide secure load attachment with safety latches and high capacity ratings for safe overhead lifting and rigging operations.
       </div>
     </ProductDetailLayout>
   );

@@ -10,6 +10,8 @@ import {
   chainBrands,
   syntheticsBrands,
   lubricationBrands,
+  winchServicingBrands,
+  hoistRepairBrands,
 } from "../data/brandLogos";
 
 /* ── Hero collage images (3:2) ── */
@@ -258,6 +260,7 @@ const services = [
     position: "cl",
     link: "/rigging/winch-servicing",
     linkLabel: "SERVICE INFORMATION",
+    brands: winchServicingBrands,
   },
   {
     id: "hoist-repair",
@@ -270,9 +273,9 @@ const services = [
     ],
     image: imgHoistRepair,
     position: "tr",
-    showJdnLogo: true,
     link: "/rigging/hoist-repair",
     linkLabel: "SERVICE INFORMATION",
+    brands: hoistRepairBrands,
   },
   {
     id: "block-rebuilds",
@@ -471,15 +474,15 @@ function Slide({ slide, basePath }) {
         {showJdnLogo && !jdnLogoInline && (
           <img src={jdnLogo} alt="JD Neuhaus Authorized Repair Center" className="rig-jdn-logo" />
         )}
-
-        {brands && brands.length > 0 && (
-          <div className="rig-slide-brands">
-            {brands.map((b) => (
-              <img key={b.name} src={b.src} alt={b.name} className="rig-slide-brand-logo" />
-            ))}
-          </div>
-        )}
       </div>
+
+      {brands && brands.length > 0 && (
+        <div className="rig-slide-brands">
+          {brands.map((b) => (
+            <img key={b.name} src={b.src} alt={b.name} className="rig-slide-brand-logo" />
+          ))}
+        </div>
+      )}
     </section>
   );
 }

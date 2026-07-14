@@ -23,6 +23,7 @@ import hardwareAmh from "../assets/brand-logos/rigging-hardware/amh-200w.png";
 import muncy from "../assets/brand-logos/rigging-hardware/muncy.png";
 import ropeblock from "../assets/brand-logos/rigging-hardware/ropeblock.png";
 import renfroe from "../assets/brand-logos/rigging-hardware/renfroe.png";
+import mckissick from "../assets/brand-logos/rigging-hardware/mckissick.png";
 
 import peerless from "../assets/brand-logos/Chain/peerless.png";
 import chainGunnebo from "../assets/brand-logos/Chain/gunnebo.png";
@@ -33,6 +34,33 @@ import continentalWestern from "../assets/brand-logos/Synthetics/continental-Wes
 
 import seaLube from "../assets/brand-logos/Lubrication/Sea-Lube.png";
 import seaGrease from "../assets/brand-logos/Lubrication/Sea-Grease.png";
+import viper from "../assets/brand-logos/Lubrication/viper.png";
+import vitalife from "../assets/brand-logos/Lubrication/vitalife.png";
+
+import arrowheadWinch from "../assets/brand-logos/Winch Servicing/arrowhead-winch.png";
+import braden from "../assets/brand-logos/Winch Servicing/BRADEN.png";
+import carco from "../assets/brand-logos/Winch Servicing/carco.png";
+import gearmatic from "../assets/brand-logos/Winch Servicing/GEARMATIC.png";
+import rotzler from "../assets/brand-logos/Winch Servicing/rotzler.png";
+
+import hoistRepairJdn from "../assets/brand-logos/Hoist Repair/jdn-200w.png";
+
+import bridgeArrowheadWinch from "../assets/brand-logos/Bridge Cranes/arrowhead-winch.png";
+import bridgeBraden from "../assets/brand-logos/Bridge Cranes/BRADEN.png";
+import bridgeCarco from "../assets/brand-logos/Bridge Cranes/carco.png";
+import bridgeGearmatic from "../assets/brand-logos/Bridge Cranes/GEARMATIC.png";
+import bridgeRotzler from "../assets/brand-logos/Bridge Cranes/rotzler.png";
+
+import columbusMckinnon from "../assets/brand-logos/Overhead Crane Hoists/columbus-mckinnon.png";
+import yaleHoists from "../assets/brand-logos/Overhead Crane Hoists/yale.png";
+import rmHoists from "../assets/brand-logos/Overhead Crane Hoists/r-m-hoists.png";
+import street from "../assets/brand-logos/Overhead Crane Hoists/street.png";
+import shawBox from "../assets/brand-logos/Overhead Crane Hoists/shaw-box.png";
+import stahl from "../assets/brand-logos/Overhead Crane Hoists/stahl.png";
+
+import gorbel from "../assets/brand-logos/Jib and Workstation/gorbel.png";
+
+import thern from "../assets/brand-logos/Davit Cranes/thern.png";
 
 export const hoistsBrands = [
   { name: "JD Neuhaus", src: jdn },
@@ -60,6 +88,7 @@ export const riggingHardwareBrands = [
   { name: "AMH", src: hardwareAmh },
   { name: "Muncy Machine", src: muncy },
   { name: "RopeBlock", src: ropeblock },
+  { name: "McKissick", src: mckissick },
   { name: "Renfroe", src: renfroe },
 ];
 
@@ -75,6 +104,45 @@ export const syntheticsBrands = [
 ];
 
 export const lubricationBrands = [
+  { name: "Viper", src: viper },
+  { name: "Vitalife", src: vitalife },
   { name: "SeaLube", src: seaLube },
   { name: "SeaGrease", src: seaGrease },
+];
+
+export const winchServicingBrands = [
+  { name: "Arrowhead Winch", src: arrowheadWinch },
+  { name: "Braden", src: braden },
+  { name: "Carco", src: carco },
+  { name: "Gearmatic", src: gearmatic },
+  { name: "Rotzler", src: rotzler },
+];
+
+export const hoistRepairBrands = [
+  { name: "JD Neuhaus", src: hoistRepairJdn },
+];
+
+export const bridgeCranesBrands = [
+  { name: "Arrowhead Winch", src: bridgeArrowheadWinch },
+  { name: "Braden", src: bridgeBraden },
+  { name: "Carco", src: bridgeCarco },
+  { name: "Gearmatic", src: bridgeGearmatic },
+  { name: "Rotzler", src: bridgeRotzler },
+];
+
+export const overheadCraneHoistsBrands = [
+  { name: "CM", src: columbusMckinnon },
+  { name: "Yale Hoists", src: yaleHoists },
+  { name: "R&M Materials Handling", src: rmHoists },
+  { name: "Street", src: street },
+  { name: "Shaw-Box", src: shawBox },
+  { name: "Stahl", src: stahl },
+];
+
+export const jibWorkstationBrands = [
+  { name: "Gorbel", src: gorbel },
+];
+
+export const davitCranesBrands = [
+  { name: "Thern", src: thern },
 ];

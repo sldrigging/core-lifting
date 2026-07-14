@@ -1,5 +1,6 @@
 import ProductDetailLayout from "../../components/ProductDetailLayout";
 import heroImg from "../../assets/imgs-rv/Winch-Servicing.jpg";
+import { winchServicingBrands } from "../../data/brandLogos";
 
 const faq = [
   {
@@ -26,6 +27,7 @@ export default function WinchServicingPage() {
       parentPath="/rigging"
       title={"WINCH\nSERVICING"}
       heroImage={heroImg}
+      brands={winchServicingBrands}
       faq={faq}
     >
       <h1 className="dp-h1">Professional Winch Servicing &amp; Repair</h1>

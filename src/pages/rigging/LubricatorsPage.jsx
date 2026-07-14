@@ -3,6 +3,8 @@ import { getPdfItems } from "../../data/productSpecs";
 import heroImg from "../../assets/imgs-rv/Lubricator-.jpg";
 import logoSeaLube from "../../assets/brand-logos/Lubrication/Sea-Lube.png";
 import logoSeaGrease from "../../assets/brand-logos/Lubrication/Sea-Grease.png";
+import logoViper from "../../assets/brand-logos/Lubrication/viper.png";
+import logoVitalife from "../../assets/brand-logos/Lubrication/vitalife.png";
 
 const faq = [
   {
@@ -33,6 +35,8 @@ const faq = [
 ];
 
 const brands = [
+  { name: "Viper", src: logoViper },
+  { name: "Vitalife", src: logoVitalife },
   { name: "SeaLube", src: logoSeaLube },
   { name: "SeaGrease", src: logoSeaGrease },
 ];
