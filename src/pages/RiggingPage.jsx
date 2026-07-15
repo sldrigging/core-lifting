@@ -3,6 +3,16 @@ import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import "./RiggingPage.css";
 import LocationCarousel from "../components/LocationCarousel";
+import {
+  hoistsBrands,
+  wireRopeBrands,
+  riggingHardwareBrands,
+  chainBrands,
+  syntheticsBrands,
+  lubricationBrands,
+  winchServicingBrands,
+  hoistRepairBrands,
+} from "../data/brandLogos";
 
 /* ── Hero collage images (3:2) ── */
 import heroChainSlings from "../assets/imgs-rv/3-2/Rigging Hero Collage/Chain-Slings.jpg";
@@ -108,8 +118,9 @@ const products = [
     position: "tr",
     showJdnLogo: true,
     jdnLogoInline: true,
-    link: "/product-info#section-E",
+    link: "/rigging/hoists",
     linkLabel: "PRODUCT INFORMATION",
+    brands: hoistsBrands,
   },
   {
     id: "wire-rope",
@@ -122,8 +133,9 @@ const products = [
     ],
     image: imgWireRope,
     position: "tl",
-    link: "/product-info#section-A",
+    link: "/rigging/wire-rope",
     linkLabel: "PRODUCT INFORMATION",
+    brands: wireRopeBrands,
   },
   {
     id: "wire-rope-assemblies",
@@ -136,7 +148,7 @@ const products = [
     ],
     image: imgWireRopeAssemblies,
     position: "bl",
-    link: "/product-info#section-B",
+    link: "/rigging/wire-rope-assemblies",
     linkLabel: "PRODUCT INFORMATION",
   },
   {
@@ -152,9 +164,10 @@ const products = [
       "Plate clamps",
     ],
     image: imgRiggingHardware,
-    position: "br",
-    link: "/product-info#section-C",
+    position: "tr",
+    link: "/rigging/rigging-hardware",
     linkLabel: "PRODUCT INFORMATION",
+    brands: riggingHardwareBrands,
   },
   {
     id: "chain-products",
@@ -162,8 +175,9 @@ const products = [
     bullets: ["Chain slings", "Industrial chains", "Chain fittings"],
     image: imgChainSlings,
     position: "cl",
-    link: "/product-info#section-F",
+    link: "/rigging/chain-products",
     linkLabel: "PRODUCT INFORMATION",
+    brands: chainBrands,
   },
   {
     id: "synthetics",
@@ -171,8 +185,9 @@ const products = [
     bullets: ["Web slings", "Roundslings"],
     image: imgSynthetics,
     position: "cr",
-    link: "/product-info#section-B",
+    link: "/rigging/synthetics",
     linkLabel: "PRODUCT INFORMATION",
+    brands: syntheticsBrands,
   },
   {
     id: "lubricators",
@@ -183,8 +198,9 @@ const products = [
     ],
     image: imgLubricator,
     position: "tr",
-    link: "/product-info#section-J",
+    link: "/rigging/lubricators",
     linkLabel: "PRODUCT INFORMATION",
+    brands: lubricationBrands,
   },
 ];
 
@@ -196,6 +212,8 @@ const services = [
     bullets: [],
     image: imgAnnealing,
     position: "tc",
+    link: "/rigging/taper-annealing",
+    linkLabel: "LEARN MORE",
   },
   {
     id: "load-testing",
@@ -203,7 +221,7 @@ const services = [
     bullets: ["Horizontal testing", "Vertical testing", "Water bag testing"],
     image: imgLoadTesting,
     position: "tr",
-    link: "/product-info#section-S1",
+    link: "/rigging/load-testing",
     linkLabel: "SERVICE INFORMATION",
   },
   {
@@ -212,7 +230,7 @@ const services = [
     bullets: [],
     image: imgPadEye,
     position: "tl",
-    link: "/product-info#section-S1",
+    link: "/rigging/portable-pad-eye-testing",
     linkLabel: "SERVICE INFORMATION",
   },
   {
@@ -221,7 +239,7 @@ const services = [
     bullets: ["Sling inspections", "Fitting inspections"],
     image: imgInspections,
     position: "tr",
-    link: "/product-info#section-S1",
+    link: "/rigging/inspections",
     linkLabel: "SERVICE INFORMATION",
   },
   {
@@ -231,7 +249,7 @@ const services = [
     bullets: [],
     image: imgNDT,
     position: "bc",
-    link: "/product-info#section-S2",
+    link: "/rigging/ndt",
     linkLabel: "SERVICE INFORMATION",
   },
   {
@@ -240,8 +258,9 @@ const services = [
     bullets: ["Repair", "Testing"],
     image: imgWinchServicing,
     position: "cl",
-    link: "/product-info#section-S3",
+    link: "/rigging/winch-servicing",
     linkLabel: "SERVICE INFORMATION",
+    brands: winchServicingBrands,
   },
   {
     id: "hoist-repair",
@@ -254,9 +273,9 @@ const services = [
     ],
     image: imgHoistRepair,
     position: "tr",
-    showJdnLogo: true,
-    link: "/product-info#section-S3",
+    link: "/rigging/hoist-repair",
     linkLabel: "SERVICE INFORMATION",
+    brands: hoistRepairBrands,
   },
   {
     id: "block-rebuilds",
@@ -270,7 +289,7 @@ const services = [
     ],
     image: imgBlockRebuilds,
     position: "bl",
-    link: "/product-info#section-S5",
+    link: "/rigging/block-rebuilds",
     linkLabel: "SERVICE INFORMATION",
   },
   {
@@ -279,7 +298,7 @@ const services = [
     bullets: ["Replacement wire rope", "Replace end fittings"],
     image: imgWinchLineServicing,
     position: "tc",
-    link: "/product-info#section-S6",
+    link: "/rigging/winch-line-servicing",
     linkLabel: "SERVICE INFORMATION",
   },
 ];
@@ -291,7 +310,7 @@ const rentals = [
     bullets: ["Spreader bars", "Slings", "Blocks", "Shackles"],
     image: imgRentals,
     position: "tl",
-    link: "/product-info#section-R1",
+    link: "/rigging/rentals",
     linkLabel: "RENTAL INFORMATION",
   },
 ];
@@ -399,59 +418,70 @@ function Slide({ slide, basePath }) {
     linkLabel,
     showJdnLogo,
     jdnLogoInline,
+    brands,
   } = slide;
 
   return (
     <section id={id} className="rig-slide">
-      <img src={image} alt={title.replace(/\n/g, " ")} className="rig-slide-img" />
-      <div className="rig-slide-scrim" />
+      <div className="rig-slide-media">
+        <img src={image} alt={title.replace(/\n/g, " ")} className="rig-slide-img" />
+        <div className="rig-slide-scrim" />
 
-      <motion.div
-        className={`rig-overlay rig-overlay--${position}`}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        variants={overlayVariants}
-      >
-        <div className={jdnLogoInline ? "rig-overlay-title-row" : undefined}>
-          <h2 className="rig-overlay-title">
-            {title.split("\n").map((line, i) => (
-              <span key={i} className="rig-overlay-title-line">
-                {line}
-              </span>
-            ))}
-          </h2>
-          {showJdnLogo && jdnLogoInline && (
-            <img src={jdnLogo} alt="JD Neuhaus Authorized Repair Center" className="rig-jdn-logo-inline" />
+        <motion.div
+          className={`rig-overlay rig-overlay--${position}`}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={overlayVariants}
+        >
+          <div className={jdnLogoInline ? "rig-overlay-title-row" : undefined}>
+            <h2 className="rig-overlay-title">
+              {title.split("\n").map((line, i) => (
+                <span key={i} className="rig-overlay-title-line">
+                  {line}
+                </span>
+              ))}
+            </h2>
+            {showJdnLogo && jdnLogoInline && (
+              <img src={jdnLogo} alt="JD Neuhaus Authorized Repair Center" className="rig-jdn-logo-inline" />
+            )}
+          </div>
+
+          {subtitle && <p className="rig-overlay-subtitle">{subtitle}</p>}
+
+          {bullets.length > 0 && (
+            <ul className="rig-overlay-list">
+              {bullets.map((b, i) => (
+                <li key={i}>{b}</li>
+              ))}
+            </ul>
           )}
-        </div>
 
-        {subtitle && <p className="rig-overlay-subtitle">{subtitle}</p>}
+          <div className="rig-overlay-btns">
+            {link && (
+              <Link to={link} className="rig-overlay-btn">
+                {linkLabel || "PRODUCT INFORMATION"}
+              </Link>
+            )}
+            {basePath && (
+              <Link to={`${basePath}/${id}`} className="rig-overlay-btn rig-overlay-btn--outline">
+                LEARN MORE
+              </Link>
+            )}
+          </div>
+        </motion.div>
 
-        {bullets.length > 0 && (
-          <ul className="rig-overlay-list">
-            {bullets.map((b, i) => (
-              <li key={i}>{b}</li>
-            ))}
-          </ul>
+        {showJdnLogo && !jdnLogoInline && (
+          <img src={jdnLogo} alt="JD Neuhaus Authorized Repair Center" className="rig-jdn-logo" />
         )}
+      </div>
 
-        <div className="rig-overlay-btns">
-          {link && (
-            <Link to={link} className="rig-overlay-btn">
-              {linkLabel || "PRODUCT INFORMATION"}
-            </Link>
-          )}
-          {basePath && (
-            <Link to={`${basePath}/${id}`} className="rig-overlay-btn rig-overlay-btn--outline">
-              LEARN MORE
-            </Link>
-          )}
+      {brands && brands.length > 0 && (
+        <div className="rig-slide-brands">
+          {brands.map((b) => (
+            <img key={b.name} src={b.src} alt={b.name} className="rig-slide-brand-logo" />
+          ))}
         </div>
-      </motion.div>
-
-      {showJdnLogo && !jdnLogoInline && (
-        <img src={jdnLogo} alt="JD Neuhaus Authorized Repair Center" className="rig-jdn-logo" />
       )}
     </section>
   );
@@ -525,7 +555,7 @@ export default function RiggingPage() {
         <h2 className="rigging-locations-heading">LOCATIONS</h2>
         <div className="rigging-locations-list">
           {locations.map((loc) => (
-            <div key={loc.id} className="rigging-location-carousel-wrap">
+            <div key={loc.id} id={loc.id} className="rigging-location-carousel-wrap">
               <LocationCarousel location={loc} />
             </div>
           ))}

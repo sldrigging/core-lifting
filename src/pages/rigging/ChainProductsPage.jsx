@@ -1,16 +1,43 @@
 import ProductDetailLayout from "../../components/ProductDetailLayout";
+import { getPdfItems } from "../../data/productSpecs";
+import heroImg from "../../assets/imgs-rv/Chain-Slings.jpg";
+import logoPeerless from "../../assets/brand-logos/Chain/peerless.png";
+import logoGunnebo from "../../assets/brand-logos/Chain/gunnebo.png";
 
 const faq = [
   {
-    question: "WHAT CHAIN GRADES DO YOU STOCK?",
+    question: "WHAT BRANDS OF CHAIN PRODUCTS DOES CORE LIFTING OFFER?",
     answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "We supply premium chain products from Gunnebo, a trusted manufacturer known for high-performance alloy chain and components.",
   },
-  { question: "DO YOU FABRICATE CUSTOM CHAIN SLING ASSEMBLIES?", answer: null },
-  { question: "WHAT WORKING LOAD LIMITS ARE AVAILABLE?", answer: null },
-  { question: "ARE YOUR CHAIN SLINGS PROOF TESTED?", answer: null },
-  { question: "DO YOUR PRODUCTS SHIP WITH CERTIFICATIONS?", answer: null },
+  {
+    question: "CAN YOU FABRICATE CUSTOM CHAIN SLINGS?",
+    answer:
+      "Yes. Our in-house team fabricates custom Gunnebo chain slings to your exact length, grade, and configuration requirements with full testing and certification.",
+  },
+  {
+    question: "ARE YOUR CHAIN PRODUCTS SUITABLE FOR OVERHEAD LIFTING?",
+    answer:
+      "Yes. All Gunnebo chain slings and components are designed and rated for overhead lifting with clear working load limits and safety factors.",
+  },
+  {
+    question: "DO YOU PROVIDE CHAIN INSPECTIONS AND REPLACEMENTS?",
+    answer:
+      "Yes. We offer chain inspections, repairs, and replacements to keep your rigging compliant and safe.",
+  },
+  {
+    question: "DO YOU SERVE CUSTOMERS IN LOUISIANA, TEXAS, AND THE GULF COAST?",
+    answer:
+      "Yes. Core Lifting provides fast access to Gunnebo chain products with local support and delivery throughout Louisiana, Texas, and the Gulf Coast.",
+  },
 ];
+
+const brands = [
+  { name: "Peerless", src: logoPeerless },
+  { name: "Gunnebo", src: logoGunnebo },
+];
+
+const downloads = getPdfItems(["B2", "F1", "G1", "C1", "C2", "C3", "C12"]);
 
 export default function ChainProductsPage() {
   return (
@@ -18,30 +45,30 @@ export default function ChainProductsPage() {
       parent="RIGGING"
       parentPath="/rigging"
       title={"CHAIN\nPRODUCTS"}
-      actionLink="/product-info#section-F"
-      actionLabel="PRODUCT INFORMATION PDF"
+      heroImage={heroImg}
+      brands={brands}
+      downloads={downloads}
+      downloadsTitle="Chain Products PDF Downloads"
       afterHero={
         <>
           <div className="dp-feature">
-            <strong>Industrial Chain:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris.
-          </div>
-          <div className="dp-feature">
-            <strong>Chain Fittings:</strong> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.
+            <strong>Chain Fittings:</strong> Our selection of premium Gunnebo chain fittings, including master links, hooks, and connectors, ensures secure assemblies and maximum safety in chain sling systems.
           </div>
         </>
       }
       faq={faq}
     >
+      <h1 className="dp-h1">Premium Chain Products &amp; Slings from Gunnebo</h1>
       <p className="dp-desc">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua — fabricated from <strong>Grade 80 &amp; Grade 100</strong> alloy chain, proof-tested and certified to ASME B30.9.
+        Core Lifting supplies high-quality chain products from Gunnebo for reliable performance in lifting, rigging, and industrial applications across Louisiana, Texas, and the Gulf Coast. Our team delivers durable chain slings, industrial chains, and fittings engineered for safety and longevity in demanding environments.
       </p>
 
       <div className="dp-feature">
-        <strong>Chain Slings:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip.
+        <strong>Chain Slings:</strong> We fabricate custom Gunnebo alloy chain slings built to your specifications, offering excellent flexibility, heat resistance, and high working load limits for heavy lifting.
       </div>
 
       <div className="dp-feature">
-        <strong>Master Links &amp; Hooks:</strong> Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit.
+        <strong>Industrial Chains:</strong> Gunnebo industrial chains from Core Lifting provide dependable strength and wear resistance for towing, securing, and material handling applications.
       </div>
     </ProductDetailLayout>
   );

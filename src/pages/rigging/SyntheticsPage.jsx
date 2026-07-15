@@ -1,16 +1,45 @@
 import ProductDetailLayout from "../../components/ProductDetailLayout";
+import { getPdfItems } from "../../data/productSpecs";
+import heroImg from "../../assets/imgs-rv/Synthetic-Slings.jpg";
+import logoCoreTex from "../../assets/brand-logos/Synthetics/core-tex.png";
+import logoBexco from "../../assets/brand-logos/Synthetics/bexco.png";
+import logoCwc from "../../assets/brand-logos/Synthetics/continental-Western-Corporation.png";
 
 const faq = [
   {
-    question: "WHAT SYNTHETIC SLING TYPES DO YOU CARRY?",
+    question: "WHAT ARE THE ADVANTAGES OF SYNTHETIC SLINGS OVER WIRE ROPE?",
     answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "Synthetic slings are lighter, more flexible, and gentler on loads while offering excellent strength and chemical resistance for many lifting applications.",
   },
-  { question: "WHAT CAPACITY RATINGS ARE AVAILABLE?", answer: null },
-  { question: "HOW ARE SYNTHETIC SLINGS COLOR CODED?", answer: null },
-  { question: "WHAT IS THE SERVICE LIFE OF A SYNTHETIC SLING?", answer: null },
-  { question: "DO YOUR SLINGS SHIP WITH CERTIFICATIONS?", answer: null },
+  {
+    question: "DO YOU SUPPLY HIGH PERFORMANCE ROUNDSLINGS?",
+    answer:
+      "Yes. We offer premium polyester and Dyneema roundslings from Bexco with high strength-to-weight ratios and low stretch for demanding applications.",
+  },
+  {
+    question: "IS HMPE ROPE SUITABLE FOR MARINE AND HEAVY INDUSTRIAL USE?",
+    answer:
+      "Yes. Bexco HMPE rope is lightweight, extremely strong, and resistant to water and UV, making it ideal for marine and heavy lifting operations.",
+  },
+  {
+    question: "CAN YOU PROVIDE CUSTOM SYNTHETIC SLING ASSEMBLIES?",
+    answer:
+      "Yes. Our team fabricates custom web slings and roundslings to your exact specifications with proper tagging and certification.",
+  },
+  {
+    question: "DO YOU SERVE CUSTOMERS IN LOUISIANA, TEXAS, AND THE GULF COAST?",
+    answer:
+      "Yes. Core Lifting stocks and delivers synthetic slings and cordage quickly with expert support throughout Louisiana, Texas, and the Gulf Coast region.",
+  },
 ];
+
+const brands = [
+  { name: "Core-Tex", src: logoCoreTex },
+  { name: "Bexco", src: logoBexco },
+  { name: "Continental Western Corporation", src: logoCwc },
+];
+
+const downloads = getPdfItems(["B3", "B4", "B5", "H1", "H2", "C8", "G1"]);
 
 export default function SyntheticsPage() {
   return (
@@ -18,30 +47,37 @@ export default function SyntheticsPage() {
       parent="RIGGING"
       parentPath="/rigging"
       title="SYNTHETICS"
-      actionLink="/product-info#section-B"
-      actionLabel="PRODUCT INFORMATION PDF"
+      heroImage={heroImg}
+      brands={brands}
+      downloads={downloads}
+      downloadsTitle="Synthetics & Cordage PDF Downloads"
       afterHero={
         <>
           <div className="dp-feature">
-            <strong>Capacity Ratings:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris.
+            <strong>Cordage:</strong> We stock a full range of cordage including nylon, polyester, polypropylene, and manila for rigging, mooring, utility, and general purpose applications.
           </div>
           <div className="dp-feature">
-            <strong>Color Coding &amp; Standards:</strong> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.
+            <strong>High performance HMPE Rope from Bexco:</strong> Bexco HMPE rope provides ultra-high strength, low weight, and floatation properties, ideal for demanding marine, industrial, and heavy-lifting operations.
           </div>
         </>
       }
       faq={faq}
     >
+      <h1 className="dp-h1">Synthetic Slings and Cordage</h1>
       <p className="dp-desc">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua — manufactured from high-tenacity <strong>polyester and nylon</strong> fiber, proof-tested and certified to ASME B30.9.
+        Core Lifting supplies premium synthetic slings and cordage for safe, lightweight lifting solutions across Louisiana, Texas, and the Gulf Coast. From durable web slings and polyester roundslings to high-performance Dyneema and HMPE ropes from Bexco, our products deliver superior strength, reduced weight, and excellent chemical resistance.
       </p>
 
       <div className="dp-feature">
-        <strong>Web Slings:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip.
+        <strong>Web Slings:</strong> Our Core-Tex web slings provide reliable strength, flexibility, and abrasion resistance for versatile lifting applications in industrial and construction environments.
       </div>
 
       <div className="dp-feature">
-        <strong>Roundslings:</strong> Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit.
+        <strong>Polyester Roundslings:</strong> Polyester roundslings from Core Lifting offer high load capacity, low stretch, and soft handling to protect delicate or finished loads during lifts.
+      </div>
+
+      <div className="dp-feature">
+        <strong>High Performance Dyneema Roundslings from Bexco:</strong> Bexco Dyneema roundslings deliver exceptional strength-to-weight ratio, low stretch, and superior durability for critical heavy lifts where weight savings matter.
       </div>
     </ProductDetailLayout>
   );

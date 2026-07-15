@@ -1,4 +1,6 @@
 import ProductDetailLayout from "../../components/ProductDetailLayout";
+import { getCraneDocItems } from "../../data/productSpecs";
+import heroImg from "../../assets/imgs-rv/Cranes/Thern-Davit-Crane.jpg";
 
 const faq = [
   {
@@ -12,14 +14,17 @@ const faq = [
   { question: "DO DAVIT CRANES REQUIRE SPECIAL FOUNDATIONS?", answer: null },
 ];
 
+const downloads = getCraneDocItems(["CI-05"]);
+
 export default function DavitCranesPage() {
   return (
     <ProductDetailLayout
       parent="CRANES"
       parentPath="/cranes"
       title={"DAVIT\nCRANES"}
-      actionLink="/info-center#section-CI"
-      actionLabel="PRODUCT INFORMATION PDF"
+      heroImage={heroImg}
+      downloads={downloads}
+      downloadsTitle="Davit Cranes PDF Downloads"
       afterHero={
         <>
           <div className="dp-feature">

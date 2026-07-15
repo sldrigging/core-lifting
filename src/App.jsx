@@ -13,6 +13,7 @@ import BlogsPage from "./pages/BlogsPage";
 import WireRopeAssembliesPage from "./pages/rigging/WireRopeAssembliesPage";
 import HoistsPage from "./pages/rigging/HoistsPage";
 import WireRopePage from "./pages/rigging/WireRopePage";
+import BridonConstructexPage from "./pages/rigging/BridonConstructexPage";
 import RiggingHardwarePage from "./pages/rigging/RiggingHardwarePage";
 import ChainProductsPage from "./pages/rigging/ChainProductsPage";
 import SyntheticsPage from "./pages/rigging/SyntheticsPage";
@@ -56,6 +57,7 @@ function App() {
           <Route path="/rigging/wire-rope-assemblies" element={<WireRopeAssembliesPage />} />
           <Route path="/rigging/hoists" element={<HoistsPage />} />
           <Route path="/rigging/wire-rope" element={<WireRopePage />} />
+          <Route path="/rigging/bridon-constructex" element={<BridonConstructexPage />} />
           <Route path="/rigging/rigging-hardware" element={<RiggingHardwarePage />} />
           <Route path="/rigging/chain-products" element={<ChainProductsPage />} />
           <Route path="/rigging/synthetics" element={<SyntheticsPage />} />

@@ -1,4 +1,6 @@
 import ProductDetailLayout from "../../components/ProductDetailLayout";
+import { getCraneDocItems } from "../../data/productSpecs";
+import heroImg from "../../assets/imgs-rv/Cranes/OHC-Installation.jpg";
 
 const faq = [
   {
@@ -12,14 +14,17 @@ const faq = [
   { question: "WHAT IS THE TYPICAL INSTALLATION TIMELINE?", answer: null },
 ];
 
+const downloads = getCraneDocItems(["CS-03"]);
+
 export default function InstallationPage() {
   return (
     <ProductDetailLayout
       parent="CRANES"
       parentPath="/cranes"
       title="INSTALLATION"
-      actionLink="/info-center#section-CS"
-      actionLabel="PRODUCT INFORMATION PDF"
+      heroImage={heroImg}
+      downloads={downloads}
+      downloadsTitle="Installation PDF Downloads"
       afterHero={
         <>
           <div className="dp-feature">

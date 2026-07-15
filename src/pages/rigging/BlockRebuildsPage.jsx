@@ -1,15 +1,32 @@
 import ProductDetailLayout from "../../components/ProductDetailLayout";
+import heroImg from "../../assets/imgs-rv/3-2/Block-Rebuilds.jpg";
 
 const faq = [
   {
-    question: "WHAT BLOCK TYPES DO YOU REBUILD?",
+    question: "WHAT TYPES OF BLOCKS DO YOU REBUILD?",
     answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "We rebuild snatch blocks, crane blocks, overhaul balls, and other rigging blocks from major manufacturers.",
   },
-  { question: "DO YOU STOCK SHEAVES AND BEARINGS?", answer: null },
-  { question: "IS NDT TESTING INCLUDED IN THE REBUILD?", answer: null },
-  { question: "WHAT IS THE TYPICAL REBUILD TURNAROUND TIME?", answer: null },
-  { question: "IS LOAD TESTING INCLUDED AFTER REBUILD?", answer: null },
+  {
+    question: "DO YOU PERFORM NDT ON HOOKS DURING REBUILDS?",
+    answer:
+      "Yes. We include magnetic particle testing on hooks as part of our standard block rebuild process.",
+  },
+  {
+    question: "DO YOU PROVIDE CERTIFICATION AFTER BLOCK REBUILD?",
+    answer:
+      "Yes. Every rebuilt block is load tested and certified with full documentation for compliance and record-keeping.",
+  },
+  {
+    question: "CAN YOU REBUILD BLOCKS ON-SITE?",
+    answer:
+      "Many inspections and minor repairs can be performed on-site. Full rebuilds are typically completed in our facilities for best results.",
+  },
+  {
+    question: "DO YOU SERVE CUSTOMERS ACROSS THE GULF COAST?",
+    answer:
+      "Yes. Core Lifting provides block rebuild and repair services with pickup, delivery, and support throughout Louisiana, Texas, and the Gulf Coast region.",
+  },
 ];
 
 export default function BlockRebuildsPage() {
@@ -18,30 +35,34 @@ export default function BlockRebuildsPage() {
       parent="RIGGING"
       parentPath="/rigging"
       title={"BLOCK\nREBUILDS"}
-      actionLink="/product-info#section-S5"
-      actionLabel="PRODUCT INFORMATION PDF"
+      heroImage={heroImg}
       afterHero={
         <>
           <div className="dp-feature">
-            <strong>Hook NDT:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris.
+            <strong>Hook NDT:</strong> Magnetic particle testing is performed on hooks to detect surface cracks and defects not visible during standard inspection.
           </div>
           <div className="dp-feature">
-            <strong>Load Test &amp; Certification:</strong> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.
+            <strong>Load Test:</strong> Every rebuilt block undergoes load testing with certification to verify safe working capacity before return to service.
           </div>
         </>
       }
       faq={faq}
     >
+      <h1 className="dp-h1">Professional Block Rebuild &amp; Repair Services</h1>
       <p className="dp-desc">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua — complete disassembly, inspection, and rebuild of crane and rigging blocks to <strong>OEM specifications</strong>, load tested and certified upon completion.
+        Core Lifting provides complete block rebuild services to restore performance and safety of sheaves, hooks, and rigging blocks used in industrial and oilfield applications. Our experienced technicians deliver thorough inspections, quality repairs, and certified load testing.
       </p>
 
       <div className="dp-feature">
-        <strong>Disassembly &amp; Inspection:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip.
+        <strong>Disassemble &amp; Inspect:</strong> We fully disassemble blocks and perform detailed inspections to identify wear, damage, and components requiring repair or replacement.
       </div>
 
       <div className="dp-feature">
-        <strong>Sheave &amp; Bearing Replacement:</strong> Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit.
+        <strong>Replace Bearings:</strong> Our rebuild process includes replacement of worn bearings with high-quality components to restore smooth, reliable operation.
+      </div>
+
+      <div className="dp-feature">
+        <strong>Sheave Repair or Replacement:</strong> We repair or replace damaged sheaves to maintain proper rope support and extend block service life.
       </div>
     </ProductDetailLayout>
   );

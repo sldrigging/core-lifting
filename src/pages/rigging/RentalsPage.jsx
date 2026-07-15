@@ -1,15 +1,32 @@
 import ProductDetailLayout from "../../components/ProductDetailLayout";
+import heroImg from "../../assets/imgs-rv/Rentals-.jpg";
 
 const faq = [
   {
-    question: "WHAT RENTAL EQUIPMENT DO YOU OFFER?",
+    question: "WHAT TYPES OF EQUIPMENT DO YOU RENT?",
     answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "We rent spreader bars, wire rope slings, chain slings, synthetic slings, blocks, shackles, and other rigging hardware.",
   },
-  { question: "WHAT ARE YOUR RENTAL TERMS AND RATES?", answer: null },
-  { question: "IS RENTAL EQUIPMENT LOAD TESTED AND CERTIFIED?", answer: null },
-  { question: "CAN EQUIPMENT BE DELIVERED TO SITE?", answer: null },
-  { question: "WHAT IS THE MINIMUM RENTAL PERIOD?", answer: null },
+  {
+    question: "ARE YOUR RENTAL ITEMS INSPECTED AND CERTIFIED?",
+    answer:
+      "Yes. All rental equipment is inspected before each use and comes with proper certification and documentation.",
+  },
+  {
+    question: "DO YOU OFFER SHORT-TERM AND LONG-TERM RENTALS?",
+    answer:
+      "Yes. We provide flexible rental terms to match your project duration and budget requirements.",
+  },
+  {
+    question: "CAN YOU DELIVER RENTAL EQUIPMENT TO MY JOB SITE?",
+    answer:
+      "Yes. We offer delivery and pickup services throughout Louisiana, Texas, and the Gulf Coast region.",
+  },
+  {
+    question: "DO YOU PROVIDE TECHNICAL SUPPORT WITH RENTALS?",
+    answer:
+      "Yes. Our experienced team can help you select the right equipment and provide guidance on proper use and rigging practices.",
+  },
 ];
 
 export default function RentalsPage() {
@@ -18,30 +35,30 @@ export default function RentalsPage() {
       parent="RIGGING"
       parentPath="/rigging"
       title="RENTALS"
-      actionLink="/product-info#section-R1"
-      actionLabel="PRODUCT INFORMATION PDF"
+      heroImage={heroImg}
       afterHero={
         <>
           <div className="dp-feature">
-            <strong>Shackles &amp; Blocks:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris.
+            <strong>Blocks:</strong> We offer snatch blocks, crane blocks, and overhaul balls for rent, providing reliable sheave and hook solutions for lifting and rigging operations.
           </div>
           <div className="dp-feature">
-            <strong>Rental Terms:</strong> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.
+            <strong>Shackles:</strong> Our large selection of rental shackles includes various sizes, styles, and working load limits from trusted manufacturers.
           </div>
         </>
       }
       faq={faq}
     >
+      <h1 className="dp-h1">Premium Rigging Equipment Rentals</h1>
       <p className="dp-desc">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua — all rental equipment is <strong>load tested, certified, and inspection-ready</strong>, available for short or long-term projects.
+        Core Lifting offers a wide selection of high-quality rigging equipment for rent, including spreader bars, slings, blocks, and shackles. Our well-maintained inventory helps you complete projects safely and efficiently without the cost of ownership.
       </p>
 
       <div className="dp-feature">
-        <strong>Spreader Bars:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip.
+        <strong>Spreader Bars:</strong> We rent engineered spreader bars in various lengths and capacities to safely handle long or awkward loads with proper load distribution.
       </div>
 
       <div className="dp-feature">
-        <strong>Slings:</strong> Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit.
+        <strong>Slings:</strong> Our rental inventory includes wire rope, chain, and synthetic slings in multiple lengths and capacities, all inspected and certified for safe use.
       </div>
     </ProductDetailLayout>
   );

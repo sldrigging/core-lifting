@@ -1,4 +1,6 @@
 import ProductDetailLayout from "../../components/ProductDetailLayout";
+import { getCraneDocItems } from "../../data/productSpecs";
+import heroImg from "../../assets/imgs-rv/Cranes/Gorbel-workstation-crane.jpg";
 
 const faq = [
   {
@@ -12,14 +14,17 @@ const faq = [
   { question: "WHAT IS THE TYPICAL LEAD TIME FOR A WORKSTATION SYSTEM?", answer: null },
 ];
 
+const downloads = getCraneDocItems(["CI-03", "CI-04"]);
+
 export default function WorkstationCranesPage() {
   return (
     <ProductDetailLayout
       parent="CRANES"
       parentPath="/cranes"
       title={"WORKSTATION\nCRANES"}
-      actionLink="/info-center#section-CI"
-      actionLabel="PRODUCT INFORMATION PDF"
+      heroImage={heroImg}
+      downloads={downloads}
+      downloadsTitle="Workstation Cranes PDF Downloads"
       afterHero={
         <>
           <div className="dp-feature">

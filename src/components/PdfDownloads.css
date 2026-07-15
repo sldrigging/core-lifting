@@ -1,0 +1,65 @@
+/* ── PDF downloads grid — used at the bottom of spoke pages ─────────── */
+
+.pdf-downloads {
+  padding-top: 1rem;
+  padding-bottom: 3rem;
+}
+
+.pdf-downloads-heading {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin: 0 0 1.5rem;
+  letter-spacing: -0.01em;
+}
+
+.pdf-downloads-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.5rem;
+}
+
+.pdf-downloads-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  padding: 0.75rem;
+  border-radius: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.pdf-downloads-item:hover {
+  transform: translateY(-2px);
+  background: #faf8f6;
+  box-shadow:
+    0 6px 20px rgba(0, 0, 0, 0.06),
+    0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.pdf-downloads-img {
+  width: 100%;
+  height: auto;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 6px;
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.08),
+    0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.pdf-downloads-label {
+  margin-top: 0.6rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: center;
+  color: #444;
+  line-height: 1.3;
+}
+
+@media (max-width: 720px) {
+  .pdf-downloads-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 1rem;
+  }
+}

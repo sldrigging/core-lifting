@@ -1,15 +1,32 @@
 import ProductDetailLayout from "../../components/ProductDetailLayout";
+import heroImg from "../../assets/imgs-rv/Winch-Line-Servicing.jpg";
 
 const faq = [
   {
-    question: "WHAT ROPE SIZES DO YOU STOCK FOR WINCH LINE REPLACEMENT?",
+    question: "WHAT TYPES OF WINCH LINES DO YOU SERVICE?",
     answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "We service wire rope winch lines used on industrial winches, marine winches, and oilfield drawworks and pulling units.",
   },
-  { question: "CAN YOU PERFORM WINCH LINE REPLACEMENT ON-SITE?", answer: null },
-  { question: "WHAT END FITTING OPTIONS ARE AVAILABLE?", answer: null },
-  { question: "DO YOU PROVIDE DOCUMENTATION AFTER SERVICING?", answer: null },
-  { question: "HOW LONG DOES A TYPICAL WINCH LINE REPLACEMENT TAKE?", answer: null },
+  {
+    question: "DO YOU PROVIDE CUSTOM WINCH LINE LENGTHS?",
+    answer:
+      "Yes. We cut wire rope to your exact length and install the required end fittings for a perfect fit on your winch.",
+  },
+  {
+    question: "CAN YOU INSTALL SOCKETS ON WINCH LINES?",
+    answer:
+      "Yes. We install swage sockets, spelter sockets, and other end fittings using proper techniques and equipment for maximum strength.",
+  },
+  {
+    question: "DO YOU TEST WINCH LINES AFTER SERVICING?",
+    answer:
+      "Yes. We can perform proof testing and provide certification when required for your application.",
+  },
+  {
+    question: "DO YOU OFFER PICKUP AND DELIVERY?",
+    answer:
+      "Yes. We provide convenient pickup and delivery of winch lines throughout Louisiana, Texas, and the Gulf Coast region.",
+  },
 ];
 
 export default function WinchLineServicingPage() {
@@ -18,30 +35,20 @@ export default function WinchLineServicingPage() {
       parent="RIGGING"
       parentPath="/rigging"
       title={"WINCH LINE\nSERVICING"}
-      actionLink="/product-info#section-S6"
-      actionLabel="PRODUCT INFORMATION PDF"
-      afterHero={
-        <>
-          <div className="dp-feature">
-            <strong>Spooling Services:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris.
-          </div>
-          <div className="dp-feature">
-            <strong>Documentation:</strong> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.
-          </div>
-        </>
-      }
+      heroImage={heroImg}
       faq={faq}
     >
+      <h1 className="dp-h1">Winch Line Servicing &amp; Replacement</h1>
       <p className="dp-desc">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua — replacement winch line installed with precision spooling and terminated with <strong>swaged or mechanically applied fittings</strong> to OEM specifications.
+        Core Lifting provides professional winch line servicing including wire rope replacement and end fitting installation for industrial, marine, and oilfield winches. Our team ensures your winch lines are properly installed, terminated, and ready for safe operation.
       </p>
 
       <div className="dp-feature">
-        <strong>Replacement Wire Rope:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip.
+        <strong>Replacement Wire Rope:</strong> We supply and install high-quality replacement wire rope matched to your winch specifications for optimal performance and safety.
       </div>
 
       <div className="dp-feature">
-        <strong>End Fittings:</strong> Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit.
+        <strong>Replace End Fittings:</strong> Our technicians expertly install new sockets, thimbles, or other end fittings with proper swaging or speltering for secure, reliable terminations.
       </div>
     </ProductDetailLayout>
   );

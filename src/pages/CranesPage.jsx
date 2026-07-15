@@ -3,6 +3,12 @@ import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import "./CranesPage.css";
 import "./RiggingPage.css";
+import {
+  bridgeCranesBrands,
+  overheadCraneHoistsBrands,
+  jibWorkstationBrands,
+  davitCranesBrands,
+} from "../data/brandLogos";
 
 /* ── Hero image ── */
 import heroImg from "../assets/imgs-rv/Cranes/OHC-Hero.jpg";
@@ -13,6 +19,7 @@ import imgManufacturing from "../assets/imgs-rv/Cranes/Manufacturing.jpg";
 import imgJibCranes from "../assets/imgs-rv/Cranes/Gorbel-Jib-Crane.jpg";
 import imgWorkstationCranes from "../assets/imgs-rv/Cranes/Gorbel-workstation-crane.jpg";
 import imgDavitCranes from "../assets/imgs-rv/Cranes/Thern-Davit-Crane.jpg";
+import imgOverheadCraneHoists from "../assets/cranes/Overhead-Crane-Hoists.jpg";
 
 /* ── Service slide images ── */
 import imgFieldServices from "../assets/imgs-rv/Cranes/OHC-Services.jpg";
@@ -34,8 +41,9 @@ const cranes = [
     ],
     image: imgBridgeCranes,
     position: "tl",
-    link: "/info-center#section-CH",
+    link: "/info-center#section-CI",
     linkLabel: "MORE INFO",
+    brands: bridgeCranesBrands,
   },
   {
     id: "manufacturing",
@@ -43,8 +51,25 @@ const cranes = [
     bullets: [],
     image: imgManufacturing,
     position: "br",
+    link: "/info-center#section-CI",
+    linkLabel: "MORE INFO",
+  },
+  {
+    id: "overhead-crane-hoists",
+    title: "OVERHEAD\nCRANE HOISTS",
+    bullets: [
+      "Quality Brands",
+      "CM",
+      "Yale Hoists",
+      "R&M Materials Handling",
+      "Street",
+      "Repair & Inspection Services",
+    ],
+    image: imgOverheadCraneHoists,
+    position: "tl",
     link: "/info-center#section-CH",
     linkLabel: "MORE INFO",
+    brands: overheadCraneHoistsBrands,
   },
   {
     id: "jib-cranes",
@@ -59,15 +84,17 @@ const cranes = [
     position: "tl",
     link: "/info-center#section-CI",
     linkLabel: "MORE INFO",
+    brands: jibWorkstationBrands,
   },
   {
     id: "workstation-cranes",
     title: "WORKSTATION\nCRANES",
     bullets: [],
     image: imgWorkstationCranes,
-    position: "bl",
+    position: "cl",
     link: "/info-center#section-CI",
     linkLabel: "MORE INFO",
+    brands: jibWorkstationBrands,
   },
   {
     id: "davit-cranes",
@@ -81,6 +108,7 @@ const cranes = [
     position: "tr",
     link: "/info-center#section-CI",
     linkLabel: "MORE INFO",
+    brands: davitCranesBrands,
   },
 ];
 
@@ -142,51 +170,62 @@ function Slide({ slide, basePath }) {
     position = "tl",
     link,
     linkLabel,
+    brands,
   } = slide;
 
   return (
     <section id={id} className="rig-slide">
-      <img src={image} alt={title.replace(/\n/g, " ")} className="rig-slide-img" />
-      <div className="rig-slide-scrim" />
+      <div className="rig-slide-media">
+        <img src={image} alt={title.replace(/\n/g, " ")} className="rig-slide-img" />
+        <div className="rig-slide-scrim" />
 
-      <motion.div
-        className={`rig-overlay rig-overlay--${position}`}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        variants={overlayVariants}
-      >
-        <h2 className="rig-overlay-title">
-          {title.split("\n").map((line, i) => (
-            <span key={i} className="rig-overlay-title-line">
-              {line}
-            </span>
-          ))}
-        </h2>
-
-        {subtitle && <p className="rig-overlay-subtitle">{subtitle}</p>}
-
-        {bullets.length > 0 && (
-          <ul className="rig-overlay-list">
-            {bullets.map((b, i) => (
-              <li key={i}>{b}</li>
+        <motion.div
+          className={`rig-overlay rig-overlay--${position}`}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={overlayVariants}
+        >
+          <h2 className="rig-overlay-title">
+            {title.split("\n").map((line, i) => (
+              <span key={i} className="rig-overlay-title-line">
+                {line}
+              </span>
             ))}
-          </ul>
-        )}
+          </h2>
 
-        <div className="rig-overlay-btns">
-          {link && (
-            <Link to={link} className="rig-overlay-btn">
-              {linkLabel || "MORE INFO"}
-            </Link>
+          {subtitle && <p className="rig-overlay-subtitle">{subtitle}</p>}
+
+          {bullets.length > 0 && (
+            <ul className="rig-overlay-list">
+              {bullets.map((b, i) => (
+                <li key={i}>{b}</li>
+              ))}
+            </ul>
           )}
-          {basePath && (
-            <Link to={`${basePath}/${id}`} className="rig-overlay-btn rig-overlay-btn--outline">
-              LEARN MORE
-            </Link>
-          )}
+
+          <div className="rig-overlay-btns">
+            {link && (
+              <Link to={link} className="rig-overlay-btn">
+                {linkLabel || "MORE INFO"}
+              </Link>
+            )}
+            {basePath && (
+              <Link to={`${basePath}/${id}`} className="rig-overlay-btn rig-overlay-btn--outline">
+                LEARN MORE
+              </Link>
+            )}
+          </div>
+        </motion.div>
+      </div>
+
+      {brands && brands.length > 0 && (
+        <div className="rig-slide-brands">
+          {brands.map((b) => (
+            <img key={b.name} src={b.src} alt={b.name} className="rig-slide-brand-logo" />
+          ))}
         </div>
-      </motion.div>
+      )}
     </section>
   );
 }

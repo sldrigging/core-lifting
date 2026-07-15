@@ -1,4 +1,5 @@
 import ProductDetailLayout from "../../components/ProductDetailLayout";
+import heroImg from "../../assets/imgs-rv/Cranes/OHC-Load-Testing.jpg";
 
 const faq = [
   {
@@ -18,8 +19,7 @@ export default function CraneLoadTestingPage() {
       parent="CRANES"
       parentPath="/cranes"
       title={"LOAD\nTESTING"}
-      actionLink="/info-center#section-CS"
-      actionLabel="PRODUCT INFORMATION PDF"
+      heroImage={heroImg}
       afterHero={
         <>
           <div className="dp-feature">

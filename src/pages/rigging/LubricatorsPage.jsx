@@ -1,16 +1,47 @@
 import ProductDetailLayout from "../../components/ProductDetailLayout";
+import { getPdfItems } from "../../data/productSpecs";
+import heroImg from "../../assets/imgs-rv/Lubricator-.jpg";
+import logoSeaLube from "../../assets/brand-logos/Lubrication/Sea-Lube.png";
+import logoSeaGrease from "../../assets/brand-logos/Lubrication/Sea-Grease.png";
+import logoViper from "../../assets/brand-logos/Lubrication/viper.png";
+import logoVitalife from "../../assets/brand-logos/Lubrication/vitalife.png";
 
 const faq = [
   {
-    question: "WHAT LUBRICATOR BRANDS DO YOU STOCK?",
+    question: "WHY IS REGULAR WIRE ROPE LUBRICATION IMPORTANT?",
     answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "Proper lubrication reduces internal friction, prevents corrosion, and significantly extends rope service life while maintaining safety and performance.",
   },
-  { question: "WHAT ROPE DIAMETERS CAN BE LUBRICATED?", answer: null },
-  { question: "DO YOU OFFER ON-SITE LUBRICATION SERVICES?", answer: null },
-  { question: "WHAT LUBRICANTS DO YOU RECOMMEND?", answer: null },
-  { question: "HOW OFTEN SHOULD WIRE ROPE BE LUBRICATED?", answer: null },
+  {
+    question: "WHAT IS A VIPER LUBRICATOR?",
+    answer:
+      "Viper lubricators are specialized tools that apply lubricant under pressure deep into the wire rope core for more effective and efficient maintenance.",
+  },
+  {
+    question: "DO YOU CARRY LUBRICANTS FOR MARINE AND OFFSHORE USE?",
+    answer:
+      "Yes. We supply SeaLube and SeaGrease specifically formulated for harsh marine and offshore environments.",
+  },
+  {
+    question: "CAN YOU HELP SELECT THE RIGHT LUBRICANT FOR MY WIRE ROPE?",
+    answer:
+      "Absolutely. Our team recommends the best lubricant and application method based on your rope type, environment, and operating conditions.",
+  },
+  {
+    question: "DO YOU SERVE CUSTOMERS IN LOUISIANA, TEXAS, AND THE GULF COAST?",
+    answer:
+      "Yes. Core Lifting provides fast delivery of wire rope lubricants and lubricators with expert support throughout Louisiana, Texas, and the Gulf Coast region.",
+  },
 ];
+
+const brands = [
+  { name: "Viper", src: logoViper },
+  { name: "Vitalife", src: logoVitalife },
+  { name: "SeaLube", src: logoSeaLube },
+  { name: "SeaGrease", src: logoSeaGrease },
+];
+
+const downloads = getPdfItems(["J1", "J2"]);
 
 export default function LubricatorsPage() {
   return (
@@ -18,30 +49,33 @@ export default function LubricatorsPage() {
       parent="RIGGING"
       parentPath="/rigging"
       title="LUBRICATORS"
-      actionLink="/product-info#section-J"
-      actionLabel="PRODUCT INFORMATION PDF"
+      heroImage={heroImg}
+      brands={brands}
+      downloads={downloads}
+      downloadsTitle="Lubrication PDF Downloads"
       afterHero={
         <>
           <div className="dp-feature">
-            <strong>Lubricants &amp; Cleaners:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris.
+            <strong>SeaLube:</strong> SeaLube offers advanced wire rope lubrication formulated for harsh marine and offshore conditions, delivering excellent penetration and long-lasting protection.
           </div>
           <div className="dp-feature">
-            <strong>Parts &amp; Accessories:</strong> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.
+            <strong>SeaGrease:</strong> SeaGrease provides heavy-duty wire rope lubrication that resists washout and maintains performance in wet, corrosive environments.
           </div>
         </>
       }
       faq={faq}
     >
+      <h1 className="dp-h1">Wire Rope Lube and Lubricators</h1>
       <p className="dp-desc">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua — featuring the <strong>Viper</strong> brand wire rope lubricator system, engineered for consistent penetration and corrosion protection.
+        Core Lifting supplies premium wire rope lubricants and lubricators to extend rope life, reduce wear, and protect against corrosion in demanding environments across Louisiana, Texas, and the Gulf Coast. Our products include Viper lubricators and high-performance lubricants from Crosby Vitalife, SeaLube, and SeaGrease.
       </p>
 
       <div className="dp-feature">
-        <strong>Wire Rope Lubricators:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris.
+        <strong>Viper Lubricators:</strong> Viper wire rope lubricators from Core Lifting penetrate deep into the rope core for thorough lubrication, reducing internal wear and extending service life.
       </div>
 
       <div className="dp-feature">
-        <strong>Application Methods:</strong> Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit.
+        <strong>Crosby Vitalife:</strong> Crosby Vitalife lubricants provide superior corrosion protection and wear reduction for wire rope in industrial, marine, and oilfield applications.
       </div>
     </ProductDetailLayout>
   );

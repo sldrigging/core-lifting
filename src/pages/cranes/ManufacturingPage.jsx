@@ -1,4 +1,6 @@
 import ProductDetailLayout from "../../components/ProductDetailLayout";
+import { getCraneDocItems } from "../../data/productSpecs";
+import heroImg from "../../assets/imgs-rv/Cranes/Manufacturing.jpg";
 
 const faq = [
   {
@@ -12,14 +14,17 @@ const faq = [
   { question: "WHAT IS YOUR TYPICAL MANUFACTURING LEAD TIME?", answer: null },
 ];
 
+const downloads = getCraneDocItems(["CI-01", "CS-02", "CS-03"]);
+
 export default function ManufacturingPage() {
   return (
     <ProductDetailLayout
       parent="CRANES"
       parentPath="/cranes"
       title="MANUFACTURING"
-      actionLink="/info-center#section-CH"
-      actionLabel="PRODUCT INFORMATION PDF"
+      heroImage={heroImg}
+      downloads={downloads}
+      downloadsTitle="Manufacturing PDF Downloads"
       afterHero={
         <>
           <div className="dp-feature">
