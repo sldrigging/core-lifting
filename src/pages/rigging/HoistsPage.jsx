@@ -11,14 +11,14 @@ import logoAmh from "../../assets/brand-logos/Hoists/amh-200w.png";
 
 const faq = [
   {
-    question: "ARE YOU AN AUTHORIZED JD NEUHAUS REPAIR CENTER?",
+    question: "ARE YOU AN AUTHORIZED J.D. NEUHAUS REPAIR CENTER?",
     answer:
-      "Yes. Core Lifting is an authorized JD Neuhaus dealer and repair center with factory-trained technicians for warranty service and maintenance.",
+      "Yes. Core Lifting is an authorized J.D. Neuhaus dealer and repair center with factory-trained technicians for warranty service and maintenance.",
   },
   {
     question: "WHAT TYPES OF HOISTS DO YOU SUPPLY?",
     answer:
-      "We offer manual, air, electric, hydraulic, BOP, and wire rope pulling hoists from JD Neuhaus, CM, Tiger, Elephant, Chester, and AMH.",
+      "We offer manual, air, electric, hydraulic, BOP, and wire rope pulling hoists from J.D. Neuhaus, CM, Tiger, Elephant, Chester, and AMH.",
   },
   {
     question: "DO YOU PERFORM HOIST REPAIRS AND INSPECTIONS?",
@@ -62,16 +62,16 @@ export default function HoistsPage() {
       afterHero={
         <>
           <div className="dp-feature">
-            <strong>Hydraulic Hoists:</strong> Robust hydraulic hoists from JD Neuhaus provide powerful lifting capacity and reliability in heavy-duty applications and remote locations.
+            <strong>Hydraulic Hoists:</strong> Robust hydraulic hoists from J.D. Neuhaus provide powerful lifting capacity and reliability in heavy-duty applications and remote locations.
           </div>
           <div className="dp-feature">
-            <strong>BOP Hoists:</strong> Specialized BOP hoists engineered for safe handling of blowout preventers and heavy drilling equipment in oilfield operations.
+            <strong>BOP Hoists:</strong> Specialized BOP hoists by J.D. Neuhaus, and Elephant engineered for safe handling of blowout preventers and heavy drilling equipment in oilfield operations.
           </div>
           <div className="dp-feature">
-            <strong>Wire Rope Pulling Hoists:</strong> Versatile wire rope pulling hoists from Tiger and AMH deliver strong pulling power for rigging, tensioning, and recovery tasks.
+            <strong>Wire Rope Pulling Hoists:</strong> Versatile wire rope pulling hoists from CM, Tiger, and AMH deliver strong pulling power for rigging, tensioning, and recovery tasks.
           </div>
           <div className="dp-feature">
-            <strong>Beam Clamps:</strong> Heavy-duty beam clamps from trusted brands provide secure, temporary attachment points for hoists and rigging on structural beams.
+            <strong>Beam Clamps:</strong> Heavy-duty beam clamps from CM, Chester Hoist, Tiger Lifting, and AMH provide secure, temporary attachment points for hoists and rigging on structural beams.
           </div>
         </>
       }
@@ -79,7 +79,7 @@ export default function HoistsPage() {
     >
       <h1 className="dp-h1">Hoists &ndash; JD Neuhaus Authorized Dealer &amp; Repair Center</h1>
       <p className="dp-desc">
-        Core Lifting is an authorized JD Neuhaus dealer and repair center, and supplies and services and multiple other brands of premium hoists for demanding industrial and oilfield applications across Louisiana, Texas, and the Gulf Coast. Our expert team provides manual, air, electric, hydraulic, and specialized hoists from leading brands with full repair and maintenance support.
+        Core Lifting is an authorized J.D. Neuhaus dealer and repair center, and supplies and services and multiple other brands of premium hoists for demanding industrial and oilfield applications across Louisiana, Texas, and the Gulf Coast. Our expert team provides manual, air, electric, hydraulic, and specialized hoists from leading brands with full repair and maintenance support.
       </p>
 
       <div className="dp-feature">
@@ -87,11 +87,11 @@ export default function HoistsPage() {
       </div>
 
       <div className="dp-feature">
-        <strong>Air Hoists:</strong> JD Neuhaus and Elephant air hoists deliver powerful, precise control and spark-resistant operation ideal for hazardous environments and heavy industrial use.
+        <strong>Air Hoists:</strong> J.D. Neuhaus, Elephant, Chester, Tiger, and CM air hoists deliver powerful, precise control and spark-resistant operation ideal for hazardous environments and heavy industrial use.
       </div>
 
       <div className="dp-feature">
-        <strong>Electric Hoists:</strong> High-performance electric hoists from CM and other leading brands offer efficient, smooth operation with advanced safety features for overhead lifting systems.
+        <strong>Electric Hoists:</strong> High-performance electric hoists from CM and Chester Hoist offer efficient, smooth operation with advanced safety features for overhead lifting systems.
       </div>
     </ProductDetailLayout>
   );
