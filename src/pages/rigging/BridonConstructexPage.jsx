@@ -1,6 +1,6 @@
 import ProductDetailLayout from "../../components/ProductDetailLayout";
 import { getPdfItems } from "../../data/productSpecs";
-import heroImg from "../../assets/rigging-products/bridon-collage.png";
+import heroImg from "../../assets/rigging-products/Bridon-Constructex-Hero.jpg";
 
 const downloads = getPdfItems(["A1"]);
 
