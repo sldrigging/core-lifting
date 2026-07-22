@@ -18,7 +18,7 @@ const faq = [
   {
     question: "CAN CONSTRUCTEX REDUCE DOWNTIME ON MY DRILLING RIG?",
     answer:
-      "Yes. Its extended service life and high ton-mile capacity minimize rope replacements, keeping your rig operating longer with fewer interruptions.",
+      "Yes. Because Constructex resists crushing and outer wire breakage, it lasts substantially longer in severe drilling applications. Extended rope service life directly reduces downtime and labor costs associated with frequent rope cut-offs and replacements.",
   },
   {
     question: "DO YOU SERVE DRILLING OPERATIONS IN LOUISIANA, TEXAS, AND THE GULF COAST?",
@@ -48,15 +48,15 @@ export default function BridonConstructexPage() {
     >
       <h1 className="dp-h1">Bridon Constructex Drill Line &ndash; High Ton-Mile Performance</h1>
       <p className="dp-desc">
-        Core Lifting supplies Bridon Constructex wire rope engineered as a dedicated drill line for rigs across Louisiana, Texas, and the Gulf Coast. With exceptional ton-mile ratings, this premium drill line delivers higher breaking force, longer service life, and lower operating costs on the rig.
+        Core Lifting is your trusted distributor for genuine Bridon Constructex wire rope, available in diameters from 5/8" through 1 5/8". Whether you need standard reels or custom-terminated cut lengths, our rigging experts are ready to outfit your rig with the exact specifications your job demands across Louisiana, Texas, and the Gulf Coast.
       </p>
 
       <div className="dp-feature">
-        <strong>High Breaking Force | 24% Stronger:</strong> Bridon Constructex provides 24% higher breaking force than standard drill lines, delivering greater safety margins and load capacity for drilling operations.
+        <strong>High Breaking Force | 24% Stronger:</strong> Thanks to its swaged and compacted design, Constructex packs more steel into the same footprint. For example, a 1" Constructex has a minimum breaking force of 62.5 tons—delivering up to 24% more strength compared to standard EIPS ropes (51.7 tons) and outperforming EEIPS ropes (56.9 tons).
       </div>
 
       <div className="dp-feature">
-        <strong>Long Service Life | More Up Time:</strong> Designed for superior fatigue and abrasion resistance, Bridon Constructex achieves high ton-mile performance, extending service life and maximizing uptime.
+        <strong>Long Service Life | More Up Time:</strong> Constructex is purpose-built for heavy-duty drilling lines, and boom hoists. Its unique 9-strand construction with polymer centers gives the rope added flexibility in handling while resisting the intense drum wear that causes traditional ropes to fail early.
       </div>
     </ProductDetailLayout>
   );
