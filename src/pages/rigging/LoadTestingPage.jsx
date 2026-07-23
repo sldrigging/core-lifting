@@ -13,10 +13,10 @@ export default function LoadTestingPage() {
       afterHero={
         <>
           <div className="dp-feature">
-            <strong>Houma, Louisiana:</strong> The Houma location supports horizontal testing to 600,000 lbs and vertical testing to 300,000 lbs, ideal for marine and offshore rigging equipment.
+            <strong>Houma, Louisiana:</strong> The Houma location supports horizontal testing to <strong>600,000 lbs</strong> and vertical testing to <strong>300,000 lbs</strong>, ideal for marine and offshore rigging equipment.
           </div>
           <div className="dp-feature">
-            <strong>New Orleans, Louisiana:</strong> Our New Orleans facility provides horizontal testing to 200,000 lbs and vertical testing to 250,000 lbs for convenient service in the greater New Orleans area.
+            <strong>New Orleans, Louisiana:</strong> Our New Orleans facility provides horizontal testing to <strong>200,000 lbs</strong> and vertical testing to <strong>250,000 lbs</strong> for convenient service in the greater New Orleans area.
           </div>
           <div className="dp-feature">
             <strong>On-Site Water Bag Testing:</strong> Core Lifting performs on-site water bag load testing at your location, delivering accurate results without the need to transport large equipment.
@@ -31,15 +31,15 @@ export default function LoadTestingPage() {
       </p>
 
       <div className="dp-feature">
-        <strong>Odessa, Texas:</strong> Our Odessa facility offers horizontal load testing up to 500,000 lbs and vertical testing to 150,000 lbs for reliable verification of slings, hardware, and assemblies.
+        <strong>Odessa, Texas:</strong> Our Odessa facility offers horizontal load testing up to <strong>500,000 lbs</strong> and vertical testing to <strong>150,000 lbs</strong> for reliable verification of slings, hardware, and assemblies.
       </div>
 
       <div className="dp-feature">
-        <strong>Houston, Texas:</strong> The Houston location provides horizontal testing capacity to 650,000 lbs and vertical testing to 250,000 lbs, supporting large-scale industrial and oilfield equipment.
+        <strong>Houston, Texas:</strong> The Houston location provides horizontal testing capacity to<strong> 650,000 lbs</strong> and vertical testing to <strong>250,000 lbs</strong>, supporting large-scale industrial and oilfield equipment.
       </div>
 
       <div className="dp-feature">
-        <strong>Lafayette, Louisiana:</strong> Our Lafayette facility delivers the highest horizontal capacity in the region at 1.3 million lbs along with vertical testing to 250,000 lbs for heavy-duty applications.
+        <strong>Lafayette, Louisiana:</strong> Our Lafayette facility delivers one of the the highest horizontal capacities in the region at  <strong>1.3 million lbs</strong> along with vertical testing to <strong>250,000 lbs</strong> for heavy-duty applications.
       </div>
     </ProductDetailLayout>
   );
