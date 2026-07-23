@@ -78,7 +78,7 @@ export default function WireRopePage() {
       </p>
 
       <div className="dp-feature">
-        <strong>Bridon Crane Ropes &amp; Drill Lines:</strong> We supply high-performance Bridon crane ropes and drill lines engineered for exceptional fatigue resistance, abrasion resistance, and reliability in demanding crane and drilling environments. Learn more about Bridon Constructex&rsquo;s Drill Lines with unbeatable TON-MILE ratings.
+        <strong>Bridon Crane Ropes &amp; Drill Lines:</strong> We supply high-performance Bridon crane ropes and drill lines engineered for exceptional fatigue resistance, abrasion resistance, and reliability in demanding crane and drilling environments. <a href="/rigging/bridon-constructex">Learn more about Bridon Constructex&rsquo;s Drill Lines</a> with unbeatable TON-MILE ratings.
       </div>
 
       <div className="dp-feature">
