@@ -21,9 +21,9 @@ const faq = [
       "Yes. Because Constructex resists crushing and outer wire breakage, it lasts substantially longer in severe drilling applications. Extended rope service life directly reduces downtime and labor costs associated with frequent rope cut-offs and replacements.",
   },
   {
-    question: "DO YOU SERVE DRILLING OPERATIONS IN LOUISIANA, TEXAS, AND THE GULF COAST?",
+    question: "DO YOU SERVE DRILLING OPERATIONS IN THE PERMIAN BASIN?",
     answer:
-      "Yes. Core Lifting stocks Bridon Constructex drill line with fast delivery and technical support to rigs throughout Louisiana, Texas, and the Gulf Coast.",
+      "Yes. Core Lifting stocks Bridon Constructex drill line with fast delivery and technical support to rigs throughout the Permian Basin, Louisiana, Texas, and the Gulf Coast.",
   },
 ];
 
