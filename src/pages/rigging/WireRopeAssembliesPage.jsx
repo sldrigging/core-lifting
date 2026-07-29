@@ -28,7 +28,7 @@ const faq = [
   {
     question: "DO YOU SERVE CUSTOMERS IN LOUISIANA AND THE GULF COAST REGION?",
     answer:
-      "Yes. With locations in Texas and Louisiana, we proudly serve local industries with fast lead times, expert consultation, and reliable delivery of custom wire rope assemblies across the Gulf Coast and beyond. Visit CoreLifting.com or contact us today.",
+      "Yes. With locations in Texas and Louisiana, we proudly serve local industries with fast lead times, expert consultation, and reliable delivery of custom wire rope assemblies across the Gulf Coast and beyond.",
   },
 ];
 
