@@ -326,7 +326,7 @@ const locations = [
     buildingPosition: "center 65%",
     images: [odessa1, odessa2, odessa3, odessa7, odessa8],
     services: [
-      'Wire Rope Slings to 1-3/4"',
+      'Wire Rope Slings to 1-1/2"',
       "Taper annealing crane ropes",
       "Horizontal testing to 500,000 lbs",
       "Vertical testing to 150,000 lbs",
