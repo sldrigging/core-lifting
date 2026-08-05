@@ -20,7 +20,7 @@ const faq = [
   {
     question: "CAN YOU REBUILD BLOCKS ON-SITE?",
     answer:
-      "Many inspections and minor repairs can be performed on-site. Full rebuilds are typically completed in our facilities for best results.",
+      "Intial visual inspections can be performed on-site, but full inspections and rebuilds are typically completed in our facilities for best results.",
   },
   {
     question: "DO YOU SERVE CUSTOMERS ACROSS THE GULF COAST?",
