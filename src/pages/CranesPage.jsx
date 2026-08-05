@@ -43,7 +43,7 @@ const cranes = [
     position: "tl",
     link: "/info-center#section-CI",
     linkLabel: "MORE INFO",
-    brands: bridgeCranesBrands,
+    //brands: bridgeCranesBrands,
   },
   {
     id: "manufacturing",
